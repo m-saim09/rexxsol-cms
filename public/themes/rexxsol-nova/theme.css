@@ -1,0 +1,2634 @@
+.theme-rexxsol-nova {
+    --nova-navy: #10243b;
+    --nova-blue: #1168aa;
+    --nova-teal: #28a8ae;
+    --nova-green: #78c970;
+    --nova-muted: #53658c;
+    --nova-line: #e5ebf5;
+    --nova-font: "Instrument Sans", "Avenir Next", "Segoe UI", sans-serif;
+    min-width: 320px;
+    overflow-x: clip;
+    background: #fff;
+    color: var(--nova-navy);
+    font-family: var(--nova-font);
+    -webkit-font-smoothing: antialiased;
+}
+html.theme-rexxsol-nova-document { overflow-x: clip; }
+
+.theme-rexxsol-nova *,
+.theme-rexxsol-nova *::before,
+.theme-rexxsol-nova *::after { box-sizing: border-box; }
+
+.theme-rexxsol-nova a { color: inherit; text-decoration: none; }
+.theme-rexxsol-nova button,
+.theme-rexxsol-nova input,
+.theme-rexxsol-nova select,
+.theme-rexxsol-nova textarea { font: inherit; }
+.theme-rexxsol-nova :focus-visible { outline: 3px solid #77a5ff; outline-offset: 4px; }
+.theme-rexxsol-nova .nova-container { width: min(100% - 64px, 1170px); margin-inline: auto; }
+.theme-rexxsol-nova .nova-skip-link { position: fixed; top: 12px; left: 12px; z-index: 100; padding: 10px 14px; transform: translateY(-160%); border-radius: 8px; background: var(--nova-navy); color: #fff; }
+.theme-rexxsol-nova .nova-skip-link:focus { transform: translateY(0); }
+
+.theme-rexxsol-nova .nova-header { position: relative; z-index: 20; background: rgba(255, 255, 255, .84); backdrop-filter: blur(14px); }
+.theme-rexxsol-nova .nova-header-inner { display: grid; min-height: 110px; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 30px; }
+.theme-rexxsol-nova .nova-brand { display: inline-flex; width: fit-content; align-items: center; }
+.theme-rexxsol-nova .nova-brand img { display: block; width: auto; max-width: 230px; max-height: 86px; height: auto; object-fit: contain; object-position: left center; }
+.theme-rexxsol-nova .nova-navigation { display: flex; align-items: center; justify-content: center; gap: clamp(22px, 3.15vw, 44px); }
+.theme-rexxsol-nova .nova-navigation > a,
+.theme-rexxsol-nova .nova-nav-group > summary { position: relative; display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 2px 0 0; color: #3d4e73; font-size: 15px; font-weight: 600; letter-spacing: -.01em; transition: color .2s ease; }
+.theme-rexxsol-nova .nova-navigation > a::after,
+.theme-rexxsol-nova .nova-nav-group > summary::after { position: absolute; right: 0; bottom: -10px; left: 0; height: 2px; border-radius: 999px; background: linear-gradient(90deg, var(--nova-blue), #70b6ff); opacity: 0; transform: scaleX(0); transform-origin: center; transition: transform .22s ease, opacity .22s ease; content: ""; }
+.theme-rexxsol-nova .nova-navigation > a:hover,
+.theme-rexxsol-nova .nova-nav-group > summary:hover,
+.theme-rexxsol-nova .nova-nav-group[open] > summary { color: var(--nova-blue); }
+.theme-rexxsol-nova .nova-navigation > a:hover::after,
+.theme-rexxsol-nova .nova-nav-group > summary:hover::after,
+.theme-rexxsol-nova .nova-navigation > a[aria-current="page"]::after,
+.theme-rexxsol-nova .nova-nav-group > summary[aria-current="page"]::after,
+.theme-rexxsol-nova .nova-nav-group[open] > summary::after { opacity: 1; transform: scaleX(1); }
+.theme-rexxsol-nova .nova-navigation > a[aria-current="page"],
+.theme-rexxsol-nova .nova-nav-group > summary[aria-current="page"],
+.theme-rexxsol-nova .nova-nav-group[open] > summary { color: var(--nova-blue); }
+.theme-rexxsol-nova .nova-nav-group { position: relative; }
+.theme-rexxsol-nova .nova-nav-group > summary .fa-angle-down,
+.theme-rexxsol-nova .nova-mobile-group > summary .fa-angle-down { transition: transform .2s ease; }
+.theme-rexxsol-nova .nova-nav-group[open] > summary .fa-angle-down,
+.theme-rexxsol-nova .nova-mobile-group[open] > summary .fa-angle-down { transform: rotate(180deg); }
+.theme-rexxsol-nova .nova-nav-group > summary,
+.theme-rexxsol-nova .nova-mobile-menu > summary,
+.theme-rexxsol-nova .nova-mobile-group > summary { cursor: pointer; list-style: none; }
+.theme-rexxsol-nova .nova-nav-group > summary::-webkit-details-marker,
+.theme-rexxsol-nova .nova-mobile-menu > summary::-webkit-details-marker,
+.theme-rexxsol-nova .nova-mobile-group > summary::-webkit-details-marker { display: none; }
+.theme-rexxsol-nova .nova-nav-dropdown { position: absolute; top: calc(100% - 2px); left: -18px; display: grid; min-width: 210px; gap: 2px; padding: 9px; border: 1px solid var(--nova-line); border-radius: 12px; background: #fff; box-shadow: 0 14px 36px rgba(20, 47, 100, .12); }
+.theme-rexxsol-nova .nova-nav-dropdown a { padding: 10px 12px; border-radius: 7px; color: #3d4e73; font-size: 13px; transition: background-color .18s ease, color .18s ease, transform .18s ease; }
+.theme-rexxsol-nova .nova-nav-dropdown a:hover { background: #f0f5ff; color: var(--nova-blue); transform: translateX(1px); }
+.theme-rexxsol-nova .nova-header-cta { justify-self: end; display: inline-flex; min-width: 167px; min-height: 48px; align-items: center; justify-content: center; gap: 10px; padding: 0 24px; border: 1px solid #245eff; border-radius: 999px; background: linear-gradient(180deg, #4a7dff 0%, #245eff 100%); box-shadow: 0 7px 18px rgba(36, 94, 255, .19); color: #fff; font-size: 15px; font-weight: 700; transition: transform .24s cubic-bezier(.2,.7,.25,1), box-shadow .24s ease, filter .24s ease; }
+.theme-rexxsol-nova .nova-header-cta:hover { transform: translateY(-3px) scale(1.015); box-shadow: 0 12px 25px rgba(36, 94, 255, .30); filter: saturate(1.08); }
+.theme-rexxsol-nova .nova-header-cta:active { transform: translateY(0) scale(.985); }
+.theme-rexxsol-nova .nova-mobile-menu { display: none; }
+
+.theme-rexxsol-nova .nova-hero { position: relative; isolation: isolate; display: flex; min-height: min(760px, calc(100svh - 110px)); flex-direction: column; align-items: center; justify-content: flex-start; overflow: hidden; padding: 60px 32px 148px; background: linear-gradient(180deg, #fff 0%, #f5f9ff 34%, #e5efff 68%, #b3ccfa 100%); text-align: center; }
+.theme-rexxsol-nova .nova-hero--expanded { min-height: 900px; }
+.theme-rexxsol-nova .nova-hero::after { position: absolute; z-index: -1; right: -9%; bottom: -28%; left: -9%; height: 55%; border-radius: 50% 50% 0 0; background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.56), rgba(255,255,255,0) 66%); content: ""; pointer-events: none; }
+.theme-rexxsol-nova .nova-hero-rays { position: absolute; z-index: -1; top: 0; left: 0; width: min(75%, 920px); height: 78%; background: repeating-linear-gradient(116deg, transparent 0 68px, rgba(255,255,255,.28) 69px 73px, transparent 74px 138px); mask-image: linear-gradient(120deg, #000 0%, rgba(0,0,0,.55) 34%, transparent 76%); pointer-events: none; }
+.theme-rexxsol-nova .nova-hero-image { position: absolute; z-index: -1; top: 45%; left: 50%; width: min(390px, 34vw); max-height: 200px; object-fit: contain; opacity: .075; transform: translate(-50%, -50%); mask-image: radial-gradient(ellipse, #000 25%, transparent 75%); pointer-events: none; }
+.theme-rexxsol-nova .nova-hero-content { position: relative; z-index: 1; width: min(100%, 1100px); margin-inline: auto; }
+.theme-rexxsol-nova .nova-eyebrow { position: relative; top: -13px; display: inline-flex; min-height: 40px; align-items: center; gap: 9px; margin: 0 0 23px; padding: 0 20px; border: 1px solid #dce7fa; border-radius: 999px; background: rgba(255,255,255,.88); color: #42577f; font-size: 15px; font-weight: 600; }
+.theme-rexxsol-nova .nova-eyebrow > span { display: none; }
+.theme-rexxsol-nova .nova-title { display: grid; gap: 0; margin: 0; color: var(--nova-navy); font-size: clamp(54px, 6vw, 80px); font-weight: 750; letter-spacing: 0; line-height: 1; }
+.theme-rexxsol-nova .nova-description { max-width: 760px; margin: 8px auto 0; color: var(--nova-muted); font-size: clamp(18px, 1.7vw, 22px); line-height: 1.25; }
+.theme-rexxsol-nova .nova-hero-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px; margin-top: 33px; }
+.theme-rexxsol-nova .nova-button { display: inline-flex; min-height: 56px; align-items: center; justify-content: center; gap: 10px; padding: 0 36px; border: 1px solid transparent; border-radius: 999px; font-size: 15px; font-weight: 700; transition: transform .24s cubic-bezier(.2,.7,.25,1), box-shadow .24s ease, background-color .24s ease, border-color .24s ease, filter .24s ease; }
+.theme-rexxsol-nova .nova-button:hover { transform: translateY(-3px) scale(1.015); }
+.theme-rexxsol-nova .nova-button:active { transform: translateY(0) scale(.985); }
+.theme-rexxsol-nova .nova-button-primary { border-color: #245eff; background: linear-gradient(180deg, #4a7dff 0%, #245eff 100%); box-shadow: 0 9px 20px rgba(36,94,255,.22); color: #fff; }
+.theme-rexxsol-nova .nova-button-primary { min-width: 228px; }
+.theme-rexxsol-nova .nova-button-primary:hover { box-shadow: 0 14px 28px rgba(36,94,255,.34); filter: saturate(1.08); }
+.theme-rexxsol-nova .nova-button-secondary { border-color: #e3eaf5; background: rgba(255,255,255,.92); box-shadow: 0 5px 14px rgba(35,67,123,.06); color: var(--nova-navy); }
+.theme-rexxsol-nova .nova-button-secondary:hover { border-color: #c8d9f5; background: #f7faff; box-shadow: 0 9px 21px rgba(35,67,123,.13); }
+.theme-rexxsol-nova .nova-enter { animation: nova-enter .68s both cubic-bezier(.2,.7,.25,1); }
+.theme-rexxsol-nova .nova-enter-1 { animation-delay: .08s; }
+.theme-rexxsol-nova .nova-enter-2 { animation-delay: .17s; }
+.theme-rexxsol-nova .nova-enter-3 { animation-delay: .27s; }
+.theme-rexxsol-nova .nova-enter-4 { animation-delay: .37s; }
+@keyframes nova-enter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+.theme-rexxsol-nova .nova-corner-card { position: absolute; z-index: 2; bottom: 10px; width: 300px; min-height: 230px; padding: 24px; border: 1px solid rgba(229,236,248,.9); border-radius: 20px; background: rgba(255,255,255,.96); box-shadow: 0 20px 46px rgba(29,62,126,.14); text-align: left; animation-duration: 7.4s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+.theme-rexxsol-nova .nova-card-left { left: clamp(4px, .5vw, 8px); transform: rotate(12deg); animation-name: nova-float-left; }
+.theme-rexxsol-nova .nova-card-right { right: -12px; transform: rotate(-12deg); animation-name: nova-float-right; }
+@keyframes nova-float-left { 0%,100% { transform: translateY(0) rotate(12deg); } 50% { transform: translateY(-8px) rotate(12deg); } }
+@keyframes nova-float-right { 0%,100% { transform: translateY(0) rotate(-12deg); } 50% { transform: translateY(-8px) rotate(-12deg); } }
+.theme-rexxsol-nova .nova-corner-card-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: #162951; font-size: 14px; font-weight: 700; }
+.theme-rexxsol-nova .nova-card-dots { display: inline-flex; gap: 4px; }
+.theme-rexxsol-nova .nova-card-dots i { width: 5px; height: 5px; border-radius: 50%; background: #a9bcdf; }
+.theme-rexxsol-nova .nova-card-left .nova-corner-card-heading { margin-bottom: 12px; }
+.theme-rexxsol-nova .nova-card-left .nova-corner-card-heading h2,
+.theme-rexxsol-nova .nova-card-right h2 { margin: 0; color: #162951; font-size: 14px; font-weight: 700; }
+.theme-rexxsol-nova .nova-card-left ul,
+.theme-rexxsol-nova .nova-card-right ul { display: grid; margin: 0; padding: 0; list-style: none; }
+.theme-rexxsol-nova .nova-card-left li,
+.theme-rexxsol-nova .nova-card-right li { display: grid; min-height: 43px; grid-template-columns: 30px 1fr 12px; align-items: center; gap: 10px; border-top: 1px solid #edf1f8; color: #53658c; font-size: 12px; font-weight: 600; }
+.theme-rexxsol-nova .nova-service-icon { display: grid; width: 31px; height: 31px; place-items: center; border-radius: 9px; background: #e6f0ff; color: #245eff; }
+.theme-rexxsol-nova .nova-service-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+.theme-rexxsol-nova .nova-card-right li b { color: #93a9d1; font-size: 21px; font-weight: 400; }
+.theme-rexxsol-nova .nova-scroll { position: absolute; z-index: 3; bottom: 25px; left: 50%; display: grid; justify-items: center; gap: 7px; color: #53658c; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; transform: translateX(-50%); }
+.theme-rexxsol-nova .nova-scroll i { display: grid; width: 25px; height: 25px; place-items: center; border: 1px solid rgba(83,101,140,.32); border-radius: 50%; font-size: 14px; font-style: normal; }
+.theme-rexxsol-nova .nova-impact-strip { position: relative; z-index: 3; padding: 23px 24px 26px; border-bottom: 1px solid #edf1f8; background: #f6fbfd; }
+.theme-rexxsol-nova .nova-impact-inner { width: min(100%, 1030px); margin-inline: auto; }
+.theme-rexxsol-nova .nova-impact-strip h2 { margin: 0 0 18px; color: #8493b0; font-size: 10px; font-weight: 750; letter-spacing: .22em; text-align: center; text-transform: uppercase; }
+.theme-rexxsol-nova .nova-impact-items { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); align-items: center; }
+.theme-rexxsol-nova .nova-impact-item { display: flex; min-height: 48px; align-items: center; justify-content: center; gap: 15px; color: #132653; font-size: 16px; font-weight: 700; }
+.theme-rexxsol-nova .nova-impact-item + .nova-impact-item { border-left: 1px solid #d9e2f0; }
+.theme-rexxsol-nova .nova-impact-item svg { width: 31px; height: 31px; flex: 0 0 auto; fill: none; stroke: #2866ff; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+
+.theme-rexxsol-nova .nova-page { min-height: 60vh; padding: clamp(58px, 8vw, 104px) 0; background: linear-gradient(180deg, #f7faff 0%, #fff 310px); }
+.theme-rexxsol-nova .nova-services-hero {
+    min-height: 40vh;
+    padding-bottom: clamp(24px, 3vw, 40px);
+}
+.theme-rexxsol-nova .nova-page-heading { max-width: 820px; margin: 0 auto 48px; text-align: center; }
+.theme-rexxsol-nova .nova-page-kicker { margin: 0 0 12px; color: var(--nova-blue); font-size: 12px; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
+.theme-rexxsol-nova .nova-page-heading h1,
+.theme-rexxsol-nova .nova-detail-panel h1 { margin: 0; color: var(--nova-navy); font-size: clamp(38px, 5vw, 58px); font-weight: 750; line-height: 1.1; }
+.theme-rexxsol-nova .nova-page-heading > p:last-child { max-width: 660px; margin: 18px auto 0; color: var(--nova-muted); font-size: 17px; line-height: 1.7; }
+.theme-rexxsol-nova .nova-record-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
+.theme-rexxsol-nova .nova-record-card { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; padding: 26px; border: 1px solid var(--nova-line); border-radius: 16px; background: #fff; box-shadow: 0 12px 34px rgba(25,54,107,.045); }
+.theme-rexxsol-nova .nova-record-icon { display: grid; width: 46px; height: 46px; place-items: center; border-radius: 13px; background: #edf4ff; color: var(--nova-blue); font-size: 18px; font-weight: 750; }
+.theme-rexxsol-nova .nova-record-card h2 { margin: 20px 0 0; color: var(--nova-navy); font-size: 21px; line-height: 1.25; }
+.theme-rexxsol-nova .nova-record-card > p:not(.nova-page-kicker) { margin: 11px 0 18px; color: var(--nova-muted); font-size: 14px; line-height: 1.7; }
+.theme-rexxsol-nova .nova-record-card > a { margin-top: auto; padding-top: 12px; color: var(--nova-blue); font-size: 13px; font-weight: 700; }
+.theme-rexxsol-nova .nova-record-card > a span { padding-left: 5px; }
+.theme-rexxsol-nova .nova-project-grid,
+.theme-rexxsol-nova .nova-blog-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.theme-rexxsol-nova .nova-record-image { display: block; width: calc(100% + 52px); height: 245px; max-width: none; margin: -26px -26px 24px; border-radius: 15px 15px 0 0; object-fit: cover; }
+.theme-rexxsol-nova .nova-record-image-empty { display: grid; place-items: center; background: linear-gradient(135deg, #e7f0ff, #f8faff 70%); color: rgba(36,94,255,.18); }
+.theme-rexxsol-nova .nova-record-image-empty span { font-size: 100px; font-weight: 800; line-height: 1; }
+.theme-rexxsol-nova .nova-record-card .nova-page-kicker { margin-top: 0; }
+.theme-rexxsol-nova .nova-empty-state { grid-column: 1 / -1; padding: 28px; border: 1px dashed #cbd8ee; border-radius: 12px; color: var(--nova-muted); text-align: center; }
+.theme-rexxsol-nova .nova-breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; max-width: 1040px; margin: 0 auto 25px; color: #7b8cac; font-size: 13px; }
+.theme-rexxsol-nova .nova-breadcrumb a { color: var(--nova-blue); }
+.theme-rexxsol-nova .nova-content-panel { max-width: 1040px; margin: 0 auto; padding: clamp(25px, 5vw, 58px); border: 1px solid var(--nova-line); border-radius: 20px; background: #fff; box-shadow: 0 18px 55px rgba(25,54,107,.06); }
+.theme-rexxsol-nova .nova-content-panel > p { color: var(--nova-muted); line-height: 1.75; }
+.theme-rexxsol-nova .nova-content-panel h2 { color: var(--nova-navy); }
+.theme-rexxsol-nova .nova-detail-panel { max-width: 960px; }
+.theme-rexxsol-nova .nova-detail-panel h1 + .nova-page-featured,
+.theme-rexxsol-nova .nova-page-featured { display: block; width: 100%; max-height: 520px; margin: 28px 0; border-radius: 12px; object-fit: cover; }
+.theme-rexxsol-nova .nova-detail-lead { color: var(--nova-muted); font-size: 19px; line-height: 1.7; }
+.theme-rexxsol-nova .nova-prose { max-width: 780px; color: #3f5278; font-size: 16px; line-height: 1.85; overflow-wrap: anywhere; }
+.theme-rexxsol-nova .nova-prose > :first-child { margin-top: 0; }
+.theme-rexxsol-nova .nova-prose img { max-width: 100%; height: auto; border-radius: 10px; }
+.theme-rexxsol-nova .nova-prose table { display: block; max-width: 100%; overflow-x: auto; }
+.theme-rexxsol-nova .nova-prose a { color: var(--nova-blue); text-decoration: underline; }
+.theme-rexxsol-nova .nova-team-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; margin-top: 35px; }
+.theme-rexxsol-nova .nova-team-grid article { padding: 18px; border: 1px solid var(--nova-line); border-radius: 10px; }
+.theme-rexxsol-nova .nova-team-grid h2 { margin: 0; font-size: 16px; }
+.theme-rexxsol-nova .nova-team-grid p { color: var(--nova-muted); font-size: 13px; }
+.theme-rexxsol-nova .nova-blog-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: -16px 0 32px; }
+.theme-rexxsol-nova .nova-blog-filters input,
+.theme-rexxsol-nova .nova-blog-filters select { min-height: 44px; min-width: min(260px, 100%); padding: 0 13px; border: 1px solid #dbe5f4; border-radius: 8px; background: #fff; color: var(--nova-navy); }
+.theme-rexxsol-nova .nova-blog-filters button { min-height: 44px; padding: 0 20px; border: 0; border-radius: 8px; background: var(--nova-blue); color: #fff; font-weight: 700; cursor: pointer; }
+.theme-rexxsol-nova .nova-pagination { margin-top: 32px; }
+.theme-rexxsol-nova .nova-contact-layout { display: grid; grid-template-columns: minmax(0,1.5fr) minmax(240px,.7fr); gap: 26px; align-items: start; max-width: 1040px; margin-inline: auto; }
+.theme-rexxsol-nova .nova-contact-form,
+.theme-rexxsol-nova .nova-contact-details { display: grid; gap: 18px; padding: clamp(22px,4vw,38px); border: 1px solid var(--nova-line); border-radius: 16px; background: #fff; box-shadow: 0 12px 34px rgba(25,54,107,.045); }
+.theme-rexxsol-nova .nova-form-row { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+.theme-rexxsol-nova .nova-contact-form label { display: grid; gap: 7px; color: #35496f; font-size: 13px; font-weight: 700; }
+.theme-rexxsol-nova .nova-contact-form input,
+.theme-rexxsol-nova .nova-contact-form select,
+.theme-rexxsol-nova .nova-contact-form textarea { width: 100%; min-height: 46px; padding: 11px 12px; border: 1px solid #dbe5f4; border-radius: 8px; background: #fff; color: var(--nova-navy); resize: vertical; }
+.theme-rexxsol-nova .nova-contact-form label > span { color: #c33f4b; font-size: 12px; font-weight: 500; }
+.theme-rexxsol-nova .nova-contact-form .nova-button { justify-self: start; cursor: pointer; }
+.theme-rexxsol-nova .nova-form-success { margin: 0; padding: 12px 14px; border-radius: 8px; background: #eaf8ef; color: #1d6b3d; }
+.theme-rexxsol-nova .nova-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.theme-rexxsol-nova .nova-contact-details { gap: 0; }
+.theme-rexxsol-nova .nova-contact-details a { display: grid; gap: 7px; padding: 17px 0; border-bottom: 1px solid #edf1f8; }
+.theme-rexxsol-nova .nova-contact-details a:first-child { padding-top: 0; }
+.theme-rexxsol-nova .nova-contact-details a:last-child { border-bottom: 0; }
+.theme-rexxsol-nova .nova-contact-details span { color: #8494b1; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.theme-rexxsol-nova .nova-contact-details strong { color: var(--nova-navy); font-size: 14px; overflow-wrap: anywhere; }
+
+.theme-rexxsol-nova .nova-footer { padding: 62px 0 23px; border-top: 1px solid #e8edf6; background: #fff; color: #60708e; }
+.theme-rexxsol-nova .nova-footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3,minmax(0,1fr)); gap: 35px; }
+.theme-rexxsol-nova .nova-footer-brand img { display: block; width: auto; max-width: 184px; height: 42px; object-fit: contain; object-position: left; }
+.theme-rexxsol-nova .nova-footer-brand strong { color: var(--nova-navy); font-size: 20px; }
+.theme-rexxsol-nova .nova-footer-brand p { max-width: 350px; margin: 17px 0 0; font-size: 13px; line-height: 1.8; }
+.theme-rexxsol-nova .nova-footer-grid h2 { margin: 4px 0 15px; color: var(--nova-navy); font-size: 12px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
+.theme-rexxsol-nova .nova-footer-grid nav,
+.theme-rexxsol-nova .nova-footer-contact { display: grid; align-content: start; justify-items: start; gap: 11px; }
+.theme-rexxsol-nova .nova-footer-grid nav a,
+.theme-rexxsol-nova .nova-footer-contact > a,
+.theme-rexxsol-nova .nova-footer-socials a { font-size: 13px; }
+.theme-rexxsol-nova .nova-footer-grid a:hover,
+.theme-rexxsol-nova .nova-footer-bottom a:hover { color: var(--nova-blue); }
+.theme-rexxsol-nova .nova-footer-socials { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+.theme-rexxsol-nova .nova-footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; margin-top: 42px; padding-top: 20px; border-top: 1px solid #edf1f8; }
+.theme-rexxsol-nova .nova-footer-bottom p { margin: 0; font-size: 12px; }
+.theme-rexxsol-nova .nova-footer-bottom nav { display: flex; flex-wrap: wrap; gap: 16px; font-size: 12px; }
+
+@media (max-width: 1050px) {
+    .theme-rexxsol-nova .nova-container { width: min(100% - 48px, 1170px); }
+    .theme-rexxsol-nova .nova-header-inner { grid-template-columns: 1fr auto 1fr; gap: 18px; }
+    .theme-rexxsol-nova .nova-brand img { max-width: 170px; height: 63px; }
+    .theme-rexxsol-nova .nova-navigation { gap: 15px; }
+    .theme-rexxsol-nova .nova-navigation > a,
+    .theme-rexxsol-nova .nova-nav-group > summary { font-size: 14px; }
+    .theme-rexxsol-nova .nova-header-cta { min-width: 145px; padding-inline: 18px; font-size: 14px; }
+    .theme-rexxsol-nova .nova-corner-card { width: 260px; }
+    .theme-rexxsol-nova .nova-card-left { left: 0; }
+    .theme-rexxsol-nova .nova-card-right { right: -6px; }
+    .theme-rexxsol-nova .nova-title { font-size: clamp(48px, 6vw, 64px); }
+}
+
+@media (max-width: 760px) {
+    .theme-rexxsol-nova .nova-container { width: min(100% - 36px, 1240px); }
+    .theme-rexxsol-nova .nova-header-inner { min-height: 72px; grid-template-columns: 1fr auto; gap: 12px; }
+    .theme-rexxsol-nova .nova-brand img { max-width: 154px; height: 40px; }
+    .theme-rexxsol-nova .nova-navigation,
+    .theme-rexxsol-nova .nova-header-inner > .nova-header-cta { display: none; }
+    .theme-rexxsol-nova .nova-mobile-menu { position: relative; display: block; justify-self: end; }
+    .theme-rexxsol-nova .nova-mobile-menu > summary { display: grid; width: 44px; height: 44px; align-content: center; justify-items: center; gap: 5px; border: 1px solid #dfe8f6; border-radius: 50%; background: rgba(255,255,255,.9); }
+    .theme-rexxsol-nova .nova-mobile-menu > summary span { width: 17px; height: 2px; border-radius: 3px; background: var(--nova-navy); transition: transform .18s ease, opacity .18s ease; }
+    .theme-rexxsol-nova .nova-mobile-menu[open] > summary span:first-child { transform: translateY(7px) rotate(45deg); }
+    .theme-rexxsol-nova .nova-mobile-menu[open] > summary span:nth-child(2) { opacity: 0; }
+    .theme-rexxsol-nova .nova-mobile-menu[open] > summary span:last-child { transform: translateY(-7px) rotate(-45deg); }
+    .theme-rexxsol-nova .nova-mobile-panel { position: absolute; top: calc(100% + 12px); right: 0; display: grid; width: min(350px, calc(100vw - 36px)); gap: 16px; padding: 14px; border: 1px solid var(--nova-line); border-radius: 14px; background: #fff; box-shadow: 0 18px 40px rgba(18,45,98,.15); }
+    .theme-rexxsol-nova .nova-mobile-panel nav { display: grid; }
+    .theme-rexxsol-nova .nova-mobile-panel nav > a,
+    .theme-rexxsol-nova .nova-mobile-group > summary,
+    .theme-rexxsol-nova .nova-mobile-group > a { display: block; padding: 12px 10px; border-bottom: 1px solid #eef2f8; color: #30456f; font-size: 14px; font-weight: 650; }
+    .theme-rexxsol-nova .nova-mobile-group > a { padding-left: 24px; color: #66799c; font-size: 13px; }
+    .theme-rexxsol-nova .nova-mobile-panel .nova-header-cta { justify-self: stretch; }
+    .theme-rexxsol-nova .nova-hero { display: block; min-height: 0; padding: 64px 18px 36px; }
+    .theme-rexxsol-nova .nova-hero-content { width: min(100%, 680px); }
+    .theme-rexxsol-nova .nova-eyebrow { top: 0; margin-bottom: 21px; font-size: 12px; }
+    .theme-rexxsol-nova .nova-title { font-size: clamp(40px, 9.4vw, 58px); line-height: 1.08; }
+    .theme-rexxsol-nova .nova-description { max-width: 520px; margin-top: 18px; font-size: 16px; line-height: 1.65; }
+    .theme-rexxsol-nova .nova-hero-actions { gap: 10px; margin-top: 24px; }
+    .theme-rexxsol-nova .nova-button { min-height: 50px; padding-inline: 21px; }
+    .theme-rexxsol-nova .nova-corner-card { position: relative; bottom: auto; left: auto; right: auto; width: min(100%, 360px); min-height: 176px; margin: 34px auto 0; }
+    .theme-rexxsol-nova .nova-card-left { animation-name: nova-float-left-mobile; }
+    .theme-rexxsol-nova .nova-card-right { margin-top: 24px; animation-name: nova-float-right-mobile; }
+    @keyframes nova-float-left-mobile { 0%,100% { transform: rotate(12deg) translateY(0); } 50% { transform: rotate(12deg) translateY(-7px); } }
+    @keyframes nova-float-right-mobile { 0%,100% { transform: rotate(-12deg) translateY(0); } 50% { transform: rotate(-12deg) translateY(-7px); } }
+    .theme-rexxsol-nova .nova-scroll { position: relative; bottom: auto; left: auto; margin: 30px auto 0; transform: none; }
+    .theme-rexxsol-nova .nova-hero-image { top: 29%; width: min(360px, 80vw); }
+    .theme-rexxsol-nova .nova-record-grid,
+    .theme-rexxsol-nova .nova-project-grid,
+    .theme-rexxsol-nova .nova-blog-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+    .theme-rexxsol-nova .nova-record-card { padding: 20px; }
+    .theme-rexxsol-nova .nova-record-image { width: calc(100% + 40px); height: 190px; margin: -20px -20px 20px; }
+    .theme-rexxsol-nova .nova-contact-layout { grid-template-columns: 1fr; }
+    .theme-rexxsol-nova .nova-footer-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 30px 22px; }
+    .theme-rexxsol-nova .nova-impact-strip { padding-inline: 18px; }
+    .theme-rexxsol-nova .nova-impact-item { gap: 9px; font-size: 14px; }
+}
+
+@media (max-width: 520px) {
+    .theme-rexxsol-nova .nova-container { width: min(100% - 32px, 1240px); }
+    .theme-rexxsol-nova .nova-hero { padding: 54px 16px 30px; }
+    .theme-rexxsol-nova .nova-title { font-size: clamp(36px, 10vw, 48px); }
+    .theme-rexxsol-nova .nova-description { max-width: 390px; font-size: 15px; }
+    .theme-rexxsol-nova .nova-hero-actions { flex-direction: column; align-items: stretch; width: min(100%, 340px); margin-inline: auto; }
+    .theme-rexxsol-nova .nova-button { width: 100%; }
+    .theme-rexxsol-nova .nova-corner-card { width: min(100% - 14px, 350px); padding: 19px; }
+    .theme-rexxsol-nova .nova-record-grid,
+    .theme-rexxsol-nova .nova-project-grid,
+    .theme-rexxsol-nova .nova-blog-grid { grid-template-columns: 1fr; }
+    .theme-rexxsol-nova .nova-page-heading { margin-bottom: 34px; }
+    .theme-rexxsol-nova .nova-page-heading h1,
+    .theme-rexxsol-nova .nova-detail-panel h1 { font-size: clamp(34px, 10vw, 44px); }
+    .theme-rexxsol-nova .nova-page-heading > p:last-child { font-size: 15px; }
+    .theme-rexxsol-nova .nova-form-row { grid-template-columns: 1fr; }
+    .theme-rexxsol-nova .nova-team-grid { grid-template-columns: 1fr; }
+    .theme-rexxsol-nova .nova-footer-grid { grid-template-columns: 1fr 1fr; }
+    .theme-rexxsol-nova .nova-footer-brand { grid-column: 1 / -1; }
+    .theme-rexxsol-nova .nova-footer-bottom { flex-direction: column; }
+    .theme-rexxsol-nova .nova-impact-strip { padding: 20px 16px; }
+    .theme-rexxsol-nova .nova-impact-strip h2 { margin-bottom: 12px; }
+    .theme-rexxsol-nova .nova-impact-items { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .theme-rexxsol-nova .nova-impact-item { min-height: 48px; justify-content: flex-start; padding-left: 12px; font-size: 13px; }
+    .theme-rexxsol-nova .nova-impact-item + .nova-impact-item { border-left: 0; }
+    .theme-rexxsol-nova .nova-impact-item:nth-child(even) { border-left: 1px solid #d9e2f0; }
+    .theme-rexxsol-nova .nova-impact-item:nth-child(n + 3) { border-top: 1px solid #edf1f8; }
+    .theme-rexxsol-nova .nova-impact-item svg { width: 27px; height: 27px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-rexxsol-nova *,
+    .theme-rexxsol-nova *::before,
+    .theme-rexxsol-nova *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+.theme-rexxsol-nova .nova-header-slot {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+}
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"] {
+    position: sticky;
+    top: 0;
+    left: auto;
+    width: 100%;
+}
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"] .nova-header {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+.theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) {
+    width: min(calc(100% - 48px), 1050px);
+    margin-inline: auto;
+    padding-top: 18px;
+}
+.theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-header {
+    border: 1px solid rgba(20, 68, 113, .08);
+    border-radius: 22px;
+    background: rgba(238, 246, 250, .84);
+    box-shadow: 0 10px 26px rgba(12, 44, 75, .06);
+}
+.theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-header-inner {
+    width: 100%;
+    min-height: 90px;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    justify-content: initial;
+    gap: 24px;
+    margin: 0;
+    padding-inline: clamp(10px, 1.5vw, 18px);
+}
+.theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-brand {
+    justify-self: start;
+}
+.theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-navigation {
+    justify-self: center;
+}
+.theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-header-inner > .nova-header-cta {
+    justify-self: end;
+}
+.theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-brand img {
+    max-width: 190px;
+    max-height: 64px;
+}
+.theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-navigation {
+    gap: clamp(18px, 2.45vw, 34px);
+}
+.theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-header-cta {
+    min-width: 175px;
+    min-height: 48px;
+    border-radius: 999px;
+    box-shadow: 0 8px 18px rgba(36, 94, 255, .18);
+}
+.theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-nav-dropdown {
+    left: -10px;
+}
+@media (max-width: 760px) {
+    .theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) {
+        width: calc(100% - 24px);
+        padding-top: 10px;
+    }
+    .theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-header-inner {
+        grid-template-columns: 1fr auto;
+        justify-content: space-between;
+        gap: 12px;
+        padding-inline: 14px;
+    }
+}
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"],
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"] .nova-header,
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"] .nova-header-inner {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+.theme-rexxsol-nova .nova-header-slot::before,
+.theme-rexxsol-nova .nova-header-slot::after,
+.theme-rexxsol-nova .nova-header::before,
+.theme-rexxsol-nova .nova-header::after,
+.theme-rexxsol-nova .nova-header-inner::before,
+.theme-rexxsol-nova .nova-header-inner::after {
+    content: none;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+.theme-rexxsol-nova .nova-header {
+    transition: background-color .24s ease, border-color .24s ease, border-radius .24s ease, box-shadow .24s ease, backdrop-filter .24s ease;
+}
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"] .nova-header-inner {
+    min-height: 104px;
+}
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"] .nova-brand {
+    min-height: 86px;
+    padding-block: 8px;
+}
+.theme-rexxsol-nova .nova-brand img {
+    width: auto;
+    height: auto;
+    max-width: min(230px, 58vw);
+    max-height: 86px;
+    overflow: visible;
+    object-fit: contain;
+    object-position: left center;
+    transition: max-width .24s ease, max-height .24s ease;
+}
+.theme-rexxsol-nova .nova-header-slot.is-no-hero {
+    z-index: 30;
+}
+.theme-rexxsol-nova .nova-header-slot.is-no-hero .nova-header,
+.theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-header {
+    border-bottom: 1px solid var(--nova-line);
+    background: #fff;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+.theme-rexxsol-nova .nova-header-slot.is-compact {
+    position: sticky;
+    top: 18px;
+    left: auto;
+    width: min(calc(100% - 48px), 1050px);
+    margin-inline: auto;
+    transform: none;
+    transition: top .24s ease, width .24s ease, left .24s ease, transform .24s ease;
+}
+.theme-rexxsol-nova .nova-header-slot.is-compact .nova-header {
+    overflow: visible;
+    border: 1px solid rgba(20, 68, 113, .08);
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 10px 26px rgba(12, 44, 75, .06);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+.theme-rexxsol-nova .nova-header-slot.is-compact .nova-header-inner {
+    width: 100%;
+    min-height: 90px;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    justify-content: initial;
+    gap: 24px;
+    margin: 0;
+    padding: 0 clamp(10px, 1.5vw, 18px);
+    transition: min-height .24s ease, padding .24s ease;
+}
+.theme-rexxsol-nova .nova-header-slot.is-compact .nova-brand {
+    min-height: 0;
+    justify-self: start;
+    padding-block: 0;
+}
+.theme-rexxsol-nova .nova-header-slot.is-compact .nova-brand img {
+    max-width: 190px;
+    max-height: 64px;
+}
+.theme-rexxsol-nova .nova-header-slot.is-compact .nova-navigation {
+    justify-self: center;
+    gap: clamp(18px, 2.45vw, 34px);
+}
+.theme-rexxsol-nova .nova-header-slot.is-compact .nova-header-inner > .nova-header-cta {
+    justify-self: end;
+}
+.theme-rexxsol-nova .nova-header-slot.is-compact .nova-header-cta {
+    min-width: 175px;
+    min-height: 48px;
+}
+.theme-rexxsol-nova .nova-header-slot.is-no-hero .nova-header-inner,
+.theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-header-inner {
+    min-height: 90px;
+}
+.theme-rexxsol-nova .nova-hero,
+.theme-rexxsol-nova .nova-hero--expanded {
+    padding-top: 121px;
+}
+
+@media (max-width: 760px) {
+    .theme-rexxsol-nova .nova-header-slot[data-home-page="true"] .nova-header-inner {
+        min-height: 76px;
+    }
+    .theme-rexxsol-nova .nova-brand {
+        min-height: 0;
+        padding-block: 4px;
+    }
+    .theme-rexxsol-nova .nova-brand img {
+        max-width: min(170px, 48vw);
+        max-height: 66px;
+    }
+    .theme-rexxsol-nova .nova-header-slot.is-compact {
+        top: 10px;
+        width: calc(100% - 24px);
+    }
+    .theme-rexxsol-nova .nova-header-slot.is-compact .nova-header-inner {
+        min-height: 78px;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        padding: 0 14px;
+    }
+    .theme-rexxsol-nova .nova-header-slot.is-compact .nova-brand img {
+        max-width: min(160px, 46vw);
+        max-height: 60px;
+    }
+    .theme-rexxsol-nova .nova-hero,
+    .theme-rexxsol-nova .nova-hero--expanded {
+        padding-top: 122px;
+    }
+}
+
+@media (max-width: 520px) {
+    .theme-rexxsol-nova .nova-hero,
+    .theme-rexxsol-nova .nova-hero--expanded {
+        padding-top: 114px;
+    }
+}
+
+.theme-rexxsol-nova { --nova-font: "Instrument Sans", "Avenir Next", "Segoe UI", sans-serif; }
+.theme-rexxsol-nova .nova-container { width: min(100% - 64px, 1170px); }
+.theme-rexxsol-nova .nova-header { background: rgba(255,255,255,.9); }
+.theme-rexxsol-nova .nova-header-inner { min-height: 78px; }
+.theme-rexxsol-nova .nova-brand img { width: auto; max-width: 205px; max-height: 76px; height: auto; object-fit: contain; }
+.theme-rexxsol-nova .nova-header-cta { min-width: 148px; min-height: 44px; }
+.theme-rexxsol-nova .nova-hero { min-height: 510px; padding: 43px 32px 124px; background: linear-gradient(180deg,#fff 0%,#f7faff 35%,#eaf3ff 74%,#d2e4ff 100%); }
+.theme-rexxsol-nova .nova-hero--expanded { min-height: 570px; }
+.theme-rexxsol-nova .nova-hero::after { bottom: -32%; }
+.theme-rexxsol-nova .nova-hero-rays { width: 88%; height: 95%; opacity: .8; background: repeating-linear-gradient(42deg,transparent 0 76px,rgba(255,255,255,.56) 78px 81px,transparent 83px 145px); mask-image: linear-gradient(132deg,#000 0%,rgba(0,0,0,.5) 31%,transparent 78%); }
+.theme-rexxsol-nova .nova-eyebrow { top: 0; min-height: 30px; margin-bottom: 16px; padding: 0 14px; font-size: 12px; }
+.theme-rexxsol-nova .nova-title { font-size: clamp(44px,5.2vw,66px); line-height: 1.02; }
+.theme-rexxsol-nova .nova-description { max-width: 680px; margin-top: 13px; font-size: clamp(16px,1.4vw,19px); line-height: 1.5; }
+.theme-rexxsol-nova .nova-hero-actions { gap: 12px; margin-top: 24px; }
+.theme-rexxsol-nova .nova-button { min-height: 48px; padding-inline: 25px; font-size: 13px; }
+.theme-rexxsol-nova .nova-button-primary { min-width: 184px; }
+.theme-rexxsol-nova .nova-corner-card { bottom: 0; width: 270px; min-height: 178px; padding: 17px; border-radius: 14px; }
+.theme-rexxsol-nova .nova-card-left { left: 16px; }
+.theme-rexxsol-nova .nova-card-right { right: 8px; }
+.theme-rexxsol-nova .nova-corner-card-heading h2,
+.theme-rexxsol-nova .nova-card-right h2 { font-size: 12px; }
+.theme-rexxsol-nova .nova-hero-chart { display: flex; height: 95px; align-items: end; gap: 6px; padding: 13px 4px 0; border-bottom: 1px solid #e9eff8; background: repeating-linear-gradient(to bottom,transparent 0 22px,#edf3fb 23px 24px); }
+.theme-rexxsol-nova .nova-hero-chart span { flex: 1; min-width: 7px; border-radius: 4px 4px 0 0; background: linear-gradient(180deg,#c9ddff,#3876ff); box-shadow: 0 4px 9px rgba(36,94,255,.12); }
+.theme-rexxsol-nova .nova-hero-chart span:nth-child(6n + 1) { height: 45%; }
+.theme-rexxsol-nova .nova-hero-chart span:nth-child(6n + 2) { height: 67%; }
+.theme-rexxsol-nova .nova-hero-chart span:nth-child(6n + 3) { height: 89%; }
+.theme-rexxsol-nova .nova-hero-chart span:nth-child(6n + 4) { height: 72%; }
+.theme-rexxsol-nova .nova-hero-chart span:nth-child(6n + 5) { height: 54%; }
+.theme-rexxsol-nova .nova-hero-chart span:nth-child(6n) { height: 36%; }
+.theme-rexxsol-nova .nova-card-right ul { margin-top: 8px; }
+.theme-rexxsol-nova .nova-card-right li { min-height: 37px; grid-template-columns: 26px 1fr 10px; gap: 8px; font-size: 11px; }
+.theme-rexxsol-nova .nova-card-right .nova-service-icon { width: 26px; height: 26px; border-radius: 7px; }
+.theme-rexxsol-nova .nova-card-right .nova-service-icon svg { width: 16px; height: 16px; }
+.theme-rexxsol-nova .nova-scroll { bottom: 16px; gap: 4px; font-size: 9px; }
+.theme-rexxsol-nova .nova-scroll i { width: 20px; height: 20px; border: 0; }
+.theme-rexxsol-nova .nova-impact-strip { padding: 19px 24px 22px; background: #fbfdff; }
+.theme-rexxsol-nova .nova-impact-strip h2 { margin-bottom: 12px; }
+.theme-rexxsol-nova .nova-impact-item { min-height: 42px; gap: 12px; font-size: 14px; }
+.theme-rexxsol-nova .nova-impact-item svg { width: 27px; height: 27px; }
+.theme-rexxsol-nova .nova-section { padding: 54px 0; }
+.theme-rexxsol-nova .nova-kicker { margin: 0 0 8px; color: #7e91b6; font-size: 10px; font-weight: 800; letter-spacing: .2em; line-height: 1.3; text-transform: uppercase; }
+.theme-rexxsol-nova .nova-section-heading { max-width: 690px; margin: 0 auto 27px; text-align: center; }
+.theme-rexxsol-nova .nova-section-heading h2,
+.theme-rexxsol-nova .nova-about-copy h2,
+.theme-rexxsol-nova .nova-why-heading h2,
+.theme-rexxsol-nova .nova-faq-intro h2 { margin: 0; color: var(--nova-navy); font-size: clamp(27px,3vw,37px); font-weight: 750; letter-spacing: 0; line-height: 1.13; }
+.theme-rexxsol-nova .nova-section-heading > p:last-child { max-width: 650px; margin: 11px auto 0; color: var(--nova-muted); font-size: 14px; line-height: 1.55; }
+.theme-rexxsol-nova .nova-service-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
+.theme-rexxsol-nova .nova-service-card { display: grid; min-width: 0; min-height: 108px; grid-template-columns: 50px minmax(0,1fr) 14px; align-items: center; gap: 13px; padding: 16px; border: 1px solid #e5edf8; border-radius: 9px; background: #fff; box-shadow: 0 3px 10px rgba(22,56,112,.025); transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease, background .2s ease; }
+.theme-rexxsol-nova .nova-service-card:hover { transform: translateY(-3px); border-color: #bdd2ff; background: #fbfdff; box-shadow: 0 12px 25px rgba(28,76,158,.08); }
+.theme-rexxsol-nova .nova-icon-tile { display: grid; width: 44px; height: 44px; flex: 0 0 auto; place-items: center; border-radius: 9px; background: #edf5ff; color: var(--nova-blue); }
+.theme-rexxsol-nova .nova-icon-tile svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.theme-rexxsol-nova .nova-service-copy { display: grid; gap: 6px; }
+.theme-rexxsol-nova .nova-service-copy strong { color: var(--nova-navy); font-size: 14px; line-height: 1.25; }
+.theme-rexxsol-nova .nova-service-copy > span { color: #7687a8; font-size: 12px; line-height: 1.5; }
+.theme-rexxsol-nova .nova-card-arrow { color: #8099cc; font-size: 24px; font-weight: 400; }
+.theme-rexxsol-nova .nova-about { padding-top: 0; }
+.theme-rexxsol-nova .nova-about-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 50px; }
+.theme-rexxsol-nova .nova-dashboard { position: relative; display: grid; min-height: 360px; place-items: center; overflow: hidden; padding: 38px; border: 1px solid #e6effb; border-radius: 11px; background: radial-gradient(ellipse at 52% 45%,#fff 0%,#e6f2ff 54%,#d6e9ff 100%); }
+.theme-rexxsol-nova .nova-dashboard > img { display: block; width: 100%; max-height: 390px; object-fit: contain; }
+.theme-rexxsol-nova .nova-dashboard-window { width: 100%; min-height: 265px; overflow: hidden; border: 1px solid #e1eafa; border-radius: 12px; background: rgba(255,255,255,.94); box-shadow: 0 22px 45px rgba(39,87,163,.15); transform: rotate(-3deg); }
+.theme-rexxsol-nova .nova-window-bar { display: flex; height: 31px; align-items: center; gap: 5px; padding: 0 12px; border-bottom: 1px solid #edf1f8; }
+.theme-rexxsol-nova .nova-window-bar > span { width: 6px; height: 6px; border-radius: 50%; background: #8fb4ff; }
+.theme-rexxsol-nova .nova-window-bar > span:first-child { background: #ff8e99; }
+.theme-rexxsol-nova .nova-window-bar > span:nth-child(2) { background: #ffcf71; }
+.theme-rexxsol-nova .nova-window-bar > span:nth-child(3) { background: #73d5a0; }
+.theme-rexxsol-nova .nova-window-bar i { margin-left: 20px; color: #91a1bd; font-size: 8px; font-style: normal; }
+.theme-rexxsol-nova .nova-dashboard-layout { display: grid; min-height: 232px; grid-template-columns: 38px 1fr; }
+.theme-rexxsol-nova .nova-dashboard-layout > nav { display: flex; flex-direction: column; align-items: center; gap: 15px; padding-top: 14px; border-right: 1px solid #edf1f8; }
+.theme-rexxsol-nova .nova-dashboard-layout > nav b { width: 16px; height: 16px; border-radius: 5px; background: #3475ff; }
+.theme-rexxsol-nova .nova-dashboard-layout > nav span { width: 12px; height: 4px; border-radius: 5px; background: #dbe7f8; }
+.theme-rexxsol-nova .nova-dashboard-main { padding: 17px 18px; }
+.theme-rexxsol-nova .nova-dashboard-title { color: #10234d; font-size: 14px; font-weight: 750; }
+.theme-rexxsol-nova .nova-dashboard-panels { display: grid; grid-template-columns: repeat(3,1fr); gap: 9px; margin-top: 13px; }
+.theme-rexxsol-nova .nova-dashboard-panels i { height: 48px; border: 1px solid #e9eff8; border-radius: 6px; background: linear-gradient(180deg,#fff,#f7faff); }
+.theme-rexxsol-nova .nova-dashboard-chart { position: relative; height: 104px; margin-top: 12px; border: 1px solid #edf1f8; border-radius: 7px; background: repeating-linear-gradient(to bottom,#fff 0 24px,#f0f4fa 25px 26px); }
+.theme-rexxsol-nova .nova-dashboard-chart > span { position: absolute; top: 8px; left: 10px; color: #8494b2; font-size: 8px; }
+.theme-rexxsol-nova .nova-dashboard-chart svg { position: absolute; inset: 16px 9px 8px; width: calc(100% - 18px); height: calc(100% - 24px); overflow: visible; }
+.theme-rexxsol-nova .nova-dashboard-chart path { fill: none; stroke: #3978ff; stroke-linecap: round; stroke-width: 3; }
+.theme-rexxsol-nova .nova-dashboard-phone { position: absolute; right: 22px; bottom: 26px; display: flex; width: 82px; min-height: 174px; flex-direction: column; gap: 12px; padding: 17px 11px; border: 1px solid #e1eafa; border-radius: 13px; background: #fff; box-shadow: 0 15px 30px rgba(39,87,163,.14); transform: rotate(3deg); }
+.theme-rexxsol-nova .nova-dashboard-phone > div { width: 22px; height: 4px; align-self: center; border-radius: 5px; background: #dfe9f8; }
+.theme-rexxsol-nova .nova-dashboard-phone b { margin-top: 2px; color: #283e6c; font-size: 9px; }
+.theme-rexxsol-nova .nova-dashboard-phone i { height: 23px; border: 1px solid #edf1f8; border-radius: 5px; background: #f9fbff; }
+.theme-rexxsol-nova .nova-dashboard-phone span { width: 38px; height: 38px; align-self: center; border: 5px solid #e6efff; border-top-color: #3475ff; border-right-color: #3475ff; border-radius: 50%; }
+.theme-rexxsol-nova .nova-about-copy h2 { max-width: 480px; }
+.theme-rexxsol-nova .nova-about-description { margin: 13px 0 17px; color: var(--nova-muted); font-size: 14px; line-height: 1.6; }
+.theme-rexxsol-nova .nova-about-points { display: grid; gap: 11px; margin: 0 0 15px; padding: 0; list-style: none; }
+.theme-rexxsol-nova .nova-about-points li { display: flex; align-items: center; gap: 13px; }
+.theme-rexxsol-nova .nova-about-points .nova-icon-tile { width: 39px; height: 39px; }
+.theme-rexxsol-nova .nova-about-points .nova-icon-tile svg { width: 21px; height: 21px; }
+.theme-rexxsol-nova .nova-about-points li > span:last-child { display: grid; gap: 3px; }
+.theme-rexxsol-nova .nova-about-points strong { color: var(--nova-navy); font-size: 13px; }
+.theme-rexxsol-nova .nova-about-points small { color: #7b8cac; font-size: 11px; line-height: 1.45; }
+.theme-rexxsol-nova .nova-text-link { display: inline-flex; min-height: 34px; align-items: center; gap: 8px; color: var(--nova-blue); font-size: 13px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.theme-rexxsol-nova .nova-testimonials { padding: 50px 0 38px; background: linear-gradient(110deg,#eaf5ff 0%,#e5f2ff 48%,#eef7ff 100%); }
+.theme-rexxsol-nova .nova-testimonials-heading { position: relative; display: flex; align-items: center; justify-content: center; }
+.theme-rexxsol-nova .nova-testimonials .nova-section-heading { margin-bottom: 26px; }
+.theme-rexxsol-nova .nova-testimonials .nova-kicker { margin-bottom: 7px; }
+.theme-rexxsol-nova .nova-slider-controls { position: absolute; right: 3px; bottom: 33px; display: flex; gap: 9px; }
+.theme-rexxsol-nova .nova-slider-controls[hidden] { display: none; }
+.theme-rexxsol-nova .nova-slider-controls button { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid #e7effb; border-radius: 50%; background: #fff; color: var(--nova-blue); box-shadow: 0 5px 14px rgba(30,74,147,.07); cursor: pointer; transition: transform .2s ease, border-color .2s ease; }
+.theme-rexxsol-nova .nova-slider-controls button:hover { transform: translateY(-2px); border-color: #adc8ff; }
+.theme-rexxsol-nova .nova-slider-controls button span { font-size: 26px; line-height: 1; }
+.theme-rexxsol-nova .nova-testimonial-viewport { overflow: visible; }
+.theme-rexxsol-nova .nova-testimonial-track { position: relative; display: flex; flex-wrap: wrap; gap: 16px; transition: transform .45s cubic-bezier(.2,.7,.25,1); will-change: transform; }
+.theme-rexxsol-nova .nova-testimonials.is-carousel-ready .nova-testimonial-viewport { overflow: hidden; touch-action: pan-y; }
+.theme-rexxsol-nova .nova-testimonials.is-carousel-ready .nova-testimonial-track { flex-wrap: nowrap; }
+.theme-rexxsol-nova .nova-testimonial-card { position: relative; display: flex; min-width: 0; min-height: 230px; flex: 0 0 calc((100% - 32px)/3); flex-direction: column; padding: 20px; border: 1px solid #e6edf8; border-radius: 9px; background: #fff; box-shadow: 0 9px 22px rgba(31,66,123,.045); transition: border-color .2s ease, box-shadow .2s ease; }
+.theme-rexxsol-nova .nova-testimonial-card.is-active { border-color: #4381ff; box-shadow: 0 10px 26px rgba(36,94,255,.12); }
+.theme-rexxsol-nova .nova-sample-label { position: absolute; top: 18px; right: 17px; padding: 5px 9px; border-radius: 20px; background: #eaf2ff; color: #3670da; font-size: 9px; font-weight: 650; }
+.theme-rexxsol-nova .nova-quote-mark { height: 34px; color: var(--nova-blue); font-family: Georgia,serif; font-size: 47px; font-weight: 700; line-height: 1; }
+.theme-rexxsol-nova .nova-testimonial-card blockquote { flex: 1; margin: 9px 0 15px; color: #53658c; font-size: 15px; line-height: 1.5; }
+.theme-rexxsol-nova .nova-review-author { display: flex; min-height: 48px; align-items: center; gap: 12px; padding-top: 12px; border-top: 1px solid #edf1f8; }
+.theme-rexxsol-nova .nova-review-author > span:last-child { display: grid; gap: 4px; }
+.theme-rexxsol-nova .nova-review-author strong { color: var(--nova-navy); font-size: 12px; }
+.theme-rexxsol-nova .nova-review-author small { color: #7c8dad; font-size: 10px; }
+.theme-rexxsol-nova .nova-review-author img,
+.theme-rexxsol-nova .nova-avatar { display: grid; width: 42px; height: 42px; flex: 0 0 auto; place-items: center; border: 0; border-radius: 50%; background: #dcecff; color: #2866e8; font-size: 12px; font-weight: 750; object-fit: cover; }
+.theme-rexxsol-nova .nova-slider-dots { display: flex; min-height: 28px; align-items: end; justify-content: center; gap: 8px; }
+.theme-rexxsol-nova .nova-slider-dots[hidden] { display: none; }
+.theme-rexxsol-nova .nova-slider-dots:empty { display: none; }
+.theme-rexxsol-nova .nova-slider-dots button { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; background: #c4d8f3; cursor: pointer; }
+.theme-rexxsol-nova .nova-slider-dots button[aria-current="true"] { background: var(--nova-blue); }
+@media (min-width: 901px) {
+    .theme-rexxsol-nova .nova-section.nova-process { padding-block: 58px 62px; background: linear-gradient(110deg,#f7fbff 0%,#fff 54%,#f4fffb 100%); }
+    .theme-rexxsol-nova .nova-process .nova-section-heading { margin-bottom: 30px; }
+    .theme-rexxsol-nova .nova-process-journey { margin-top: 0; }
+    .theme-rexxsol-nova .nova-process .nova-process-connector { top: 0; width: 25.4%; height: 292px; stroke: #a9c8e6; stroke-width: 1.5; stroke-dasharray: 1.5 5.5; stroke-linecap: round; }
+    .theme-rexxsol-nova .nova-process .nova-process-connector--one { left: 3.5%; }
+    .theme-rexxsol-nova .nova-process .nova-process-connector--two { left: 28.9%; }
+    .theme-rexxsol-nova .nova-process .nova-process-connector--three { left: 54.3%; }
+    .theme-rexxsol-nova .nova-process .nova-process-list { min-height: 292px; gap: 18px; }
+    .theme-rexxsol-nova .nova-process .nova-process-list::before { display: none; }
+    .theme-rexxsol-nova .nova-process .nova-process-list li { display: block; min-height: 292px; padding: 0 18px; }
+    .theme-rexxsol-nova .nova-process-list li:nth-child(even) { padding-top: 126px; }
+    .theme-rexxsol-nova .nova-process .nova-process-marker { position: relative; display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid #9fc9ec; border-radius: 50%; background: rgba(255,255,255,.88); color: #1886c8; }
+    .theme-rexxsol-nova .nova-process .nova-step-number { position: absolute; top: 6px; left: -21px; width: auto; height: auto; border: 0; border-radius: 0; background: transparent; color: #7589a7; font-size: 9px; }
+    .theme-rexxsol-nova .nova-process-icon { color: #1686c5; font-size: 17px; }
+    .theme-rexxsol-nova .nova-process .nova-process-list h3 { margin: 8px 0 4px; color: var(--nova-navy); font-size: 15px; }
+    .theme-rexxsol-nova .nova-process .nova-process-list p { max-width: 190px; color: #71829d; font-size: 12px; line-height: 1.5; white-space: pre-line; }
+}
+
+.theme-rexxsol-nova .nova-process { padding-block: 48px 54px; }
+.theme-rexxsol-nova .nova-process-journey { position: relative; }
+.theme-rexxsol-nova .nova-process-connector { position: absolute; top: 0; width: 25%; height: 100%; overflow: visible; fill: none; stroke: #9fb8e2; stroke-width: 1.2; pointer-events: none; }
+.theme-rexxsol-nova .nova-process-connector--one { left: 12.5%; }
+.theme-rexxsol-nova .nova-process-connector--two { left: 37.5%; }
+.theme-rexxsol-nova .nova-process-connector--three { left: 62.5%; }
+.theme-rexxsol-nova .nova-process-connector--mobile { display: none; }
+.theme-rexxsol-nova .nova-process-list { position: relative; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 18px; margin: 0; padding: 0; list-style: none; }
+.theme-rexxsol-nova .nova-process-list { z-index: 1; }
+.theme-rexxsol-nova .nova-process-list::before { position: absolute; top: 18px; right: 4%; left: 4%; border-top: 1px dotted #9fb8e2; content: ""; }
+.theme-rexxsol-nova .nova-process-list li { position: relative; display: grid; grid-template-columns: 34px minmax(0,1fr); align-items: start; gap: 12px; }
+.theme-rexxsol-nova .nova-step-number { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid #a9c5f6; border-radius: 50%; background: #f3f8ff; color: var(--nova-blue); font-size: 10px; font-weight: 800; }
+.theme-rexxsol-nova .nova-process-list h3 { margin: 29px 0 4px; color: var(--nova-navy); font-size: 13px; }
+.theme-rexxsol-nova .nova-process-list p { max-width: 210px; margin: 0; color: #7788a7; font-size: 11px; line-height: 1.45; }
+.theme-rexxsol-nova .nova-why { padding: 43px 0; background: linear-gradient(100deg,#f1f8ff,#eaf4ff 58%,#f3f9ff); }
+.theme-rexxsol-nova .nova-why-heading { margin-bottom: 16px; }
+.theme-rexxsol-nova .nova-why-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
+.theme-rexxsol-nova .nova-why-card { display: flex; min-height: 82px; align-items: center; gap: 13px; padding: 13px; border: 1px solid #e7eff9; border-radius: 8px; background: #fff; }
+.theme-rexxsol-nova .nova-why-card .nova-icon-tile { width: 43px; height: 43px; }
+.theme-rexxsol-nova .nova-why-card > span:last-child { display: grid; gap: 5px; }
+.theme-rexxsol-nova .nova-why-card strong { color: var(--nova-navy); font-size: 12px; }
+.theme-rexxsol-nova .nova-why-card small { color: #7788a7; font-size: 10px; line-height: 1.45; }
+.theme-rexxsol-nova .nova-faq { padding-block: 48px 40px; }
+.theme-rexxsol-nova .nova-faq-grid { display: grid; grid-template-columns: .82fr 1.18fr; align-items: center; gap: 54px; }
+.theme-rexxsol-nova .nova-faq-intro h2 { max-width: 380px; }
+.theme-rexxsol-nova .nova-faq-intro > p:not(.nova-kicker) { margin: 12px 0 4px; color: var(--nova-muted); font-size: 14px; line-height: 1.6; }
+.theme-rexxsol-nova .nova-faq-list { overflow: hidden; border: 1px solid #e5ebf5; border-radius: 9px; background: #fff; }
+.theme-rexxsol-nova .nova-faq-item + .nova-faq-item { border-top: 1px solid #edf1f8; }
+.theme-rexxsol-nova .nova-faq-item h3 { margin: 0; }
+.theme-rexxsol-nova .nova-faq-item button { display: flex; width: 100%; min-height: 43px; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 16px; border: 0; background: #fff; color: var(--nova-navy); font-size: 12px; font-weight: 700; text-align: left; cursor: pointer; }
+.theme-rexxsol-nova .nova-faq-item button:hover { color: var(--nova-blue); }
+.theme-rexxsol-nova .nova-faq-item button > span { color: #8298c0; font-size: 16px; transition: transform .2s ease; }
+.theme-rexxsol-nova .nova-faq-item button[aria-expanded="true"] > span { transform: rotate(180deg); }
+.theme-rexxsol-nova .nova-faq-answer { padding: 0 16px 12px; }
+.theme-rexxsol-nova .nova-faq-answer[hidden] { display: none; }
+.theme-rexxsol-nova .nova-faq-answer p { max-width: 680px; margin: 0; color: #7889a8; font-size: 11px; line-height: 1.55; }
+.theme-rexxsol-nova .nova-project-cta { position: relative; isolation: isolate; overflow: hidden; margin: 0 16px; border: 1px solid #3e7cff; border-radius: 11px; background: linear-gradient(112deg,#1876ff 0%,#2662ff 52%,#1459e9 100%); color: #fff; }
+.theme-rexxsol-nova .nova-project-cta::before { position: absolute; z-index: -1; inset: -100% -30%; background: repeating-linear-gradient(115deg,transparent 0 95px,rgba(255,255,255,.11) 97px 100px,transparent 102px 180px); content: ""; transform: rotate(-5deg); }
+.theme-rexxsol-nova .nova-project-cta-inner { display: flex; min-height: 122px; align-items: center; justify-content: space-between; gap: 25px; padding-block: 22px; }
+.theme-rexxsol-nova .nova-project-cta .nova-kicker { color: #dbe7ff; }
+.theme-rexxsol-nova .nova-project-cta h2 { margin: 0; color: #fff; font-size: clamp(23px,3vw,32px); line-height: 1.16; }
+.theme-rexxsol-nova .nova-project-cta p:not(.nova-kicker) { margin: 7px 0 0; color: #e3edff; font-size: 13px; line-height: 1.5; }
+.theme-rexxsol-nova .nova-project-cta-inner > a { display: inline-flex; min-height: 44px; flex: 0 0 auto; align-items: center; justify-content: center; gap: 8px; padding: 0 22px; border: 1px solid #fff; border-radius: 999px; background: #fff; color: #1556dc; font-size: 12px; font-weight: 750; transition: transform .2s ease, box-shadow .2s ease; }
+.theme-rexxsol-nova .nova-project-cta-inner > a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(5,37,113,.2); }
+.theme-rexxsol-nova .nova-footer { padding-top: 34px; }
+.theme-rexxsol-nova .nova-footer-grid { gap: 25px; }
+.theme-rexxsol-nova .nova-footer-brand img { max-width: 184px; height: 40px; }
+.theme-rexxsol-nova .nova-footer-brand p { margin-top: 10px; font-size: 11px; line-height: 1.55; }
+.theme-rexxsol-nova .nova-footer-grid h2 { margin-bottom: 8px; font-size: 10px; }
+.theme-rexxsol-nova .nova-footer-grid nav,
+.theme-rexxsol-nova .nova-footer-contact { gap: 7px; }
+.theme-rexxsol-nova .nova-footer-grid nav a,
+.theme-rexxsol-nova .nova-footer-contact > a,
+.theme-rexxsol-nova .nova-footer-socials a { font-size: 11px; }
+.theme-rexxsol-nova .nova-footer-bottom { margin-top: 25px; padding-top: 14px; }
+.theme-rexxsol-nova .nova-reveal { opacity: 1; transform: none; }
+.theme-rexxsol-nova .nova-reveal.is-pending { opacity: 0; transform: translateY(12px); }
+.theme-rexxsol-nova .nova-reveal.is-visible { opacity: 1; transform: translateY(0); transition: opacity .55s ease, transform .55s cubic-bezier(.2,.7,.25,1); }
+
+@media (max-width: 1000px) {
+    .theme-rexxsol-nova .nova-about-grid { gap: 32px; }
+    .theme-rexxsol-nova .nova-dashboard { min-height: 320px; padding: 27px; }
+    .theme-rexxsol-nova .nova-faq-grid { gap: 32px; }
+}
+@media (max-width: 1050px) {
+    .theme-rexxsol-nova .nova-hero,
+    .theme-rexxsol-nova .nova-hero--expanded { display: block; min-height: 0; padding-bottom: 28px; }
+    .theme-rexxsol-nova .nova-corner-card { position: relative; bottom: auto; display: inline-block; width: min(42%,300px); min-height: 165px; margin: 42px 14px 0; vertical-align: top; }
+    .theme-rexxsol-nova .nova-card-left { left: auto; }
+    .theme-rexxsol-nova .nova-card-right { right: auto; }
+    .theme-rexxsol-nova .nova-scroll { position: relative; bottom: auto; left: auto; margin: 18px auto 0; transform: none; }
+    .theme-rexxsol-nova .nova-service-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .theme-rexxsol-nova .nova-testimonial-card { flex-basis: calc((100% - 16px)/2); }
+}
+@media (max-width: 900px) {
+    .theme-rexxsol-nova .nova-hero,
+    .theme-rexxsol-nova .nova-hero--expanded { min-height: 0; padding-bottom: 28px; }
+    .theme-rexxsol-nova .nova-corner-card { position: relative; bottom: auto; display: inline-block; width: min(42%,300px); min-height: 165px; margin: 42px 14px 0; vertical-align: top; }
+    .theme-rexxsol-nova .nova-card-left { left: auto; }
+    .theme-rexxsol-nova .nova-card-right { right: auto; }
+    .theme-rexxsol-nova .nova-scroll { position: relative; bottom: auto; left: auto; margin: 18px auto 0; transform: none; }
+    .theme-rexxsol-nova .nova-testimonial-card { flex-basis: calc((100% - 16px)/2); }
+    .theme-rexxsol-nova .nova-process-list { gap: 10px; }
+    .theme-rexxsol-nova .nova-why-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+    .theme-rexxsol-nova .nova-container { width: min(100% - 36px,1170px); }
+    .theme-rexxsol-nova .nova-header-inner { min-height: 72px; }
+    .theme-rexxsol-nova .nova-hero,
+    .theme-rexxsol-nova .nova-hero--expanded { padding: 50px 18px 27px; }
+    .theme-rexxsol-nova .nova-title { font-size: clamp(38px,8.5vw,55px); }
+    .theme-rexxsol-nova .nova-corner-card { width: min(42%,300px); min-height: 158px; margin: 34px 9px 0; padding: 14px; }
+    .theme-rexxsol-nova .nova-card-left { animation-name: nova-float-left; }
+    .theme-rexxsol-nova .nova-card-right { margin-top: 34px; animation-name: nova-float-right; }
+    .theme-rexxsol-nova .nova-card-right li { min-height: 34px; font-size: 10px; }
+    .theme-rexxsol-nova .nova-hero-chart { height: 83px; }
+    .theme-rexxsol-nova .nova-section { padding: 46px 0; }
+    .theme-rexxsol-nova .nova-service-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .theme-rexxsol-nova .nova-about-grid { grid-template-columns: 1fr; gap: 28px; }
+    .theme-rexxsol-nova .nova-dashboard { min-height: 320px; }
+    .theme-rexxsol-nova .nova-about-copy h2 { max-width: 560px; }
+    .theme-rexxsol-nova .nova-slider-controls { position: static; align-self: flex-end; margin: 0 0 22px 15px; }
+    .theme-rexxsol-nova .nova-slider-controls button { width: 38px; height: 38px; }
+    .theme-rexxsol-nova .nova-testimonial-card { min-height: 220px; }
+    .theme-rexxsol-nova .nova-process-list { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 18px; }
+    .theme-rexxsol-nova .nova-process-list::before { display: none; }
+    .theme-rexxsol-nova .nova-process-list h3 { margin-top: 7px; }
+    .theme-rexxsol-nova .nova-why-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .theme-rexxsol-nova .nova-faq-grid { grid-template-columns: 1fr; gap: 20px; }
+    .theme-rexxsol-nova .nova-faq-intro h2 { max-width: 500px; }
+    .theme-rexxsol-nova .nova-project-cta-inner { min-height: 0; }
+}
+@media (max-width: 900px) {
+    .theme-rexxsol-nova .nova-process-connector--desktop { display: none; }
+}
+@media (max-width: 760px) {
+    .theme-rexxsol-nova .nova-process-connector--mobile { top: 0; left: 0; display: block; width: 40px; height: 100%; }
+}
+@media (max-width: 520px) {
+    .theme-rexxsol-nova .nova-container { width: min(100% - 32px,1170px); }
+    .theme-rexxsol-nova .nova-hero,
+    .theme-rexxsol-nova .nova-hero--expanded { padding: 42px 14px 24px; }
+    .theme-rexxsol-nova .nova-title { font-size: clamp(35px,9.7vw,47px); }
+    .theme-rexxsol-nova .nova-description { max-width: 390px; font-size: 15px; }
+    .theme-rexxsol-nova .nova-hero-actions { flex-direction: row; gap: 8px; }
+    .theme-rexxsol-nova .nova-button { min-height: 46px; width: auto; padding-inline: 15px; font-size: 11px; }
+    .theme-rexxsol-nova .nova-button-primary { min-width: 0; }
+    .theme-rexxsol-nova .nova-corner-card { width: calc(50% - 12px); min-height: 144px; margin: 27px 4px 0; padding: 10px; border-radius: 11px; }
+    .theme-rexxsol-nova .nova-corner-card-heading h2,
+    .theme-rexxsol-nova .nova-card-right h2 { font-size: 10px; }
+    .theme-rexxsol-nova .nova-card-right li { grid-template-columns: 22px 1fr 8px; gap: 5px; min-height: 30px; font-size: 8px; }
+    .theme-rexxsol-nova .nova-card-right .nova-service-icon { width: 22px; height: 22px; }
+    .theme-rexxsol-nova .nova-card-right .nova-service-icon svg { width: 14px; height: 14px; }
+    .theme-rexxsol-nova .nova-hero-chart { height: 79px; gap: 3px; }
+    .theme-rexxsol-nova .nova-card-dots { gap: 2px; }
+    .theme-rexxsol-nova .nova-card-dots i { width: 3px; height: 3px; }
+    .theme-rexxsol-nova .nova-scroll { margin-top: 22px; }
+    .theme-rexxsol-nova .nova-impact-item { gap: 8px; }
+    .theme-rexxsol-nova .nova-section { padding: 40px 0; }
+    .theme-rexxsol-nova .nova-section-heading h2,
+    .theme-rexxsol-nova .nova-about-copy h2,
+    .theme-rexxsol-nova .nova-why-heading h2,
+    .theme-rexxsol-nova .nova-faq-intro h2 { font-size: 28px; }
+    .theme-rexxsol-nova .nova-service-grid { grid-template-columns: 1fr; gap: 9px; }
+    .theme-rexxsol-nova .nova-service-card { min-height: 88px; grid-template-columns: 44px minmax(0,1fr) 12px; gap: 10px; padding: 12px; }
+    .theme-rexxsol-nova .nova-icon-tile { width: 40px; height: 40px; }
+    .theme-rexxsol-nova .nova-service-copy strong { font-size: 13px; }
+    .theme-rexxsol-nova .nova-service-copy > span { font-size: 11px; }
+    .theme-rexxsol-nova .nova-dashboard { min-height: 260px; padding: 22px 18px; }
+    .theme-rexxsol-nova .nova-dashboard-window { min-height: 215px; }
+    .theme-rexxsol-nova .nova-dashboard-layout { min-height: 184px; grid-template-columns: 28px 1fr; }
+    .theme-rexxsol-nova .nova-dashboard-main { padding: 12px; }
+    .theme-rexxsol-nova .nova-dashboard-chart { height: 76px; }
+    .theme-rexxsol-nova .nova-dashboard-phone { right: 9px; bottom: 17px; width: 62px; min-height: 139px; gap: 8px; padding: 12px 8px; }
+    .theme-rexxsol-nova .nova-dashboard-phone i { height: 17px; }
+    .theme-rexxsol-nova .nova-dashboard-phone span { width: 30px; height: 30px; }
+    .theme-rexxsol-nova .nova-testimonials { padding: 40px 0 28px; }
+    .theme-rexxsol-nova .nova-testimonials-heading { flex-direction: column; align-items: center; }
+    .theme-rexxsol-nova .nova-testimonials .nova-section-heading { margin-bottom: 18px; }
+    .theme-rexxsol-nova .nova-slider-controls { align-self: center; margin: -8px 0 16px; }
+    .theme-rexxsol-nova .nova-testimonial-track { gap: 0; }
+    .theme-rexxsol-nova .nova-testimonial-card { flex-basis: 100%; min-height: 205px; }
+    .theme-rexxsol-nova .nova-process-list { grid-template-columns: 1fr; gap: 16px; }
+    .theme-rexxsol-nova .nova-process-list li { grid-template-columns: 36px 1fr; gap: 12px; }
+    .theme-rexxsol-nova .nova-process-list h3 { margin-top: 2px; }
+    .theme-rexxsol-nova .nova-process-list p { max-width: none; }
+    .theme-rexxsol-nova .nova-why-grid { grid-template-columns: 1fr; }
+    .theme-rexxsol-nova .nova-faq-item button { font-size: 11px; }
+    .theme-rexxsol-nova .nova-project-cta { margin: 0 9px; }
+    .theme-rexxsol-nova .nova-project-cta-inner { flex-direction: column; align-items: flex-start; padding-block: 23px; }
+    .theme-rexxsol-nova .nova-project-cta-inner > a { align-self: stretch; }
+    .theme-rexxsol-nova .nova-footer { padding-top: 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .theme-rexxsol-nova .nova-reveal.is-pending { opacity: 1; transform: none; }
+}
+
+.theme-rexxsol-nova .fa-solid,
+.theme-rexxsol-nova .fa-brands { display: inline-block; flex: 0 0 auto; line-height: 1; }
+.theme-rexxsol-nova .nova-icon-tile > i { font-size: 22px; }
+.theme-rexxsol-nova .nova-why-card .nova-icon-tile > i { font-size: 28px; }
+.theme-rexxsol-nova .nova-service-icon > i { font-size: 16px; }
+.theme-rexxsol-nova .nova-card-right li b > i { font-size: 10px; }
+.theme-rexxsol-nova .nova-impact-item > i { width: 30px; text-align: center; font-size: 27px; }
+.theme-rexxsol-nova .nova-about-points .nova-icon-tile > i { font-size: 20px; }
+.theme-rexxsol-nova .nova-step-number { position: relative; z-index: 1; }
+.theme-rexxsol-nova .nova-process-list h3 { display: flex; align-items: center; gap: 7px; }
+.theme-rexxsol-nova .nova-process-list h3 > i { color: var(--nova-blue); font-size: 14px; }
+.theme-rexxsol-nova .nova-quote-mark { display: flex; align-items: center; height: 34px; font-family: inherit; font-size: 22px; }
+.theme-rexxsol-nova .nova-testimonial-card .nova-quote-mark > i { font-size: 25px; }
+
+.theme-rexxsol-nova .nova-button,
+.theme-rexxsol-nova .nova-header-cta,
+.theme-rexxsol-nova .nova-project-cta-inner > a,
+.theme-rexxsol-nova .nova-blog-filters button {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border-radius: 999px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: color .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.theme-rexxsol-nova .nova-button-primary,
+.theme-rexxsol-nova .nova-header-cta {
+    border: 1px solid #245eff;
+    background: #245eff;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(36,94,255,.16);
+}
+.theme-rexxsol-nova .nova-button-primary:hover,
+.theme-rexxsol-nova .nova-header-cta:hover {
+    border-color: #174bd5;
+    background: #174bd5;
+    box-shadow: 0 7px 15px rgba(36,94,255,.2);
+    filter: none;
+    transform: translateY(-2px);
+}
+.theme-rexxsol-nova .nova-button-secondary,
+.theme-rexxsol-nova .nova-project-cta-inner > a {
+    border: 1px solid #d6dfed;
+    background: #fff;
+    color: var(--nova-navy);
+    box-shadow: 0 2px 6px rgba(35,67,123,.04);
+}
+.theme-rexxsol-nova .nova-button-secondary:hover,
+.theme-rexxsol-nova .nova-project-cta-inner > a:hover {
+    border-color: #9bbcff;
+    background: #eff6ff;
+    color: var(--nova-navy);
+    box-shadow: 0 5px 11px rgba(35,67,123,.1);
+    transform: translateY(-2px);
+}
+.theme-rexxsol-nova .nova-button > i,
+.theme-rexxsol-nova .nova-header-cta > i,
+.theme-rexxsol-nova .nova-project-cta-inner > a > i,
+.theme-rexxsol-nova .nova-text-link > i,
+.theme-rexxsol-nova .nova-footer-grid a > i,
+.theme-rexxsol-nova .nova-footer-bottom a > i { transition: transform .2s ease; }
+.theme-rexxsol-nova .nova-button > i,
+.theme-rexxsol-nova .nova-header-cta > i,
+.theme-rexxsol-nova .nova-project-cta-inner > a > i { font-size: 16px; }
+.theme-rexxsol-nova .nova-button:hover > i,
+.theme-rexxsol-nova .nova-header-cta:hover > i,
+.theme-rexxsol-nova .nova-project-cta-inner > a:hover > i,
+.theme-rexxsol-nova .nova-text-link:hover > i,
+.theme-rexxsol-nova .nova-footer-grid a:hover > i,
+.theme-rexxsol-nova .nova-footer-bottom a:hover > i { transform: translate(3px,-1px); }
+.theme-rexxsol-nova .nova-button:active,
+.theme-rexxsol-nova .nova-header-cta:active,
+.theme-rexxsol-nova .nova-project-cta-inner > a:active,
+.theme-rexxsol-nova .nova-blog-filters button:active { transform: translateY(0); box-shadow: 0 1px 3px rgba(20,47,100,.12); }
+.theme-rexxsol-nova .nova-button:disabled,
+.theme-rexxsol-nova .nova-button[aria-disabled="true"],
+.theme-rexxsol-nova .nova-header-cta[aria-disabled="true"],
+.theme-rexxsol-nova .nova-blog-filters button:disabled { cursor: not-allowed; opacity: .58; box-shadow: none; transform: none; }
+.theme-rexxsol-nova .nova-button.is-loading,
+.theme-rexxsol-nova .nova-button[aria-busy="true"] { cursor: progress; }
+.theme-rexxsol-nova .nova-text-link { position: relative; min-height: 44px; text-decoration: none; background: linear-gradient(currentColor,currentColor) left calc(100% - 5px)/0 1px no-repeat; transition: background-size .2s ease,color .2s ease; }
+.theme-rexxsol-nova .nova-text-link:hover { background-size: calc(100% - 20px) 1px; }
+.theme-rexxsol-nova .nova-service-copy strong a { color: inherit; text-decoration: none; }
+.theme-rexxsol-nova .nova-card-arrow { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; color: #8099cc; font-size: 15px; transition: color .2s ease, background-color .2s ease, transform .2s ease; }
+.theme-rexxsol-nova .nova-service-card:hover .nova-card-arrow { background: #245eff; color: #fff; transform: translateX(2px); }
+.theme-rexxsol-nova .nova-icon-only,
+.theme-rexxsol-nova .nova-slider-controls button { display: inline-grid; width: 44px; height: 44px; min-width: 44px; min-height: 44px; place-items: center; border: 1px solid #dce6f5; border-radius: 50%; background: #fff; color: var(--nova-blue); box-shadow: 0 2px 6px rgba(30,74,147,.06); cursor: pointer; transition: color .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.theme-rexxsol-nova .nova-slider-controls button:hover,
+.theme-rexxsol-nova .nova-icon-only:hover { border-color: #245eff; background: #245eff; color: #fff; box-shadow: 0 5px 12px rgba(36,94,255,.18); transform: translateY(-1px); }
+.theme-rexxsol-nova .nova-slider-controls button:active,
+.theme-rexxsol-nova .nova-icon-only:active { transform: scale(.97); }
+.theme-rexxsol-nova .nova-slider-controls button > i,
+.theme-rexxsol-nova .nova-icon-only > i { font-size: 16px; }
+.theme-rexxsol-nova .nova-slider-controls button:disabled,
+.theme-rexxsol-nova .nova-icon-only:disabled { cursor: not-allowed; opacity: .55; box-shadow: none; }
+.theme-rexxsol-nova .nova-faq-item button { min-height: 48px; transition: color .2s ease, background-color .2s ease; }
+.theme-rexxsol-nova .nova-faq-item button > i { color: #8298c0; font-size: 12px; transition: transform .2s ease,color .2s ease; }
+.theme-rexxsol-nova .nova-faq-item button[aria-expanded="true"] > i { color: var(--nova-blue); transform: rotate(180deg); }
+.theme-rexxsol-nova .nova-slider-dots button { position: relative; width: 44px; height: 44px; border: 0; background: transparent; }
+.theme-rexxsol-nova .nova-slider-dots button::before { position: absolute; top: 18px; left: 18px; width: 8px; height: 8px; border-radius: 50%; background: #c4d8f3; content: ""; }
+.theme-rexxsol-nova .nova-slider-dots button[aria-current="true"]::before { background: var(--nova-blue); }
+.theme-rexxsol-nova .nova-footer-contact > a,
+.theme-rexxsol-nova .nova-footer-socials a { display: inline-flex; min-height: 40px; align-items: center; gap: 8px; }
+.theme-rexxsol-nova .nova-footer-contact > a > i { width: 17px; color: var(--nova-blue); font-size: 14px; }
+.theme-rexxsol-nova .nova-footer-socials a { min-height: 44px; padding: 0 8px; border: 1px solid #e5ebf5; border-radius: 999px; }
+.theme-rexxsol-nova .nova-footer-socials a:hover { border-color: #b9cefa; background: #eff6ff; }
+.theme-rexxsol-nova .nova-footer-socials a > i { color: var(--nova-blue); font-size: 15px; }
+.theme-rexxsol-nova .nova-mobile-menu > summary { width: 44px; height: 44px; place-items: center; }
+.theme-rexxsol-nova .nova-mobile-menu > summary > i { grid-area: 1 / 1; font-size: 18px; }
+.theme-rexxsol-nova .nova-mobile-menu > summary > .nova-menu-close-icon,
+.theme-rexxsol-nova .nova-mobile-menu[open] > summary > .nova-menu-open-icon { display: none; }
+.theme-rexxsol-nova .nova-mobile-menu[open] > summary > .nova-menu-close-icon { display: inline-block; }
+.theme-rexxsol-nova .nova-nav-group > summary > i { font-size: 11px; }
+.theme-rexxsol-nova .nova-card-right li b > i { font-size: 10px; }
+.theme-rexxsol-nova .nova-project-cta-inner > a { min-height: 48px; }
+.theme-rexxsol-nova .nova-blog-filters button { min-height: 44px; padding: 0 20px; border: 1px solid #d6dfed; cursor: pointer; }
+.theme-rexxsol-nova :where(a,button,input,select,textarea,summary):focus-visible { outline: 3px solid #245eff; outline-offset: 3px; }
+
+/* Hero follow-up value strip */
+.theme-rexxsol-nova .nova-impact-strip { padding: 20px 5vw 28px; border: 0; background: linear-gradient(105deg,#f0f8ff 0%,#f8fcff 52%,#f0fbf8 100%); }
+.theme-rexxsol-nova .nova-impact-inner { width: min(100%,1820px); }
+.theme-rexxsol-nova .nova-impact-strip h2 { margin: 0 0 24px; color: var(--nova-navy); font-size: clamp(24px,2vw,36px); font-weight: 750; letter-spacing: -.025em; line-height: 1.15; text-align: center; text-transform: none; }
+.theme-rexxsol-nova .nova-impact-strip h2 > span { color: #16a7d7; }
+.theme-rexxsol-nova .nova-impact-items { grid-template-columns: repeat(3,minmax(0,1fr)); align-items: center; }
+.theme-rexxsol-nova .nova-impact-item { min-height: 72px; justify-content: flex-start; gap: 20px; padding: 0 5.3%; color: var(--nova-navy); font-size: inherit; }
+.theme-rexxsol-nova .nova-impact-item + .nova-impact-item { border-left: 1px solid #c9d9e7; }
+.theme-rexxsol-nova .nova-impact-icon { display: grid; width: 64px; height: 64px; flex: 0 0 auto; place-items: center; border-radius: 15px; font-size: 24px; }
+.theme-rexxsol-nova .nova-impact-icon--blue { background: #e1f1ff; color: #1671bb; }
+.theme-rexxsol-nova .nova-impact-icon--teal { background: #e1f8f5; color: #13a7a5; }
+.theme-rexxsol-nova .nova-impact-icon--green { background: #edf9e9; color: #33a745; }
+.theme-rexxsol-nova .nova-impact-copy { display: grid; gap: 6px; }
+.theme-rexxsol-nova .nova-impact-copy strong { color: var(--nova-navy); font-size: clamp(14px,1.05vw,19px); font-weight: 750; line-height: 1.2; }
+.theme-rexxsol-nova .nova-impact-copy small { color: #516781; font-size: clamp(12px,.82vw,15px); font-weight: 450; line-height: 1.4; }
+
+@media (max-width: 900px) {
+    .theme-rexxsol-nova .nova-impact-item { gap: 14px; padding-inline: 5%; }
+    .theme-rexxsol-nova .nova-impact-icon { width: 54px; height: 54px; border-radius: 14px; font-size: 21px; }
+}
+@media (max-width: 640px) {
+    .theme-rexxsol-nova .nova-impact-strip { padding: 22px 20px 26px; }
+    .theme-rexxsol-nova .nova-impact-strip h2 { margin-bottom: 16px; font-size: clamp(23px,6vw,30px); }
+    .theme-rexxsol-nova .nova-impact-items { grid-template-columns: 1fr; gap: 0; }
+    .theme-rexxsol-nova .nova-impact-item { min-height: 68px; gap: 14px; padding: 10px 0; }
+    .theme-rexxsol-nova .nova-impact-item + .nova-impact-item { border-top: 1px solid #d9e5ed; border-left: 0; }
+    .theme-rexxsol-nova .nova-impact-icon { width: 48px; height: 48px; border-radius: 12px; font-size: 19px; }
+    .theme-rexxsol-nova .nova-impact-copy { gap: 5px; }
+    .theme-rexxsol-nova .nova-impact-copy strong { font-size: 14px; }
+    .theme-rexxsol-nova .nova-impact-copy small { font-size: 12px; }
+}
+
+@media (max-width: 760px) {
+    .theme-rexxsol-nova .nova-slider-controls button { width: 44px; height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .theme-rexxsol-nova .nova-button,
+    .theme-rexxsol-nova .nova-header-cta,
+    .theme-rexxsol-nova .nova-project-cta-inner > a,
+    .theme-rexxsol-nova .nova-text-link,
+    .theme-rexxsol-nova .nova-icon-only,
+    .theme-rexxsol-nova .nova-slider-controls button { transition: none; }
+}
+
+.theme-rexxsol-nova .nova-header { background: rgba(255,255,255,.96); }
+.theme-rexxsol-nova .nova-hero,
+.theme-rexxsol-nova .nova-hero--expanded { background: #fff; }
+.theme-rexxsol-nova .nova-hero::before {
+    position: absolute;
+    z-index: -2;
+    inset: -5% -3% -7%;
+    background:
+        radial-gradient(ellipse 43% 48% at 50% 47%, rgba(255,255,255,.98) 0%, rgba(255,255,255,.94) 39%, rgba(255,255,255,.56) 70%, transparent 100%),
+        radial-gradient(ellipse 58% 67% at 7% 83%, rgba(229,242,255,.9) 0%, rgba(229,242,255,.72) 40%, rgba(229,242,255,.2) 72%, transparent 100%),
+        radial-gradient(ellipse 58% 65% at 94% 83%, rgba(233,250,245,.78) 0%, rgba(239,250,240,.62) 42%, rgba(239,250,240,.18) 73%, transparent 100%),
+        linear-gradient(180deg, #fff 0%, #fff 39%, #fbfdff 100%);
+    content: "";
+    opacity: .97;
+    pointer-events: none;
+    animation: nova-bg-drift 18s ease-in-out infinite alternate;
+}
+.theme-rexxsol-nova .nova-hero::after {
+    right: -12%;
+    bottom: -34%;
+    left: -12%;
+    height: 60%;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.62), rgba(255,255,255,.16) 48%, transparent 76%);
+    pointer-events: none;
+}
+.theme-rexxsol-nova .nova-hero-rays {
+    top: auto;
+    bottom: -30%;
+    left: -14%;
+    width: 128%;
+    height: 73%;
+    background: none;
+    opacity: .78;
+    mask-image: linear-gradient(to top, transparent 0%, #000 24%, rgba(0,0,0,.6) 70%, transparent 100%);
+    pointer-events: none;
+}
+.theme-rexxsol-nova .nova-hero-rays::before,
+.theme-rexxsol-nova .nova-hero-rays::after {
+    position: absolute;
+    right: -5%;
+    bottom: 0;
+    left: -5%;
+    height: 100%;
+    border: 1px solid rgba(255,255,255,.68);
+    border-bottom: 0;
+    border-radius: 50% 50% 0 0;
+    content: "";
+    pointer-events: none;
+}
+.theme-rexxsol-nova .nova-hero-rays::before { transform: translateY(28%) scaleX(1.08); }
+.theme-rexxsol-nova .nova-hero-rays::after { transform: translateY(47%) scaleX(.94); opacity: .7; }
+.theme-rexxsol-nova .nova-title { color: #10243b; }
+.theme-rexxsol-nova .nova-title-brand {
+    color: var(--nova-teal);
+    background-image: linear-gradient(100deg, #1168aa 0%, #168f9c 54%, #4f984d 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+@supports not ((background-clip: text) or (-webkit-background-clip: text)) {
+    .theme-rexxsol-nova .nova-title-brand { color: var(--nova-teal); background: none; }
+}
+@keyframes nova-bg-drift {
+    0% { transform: translate3d(-.35%, .2%, 0) scale(1); opacity: .94; }
+    100% { transform: translate3d(.45%, -.25%, 0) scale(1.015); opacity: 1; }
+}
+.theme-rexxsol-nova .nova-corner-card {
+    border-color: rgba(230,240,250,.96);
+    background: rgba(255,255,255,.98);
+    box-shadow: 0 18px 42px rgba(32,104,154,.11), 0 9px 24px rgba(40,168,174,.07);
+}
+.theme-rexxsol-nova .nova-service-icon { background: #e7f3ff; color: #1168aa; }
+.theme-rexxsol-nova .nova-card-right li:nth-child(2) .nova-service-icon { background: #e8f8f8; color: #168f9c; }
+.theme-rexxsol-nova .nova-card-right li:nth-child(3) .nova-service-icon { background: #eff9ec; color: #569f50; }
+.theme-rexxsol-nova .nova-card-right li b { color: #79a4c8; }
+.theme-rexxsol-nova .nova-hero-chart span:nth-child(3n + 1) { background: linear-gradient(180deg,#bcdcff,#1168aa); box-shadow: 0 4px 9px rgba(17,104,170,.12); }
+.theme-rexxsol-nova .nova-hero-chart span:nth-child(3n + 2) { background: linear-gradient(180deg,#bceeed,#28a8ae); box-shadow: 0 4px 9px rgba(40,168,174,.11); }
+.theme-rexxsol-nova .nova-hero-chart span:nth-child(3n) { background: linear-gradient(180deg,#d8f0d2,#78c970); box-shadow: 0 4px 9px rgba(120,201,112,.1); }
+.theme-rexxsol-nova .nova-expertise .nova-service-card:nth-child(3n + 2) .nova-icon-tile { background: #e8f8f8; color: #168f9c; }
+.theme-rexxsol-nova .nova-expertise .nova-service-card:nth-child(3n) .nova-icon-tile { background: #eff9ec; color: #569f50; }
+.theme-rexxsol-nova .nova-header-cta,
+.theme-rexxsol-nova .nova-button-primary {
+    border-color: #1168aa;
+    background-color: #1168aa;
+    background-image: linear-gradient(180deg, rgba(255,255,255,.13), transparent 54%), linear-gradient(105deg,#1168aa 0%,#0e7898 52%,#087c86 100%);
+    background-size: 100% 100%, 200% 100%;
+    background-position: 0 0, 0 0;
+    box-shadow: 0 8px 20px rgba(17,104,170,.19), 0 3px 11px rgba(40,168,174,.11);
+    color: #fff;
+    transition: transform .2s ease, box-shadow .2s ease, background-position .24s ease;
+}
+.theme-rexxsol-nova .nova-header-cta:hover,
+.theme-rexxsol-nova .nova-button-primary:hover {
+    border-color: #0b7185;
+    background-color: #0b7185;
+    background-position: 0 0, 100% 0;
+    box-shadow: 0 10px 22px rgba(17,104,170,.22), 0 4px 13px rgba(40,168,174,.15);
+    filter: none;
+    transform: translateY(-2px);
+}
+.theme-rexxsol-nova .nova-button-secondary:hover,
+.theme-rexxsol-nova .nova-project-cta-inner > a:hover {
+    border-color: #b5dddf;
+    background: #f1faf8;
+    color: #10243b;
+}
+@media (max-width: 760px) {
+    .theme-rexxsol-nova .nova-hero::before { inset: -3% -12% -4%; }
+    .theme-rexxsol-nova .nova-hero-rays { bottom: -19%; height: 54%; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .theme-rexxsol-nova .nova-hero::before { animation: none; transform: none; }
+}
+
+/* Capabilities cards styled to match the reference layout. */
+.theme-rexxsol-nova .nova-section.nova-expertise { padding-block: 36px 28px; background: linear-gradient(115deg,#f5faff 0%,#fff 54%,#f4fbff 100%); }
+.theme-rexxsol-nova .nova-expertise .nova-container { width: min(100% - 76px,1420px); }
+.theme-rexxsol-nova .nova-expertise .nova-expertise-heading { display: flex; max-width: none; align-items: center; justify-content: space-between; gap: 40px; margin: 0 0 18px; padding-inline: 15px; text-align: left; }
+.theme-rexxsol-nova .nova-expertise-heading .nova-kicker { margin-bottom: 12px; color: #147cc1; font-size: 12px; letter-spacing: .16em; }
+.theme-rexxsol-nova .nova-expertise-heading h2 { color: var(--nova-navy); font-size: clamp(38px,3.77vw,44px); font-weight: 760; letter-spacing: -.025em; line-height: 1; }
+.theme-rexxsol-nova .nova-expertise .nova-expertise-heading > p:last-child { width: min(100%,350px); max-width: 350px; margin: 0; align-self: center; color: #697b94; font-size: clamp(16px,1.55vw,18px); line-height: 1.4; transform: translate(11px,10px); }
+.theme-rexxsol-nova .nova-expertise .nova-service-grid { width: calc(100% + 16px); grid-template-columns: repeat(3,minmax(0,1fr)); gap: 11px; }
+.theme-rexxsol-nova .nova-expertise .nova-service-card { position: relative; display: flex; min-height: 250px; flex-direction: column; align-items: flex-start; gap: 0; padding: 18px 24px 12px; border-color: #d9e7f6; border-radius: 17px; background: rgba(255,255,255,.84); box-shadow: 0 8px 24px rgba(28,76,125,.035); }
+.theme-rexxsol-nova .nova-expertise .nova-service-card:hover { border-color: #b7d5ee; background: #fff; box-shadow: 0 12px 28px rgba(28,76,125,.09); }
+.theme-rexxsol-nova .nova-expertise .nova-service-number { position: absolute; top: 18px; right: 22px; color: #8295b2; font-size: 13px; font-weight: 650; }
+.theme-rexxsol-nova .nova-expertise .nova-icon-tile { width: 50px; height: 50px; border-radius: 12px; background: #e5f2ff; color: #1675c2; font-size: 19px; }
+.theme-rexxsol-nova .nova-expertise .nova-service-copy { display: flex; width: 100%; flex: 1; flex-direction: column; align-items: flex-start; gap: 0; padding-top: 15px; }
+.theme-rexxsol-nova .nova-expertise .nova-service-copy h3 { margin: 0 0 8px; color: var(--nova-navy); font-size: clamp(19px,1.63vw,21px); font-weight: 750; line-height: 1.3; }
+.theme-rexxsol-nova .nova-expertise .nova-service-copy p { margin: 0; color: #71819a; font-size: clamp(15px,1.3vw,16px); line-height: 1.5; }
+.theme-rexxsol-nova .nova-expertise .nova-service-link { display: inline-flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 14px; color: #1273bd; font-size: 16px; font-weight: 700; text-decoration: none; }
+.theme-rexxsol-nova .nova-expertise .nova-service-link > span { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 50%; background: #e7f3ff; color: #1675c2; transition: color .2s ease, background-color .2s ease, transform .2s ease; }
+.theme-rexxsol-nova .nova-expertise .nova-service-link:hover > span { transform: translateX(3px); background: #1675c2; color: #fff; }
+.theme-rexxsol-nova .nova-expertise .nova-services-action { display: flex; justify-content: center; margin-top: 18px; }
+.theme-rexxsol-nova .nova-expertise .nova-services-action .nova-button { min-height: 48px; padding-inline: 30px; }
+@media (max-width: 900px) {
+    .theme-rexxsol-nova .nova-expertise .nova-service-card { min-height: 230px; padding-inline: 18px; }
+    .theme-rexxsol-nova .nova-expertise-heading h2 { font-size: clamp(30px,4vw,40px); }
+}
+@media (max-width: 640px) {
+    .theme-rexxsol-nova .nova-section.nova-expertise { padding-block: 42px 48px; }
+    .theme-rexxsol-nova .nova-expertise .nova-container { width: min(100% - 32px,1420px); }
+    .theme-rexxsol-nova .nova-expertise .nova-expertise-heading { align-items: flex-start; flex-direction: column; gap: 12px; margin-bottom: 22px; padding-inline: 0; }
+    .theme-rexxsol-nova .nova-expertise-heading h2 { font-size: clamp(30px,8vw,38px); }
+    .theme-rexxsol-nova .nova-expertise .nova-expertise-heading > p:last-child { width: auto; max-width: none; margin: 0; align-self: flex-start; font-size: 15px; transform: none; }
+    .theme-rexxsol-nova .nova-expertise-heading > p br { display: none; }
+    .theme-rexxsol-nova .nova-expertise .nova-service-grid { width: 100%; grid-template-columns: 1fr; gap: 12px; }
+    .theme-rexxsol-nova .nova-expertise .nova-service-card { min-height: 218px; padding: 17px 19px 18px; }
+    .theme-rexxsol-nova .nova-expertise .nova-service-copy h3 { font-size: 18px; }
+    .theme-rexxsol-nova .nova-expertise .nova-service-copy p { font-size: 14px; }
+}
+
+/* About section dashboard and copy matched to the capabilities reference. */
+.theme-rexxsol-nova .nova-section.nova-about { padding: 38px 0 48px; background: linear-gradient(110deg,#f5faff 0%,#fff 53%,#f2fbf8 100%); }
+.theme-rexxsol-nova .nova-about .nova-about-grid { width: min(100% - 64px,1092px); grid-template-columns: 1.05fr .95fr; align-items: center; gap: 60px; margin-inline: auto; }
+.theme-rexxsol-nova .nova-about .nova-dashboard { min-height: 440px; padding: 42px; border-color: #dbeaf5; border-radius: 16px; background: linear-gradient(135deg,#e7f4ff 0%,#dff5f4 100%); }
+.theme-rexxsol-nova .nova-about .nova-dashboard-window { position: relative; z-index: 1; min-height: 310px; border-radius: 12px; transform: rotate(-2deg); }
+.theme-rexxsol-nova .nova-about .nova-window-bar { height: 34px; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-layout { min-height: 274px; grid-template-columns: 42px minmax(0,1fr); }
+.theme-rexxsol-nova .nova-about .nova-dashboard-layout > nav { gap: 13px; color: #6c87ad; font-size: 12px; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-layout > nav i:first-child { color: #147cc1; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-main { min-width: 0; padding: 15px 16px; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-title { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #172b49; font-size: 12px; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-title > i { color: #8295ae; font-size: 11px; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-panels { gap: 8px; margin-top: 12px; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-panels > div { display: grid; min-width: 0; grid-template-columns: 14px minmax(0,1fr); align-items: center; gap: 5px; padding: 9px 7px 7px; border: 1px solid #e4edf5; border-radius: 7px; background: linear-gradient(180deg,#fff,#f9fcff); }
+.theme-rexxsol-nova .nova-about .nova-dashboard-panels > div > i { display: grid; width: 14px; height: 14px; place-items: center; border-radius: 4px; background: #e8f3ff; color: #147cc1; font-size: 8px; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-panels > div:nth-child(2) > i { background: #e9f8ed; color: #4ca65a; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-panels > div:nth-child(3) > i { background: #e4f8f6; color: #168f9c; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-panels > div > span { overflow: hidden; color: #62738e; font-size: 8px; text-overflow: ellipsis; white-space: nowrap; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-panels > div > b { grid-column: 1 / -1; height: 3px; border-radius: 3px; background: #d7ebff; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-panels > div:nth-child(2) > b { background: #d5efd8; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-panels > div:nth-child(3) > b { background: #d1efeb; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-chart { height: 112px; margin-top: 11px; padding: 9px; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-chart > strong { position: relative; z-index: 1; color: #7788a3; font-size: 8px; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-chart-plot { position: absolute; inset: 23px 9px 8px; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-chart-plot svg { width: 100%; height: 100%; overflow: visible; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-chart-plot polyline { fill: none; stroke: #1594af; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4; vector-effect: non-scaling-stroke; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-workflows { position: absolute; z-index: 2; bottom: 18px; left: 18px; display: grid; width: 195px; gap: 7px; padding: 11px 13px; border: 1px solid #e4edf5; border-radius: 9px; background: rgba(255,255,255,.97); box-shadow: 0 10px 22px rgba(39,87,130,.12); }
+.theme-rexxsol-nova .nova-about .nova-dashboard-workflows > strong { margin-bottom: 2px; color: #263b5c; font-size: 9px; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-workflows > span { display: flex; min-height: 18px; align-items: center; gap: 7px; color: #62738e; font-size: 8px; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-workflows > span > i { width: 13px; color: #2987c3; font-size: 9px; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-workflows > span > b { width: 5px; height: 5px; margin-left: auto; border-radius: 50%; background: #62c878; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-integrations { position: absolute; z-index: 2; right: 15px; bottom: 42px; display: grid; width: 76px; min-height: 65px; align-content: center; justify-items: center; gap: 7px; border: 1px solid #e4edf5; border-radius: 9px; background: rgba(255,255,255,.97); color: #168f9c; box-shadow: 0 10px 22px rgba(39,87,130,.12); }
+.theme-rexxsol-nova .nova-about .nova-dashboard-integrations > i { font-size: 17px; }
+.theme-rexxsol-nova .nova-about .nova-dashboard-integrations > span { color: #62738e; font-size: 8px; }
+.theme-rexxsol-nova .nova-about .nova-about-copy { padding-block: 4px; }
+.theme-rexxsol-nova .nova-about .nova-about-copy > .nova-kicker { margin-bottom: 8px; color: #148c9a; font-size: 10px; letter-spacing: .19em; }
+.theme-rexxsol-nova .nova-about .nova-about-copy h2 { max-width: 470px; font-size: clamp(38px,3.6vw,44px); font-weight: 760; letter-spacing: -.025em; line-height: 1.02; }
+.theme-rexxsol-nova .nova-about .nova-about-description { margin: 14px 0 16px; color: #71819a; font-size: 14px; line-height: 1.55; }
+.theme-rexxsol-nova .nova-about .nova-about-points { gap: 9px; margin-bottom: 15px; }
+.theme-rexxsol-nova .nova-about .nova-about-points li { gap: 12px; }
+.theme-rexxsol-nova .nova-about .nova-about-points .nova-icon-tile { width: 38px; height: 38px; border-radius: 9px; }
+.theme-rexxsol-nova .nova-about .nova-about-points strong { color: var(--nova-navy); font-size: 13px; }
+.theme-rexxsol-nova .nova-about .nova-about-points small { color: #7b8cac; font-size: 11px; line-height: 1.4; }
+.theme-rexxsol-nova .nova-about .nova-text-link { min-height: 42px; padding: 0 19px; border: 1px solid #1168aa; border-radius: 999px; background: linear-gradient(105deg,#1168aa,#0e7898 58%,#087c86); box-shadow: 0 6px 15px rgba(17,104,170,.18); color: #fff; font-size: 12px; text-decoration: none; }
+.theme-rexxsol-nova .nova-about .nova-text-link:hover { transform: translateY(-2px); box-shadow: 0 9px 19px rgba(17,104,170,.23); }
+@media (max-width: 900px) {
+    .theme-rexxsol-nova .nova-about .nova-about-grid { width: min(100% - 48px,680px); grid-template-columns: 1fr; gap: 28px; }
+    .theme-rexxsol-nova .nova-about .nova-dashboard { min-height: 390px; }
+    .theme-rexxsol-nova .nova-about .nova-about-copy h2 { font-size: clamp(34px,6vw,42px); }
+}
+@media (max-width: 520px) {
+    .theme-rexxsol-nova .nova-about .nova-about-grid { width: min(100% - 32px,680px); }
+    .theme-rexxsol-nova .nova-about .nova-dashboard { min-height: 300px; padding: 24px 19px; }
+    .theme-rexxsol-nova .nova-about .nova-dashboard-window { min-height: 225px; }
+    .theme-rexxsol-nova .nova-about .nova-dashboard-layout { min-height: 190px; grid-template-columns: 30px minmax(0,1fr); }
+    .theme-rexxsol-nova .nova-about .nova-dashboard-main { padding: 11px; }
+    .theme-rexxsol-nova .nova-about .nova-dashboard-chart { height: 78px; }
+    .theme-rexxsol-nova .nova-about .nova-dashboard-workflows { bottom: 12px; left: 11px; width: 145px; padding: 8px 10px; }
+    .theme-rexxsol-nova .nova-about .nova-dashboard-integrations { right: 10px; bottom: 30px; width: 62px; min-height: 56px; }
+}
+
+/* Process timeline and reasons section styled to the paired reference. */
+.theme-rexxsol-nova .nova-section.nova-process { padding-block: 50px 58px; }
+.theme-rexxsol-nova .nova-process .nova-section-heading { margin-bottom: 28px; }
+.theme-rexxsol-nova .nova-process .nova-section-heading h2 { font-size: clamp(32px,3vw,39px); }
+.theme-rexxsol-nova .nova-process .nova-section-heading > p:last-child { margin-top: 9px; font-size: 13px; }
+.theme-rexxsol-nova .nova-process .nova-process-marker { color: #1686c5; }
+.theme-rexxsol-nova .nova-process .nova-process-step--2 .nova-process-marker,
+.theme-rexxsol-nova .nova-process .nova-process-step--3 .nova-process-marker { border-color: #91d5d4; color: #1ba3aa; }
+.theme-rexxsol-nova .nova-process .nova-process-step--4 .nova-process-marker { border-color: #a9dca8; color: #56ae58; }
+.theme-rexxsol-nova .nova-process .nova-process-step--2 .nova-process-icon,
+.theme-rexxsol-nova .nova-process .nova-process-step--3 .nova-process-icon { color: #1ba3aa; }
+.theme-rexxsol-nova .nova-process .nova-process-step--4 .nova-process-icon { color: #56ae58; }
+.theme-rexxsol-nova .nova-section.nova-why { padding: 54px 0 62px; background: linear-gradient(105deg,#f1f8ff 0%,#f8fcff 50%,#f0faf7 100%); }
+.theme-rexxsol-nova .nova-why .nova-why-layout { display: grid; width: min(100% - 92px,1100px); grid-template-columns: minmax(0,.78fr) minmax(0,1.22fr); align-items: center; gap: 82px; margin-inline: auto; }
+.theme-rexxsol-nova .nova-why .nova-why-intro { max-width: 380px; }
+.theme-rexxsol-nova .nova-why .nova-why-intro .nova-kicker { margin-bottom: 12px; color: #148c9a; font-size: 10px; letter-spacing: .2em; }
+.theme-rexxsol-nova .nova-why .nova-why-intro h2 { max-width: 360px; margin: 0; color: var(--nova-navy); font-size: clamp(34px,3.3vw,41px); font-weight: 760; letter-spacing: -.025em; line-height: .99; }
+.theme-rexxsol-nova .nova-why .nova-why-intro h2 span { display: block; }
+.theme-rexxsol-nova .nova-why .nova-why-intro > p:not(.nova-kicker) { max-width: 340px; margin: 16px 0 0; color: #71819a; font-size: 15px; line-height: 1.5; }
+.theme-rexxsol-nova .nova-why .nova-why-accent { display: block; width: 76px; height: 4px; margin-top: 20px; border-radius: 4px; background: linear-gradient(90deg,#117bb2,#20a6a4); }
+.theme-rexxsol-nova .nova-why .nova-why-list { display: grid; margin: 0; padding: 0; list-style: none; }
+.theme-rexxsol-nova .nova-why .nova-why-row { display: grid; min-height: 82px; grid-template-columns: 60px minmax(0,1fr); align-items: center; gap: 16px; padding: 10px 0; border-bottom: 1px solid #d9e4eb; }
+.theme-rexxsol-nova .nova-why .nova-why-row:last-child { border-bottom: 0; }
+.theme-rexxsol-nova .nova-why .nova-why-number { color: #76a8d2; font-size: 38px; font-weight: 400; letter-spacing: -.05em; line-height: 1; }
+.theme-rexxsol-nova .nova-why .nova-why-row--teal .nova-why-number { color: #70c3c2; }
+.theme-rexxsol-nova .nova-why .nova-why-row--green .nova-why-number { color: #87c783; }
+.theme-rexxsol-nova .nova-why .nova-why-row h3 { margin: 0 0 5px; color: #1c304b; font-size: 18px; font-weight: 750; line-height: 1.25; }
+.theme-rexxsol-nova .nova-why .nova-why-row p { margin: 0; color: #71819a; font-size: 13px; line-height: 1.45; }
+@media (max-width: 760px) {
+    .theme-rexxsol-nova .nova-why .nova-why-layout { width: min(100% - 40px,620px); grid-template-columns: 1fr; gap: 26px; }
+    .theme-rexxsol-nova .nova-why .nova-why-intro { max-width: 500px; }
+}
+@media (max-width: 520px) {
+    .theme-rexxsol-nova .nova-section.nova-process { padding-block: 42px 44px; }
+    .theme-rexxsol-nova .nova-process .nova-section-heading h2 { font-size: 29px; }
+    .theme-rexxsol-nova .nova-section.nova-why { padding-block: 40px 46px; }
+    .theme-rexxsol-nova .nova-why .nova-why-layout { width: min(100% - 32px,620px); gap: 22px; }
+    .theme-rexxsol-nova .nova-why .nova-why-intro h2 { font-size: 34px; }
+    .theme-rexxsol-nova .nova-why .nova-why-row { min-height: 76px; grid-template-columns: 49px minmax(0,1fr); gap: 12px; }
+    .theme-rexxsol-nova .nova-why .nova-why-number { font-size: 33px; }
+    .theme-rexxsol-nova .nova-why .nova-why-row h3 { font-size: 16px; }
+}
+
+/* Nova CTA and footer use these isolated classes so other themes keep their own layouts. */
+.theme-rexxsol-nova .nova-premium-cta {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 0;
+    border-top: 1px solid #dfeefb;
+    border-bottom: 1px solid #cfeaf6;
+    background: linear-gradient(112deg,var(--nova-cta-start,#effaff) 0%,#f9fdff 48%,var(--nova-cta-end,#f4fffd) 100%);
+}
+.theme-rexxsol-nova .nova-premium-cta-inner {
+    position: relative;
+    z-index: 1;
+    width: min(84%,1200px);
+    margin-inline: auto;
+    padding-top: 20px;
+}
+.theme-rexxsol-nova .nova-premium-cta-copy { max-width: 980px; min-width: 0; }
+.theme-rexxsol-nova .nova-premium-cta-eyebrow {
+    margin: 0 0 4px;
+    color: #1789d9;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+.theme-rexxsol-nova .nova-premium-cta-heading-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.theme-rexxsol-nova .nova-premium-cta h2 {
+    margin: 0;
+    color: #071433;
+    font-size: clamp(34px,3.4vw,46px);
+    font-weight: 850;
+    letter-spacing: -.045em;
+    line-height: 1.02;
+}
+.theme-rexxsol-nova .nova-premium-cta-description {
+    max-width: 570px;
+    margin: 6px 0 0;
+    color: #536a84;
+    font-size: clamp(13px,1.1vw,15px);
+    line-height: 1.4;
+}
+.theme-rexxsol-nova .nova-premium-cta-button {
+    display: grid;
+    place-items: center;
+    flex: 0 0 46px;
+    width: 46px;
+    height: 46px;
+    border: 0;
+    border-radius: 50%;
+    background: linear-gradient(105deg,var(--nova-button-start,#0878d1),var(--nova-button-end,#008f8d));
+    box-shadow: 0 7px 16px rgba(36,94,255,.17);
+    color: #fff;
+    transition: transform .24s cubic-bezier(.2,.7,.25,1), box-shadow .24s ease;
+}
+.theme-rexxsol-nova .nova-premium-cta-button:hover { box-shadow: 0 10px 20px rgba(36,94,255,.22); transform: translateY(-2px); }
+.theme-rexxsol-nova .nova-premium-cta-button:focus-visible,
+.theme-rexxsol-nova .nova-premium-cta-email:focus-visible,
+.theme-rexxsol-nova .nova-premium-footer a:focus-visible,
+.theme-rexxsol-nova .nova-premium-back-to-top:focus-visible { outline: 3px solid #1683de; outline-offset: 3px; }
+.theme-rexxsol-nova .nova-premium-cta-button svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; transform: rotate(8deg); }
+.theme-rexxsol-nova .nova-premium-cta-divider {
+    width: min(84%,1200px);
+    height: 1px;
+    margin: 12px auto 0;
+    background: rgba(13, 36, 81, 0.08);
+}
+.theme-rexxsol-nova .nova-premium-cta-meta {
+    display: flex;
+    width: min(84%,1200px);
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin: 8px auto 0;
+    padding-bottom: 12px;
+}
+.theme-rexxsol-nova .nova-premium-cta-email,
+.theme-rexxsol-nova .nova-premium-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #0d1d3b;
+    font-size: 12px;
+    font-weight: 700;
+}
+.theme-rexxsol-nova .nova-premium-cta-email i { color: #0878d1; font-size: 15px; }
+.theme-rexxsol-nova .nova-premium-cta-link { font-size: 12px; color: #0d1d3b; }
+.theme-rexxsol-nova .nova-premium-cta-link span { color: #0c95d1; font-weight: 800; }
+.theme-rexxsol-nova .nova-premium-cta-rings {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    right: -250px;
+    width: 340px;
+    aspect-ratio: 1;
+    border: 1px solid rgba(72,208,220,.15);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+.theme-rexxsol-nova .nova-premium-cta-rings::before,
+.theme-rexxsol-nova .nova-premium-cta-rings::after {
+    position: absolute;
+    inset: 34px;
+    border: 1px solid rgba(72,208,220,.3);
+    border-radius: 50%;
+    content: "";
+}
+.theme-rexxsol-nova .nova-premium-cta-rings::after { inset: 74px; box-shadow: 0 0 0 40px rgba(255,255,255,0),0 0 0 41px rgba(72,208,220,.1),0 0 0 80px rgba(255,255,255,0),0 0 0 81px rgba(72,208,220,.08); }
+.theme-rexxsol-nova .nova-premium-footer { position: relative; overflow: hidden; border-top: 1px solid #c6e2fb; background: #fff; color: #60769e; }
+.theme-rexxsol-nova .nova-premium-footer-inner { position: relative; width: min(84%,1080px); margin-inline: auto; padding-top: 8px; }
+.theme-rexxsol-nova .nova-premium-footer-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.55fr .78fr .88fr 1.12fr; gap: 24px; min-height: 82px; }
+.theme-rexxsol-nova .nova-premium-footer-brand img { display: block; width: auto; max-width: 180px; height: 36px; object-fit: contain; object-position: left center; }
+.theme-rexxsol-nova .nova-premium-footer-wordmark { display: block; color: #0878c5; font-size: 23px; line-height: 1.2; }
+.theme-rexxsol-nova .nova-premium-footer-brand p { max-width: 220px; margin: 4px 0 6px; font-size: 11px; line-height: 1.35; white-space: pre-line; }
+.theme-rexxsol-nova .nova-premium-footer-nav,
+.theme-rexxsol-nova .nova-premium-footer-contact { display: grid; align-content: start; justify-items: start; gap: 6px; min-width: 0; }
+.theme-rexxsol-nova .nova-premium-footer-grid h2 { margin: 2px 0 4px; color: #0d1d3b; font-size: 12px; font-weight: 750; letter-spacing: -.02em; }
+.theme-rexxsol-nova .nova-premium-footer-nav a,
+.theme-rexxsol-nova .nova-premium-footer-contact > a { color: #60769e; font-size: 10px; line-height: 1.35; transition: color .18s ease; }
+.theme-rexxsol-nova .nova-premium-footer-nav a:hover,
+.theme-rexxsol-nova .nova-premium-footer-contact > a:hover,
+.theme-rexxsol-nova .nova-premium-footer-bottom a:hover { color: #0878c5; }
+.theme-rexxsol-nova .nova-premium-footer-contact > a { display: inline-flex; align-items: flex-start; gap: 8px; overflow-wrap: anywhere; }
+.theme-rexxsol-nova .nova-premium-footer-contact > a > i { width: 14px; flex: 0 0 14px; padding-top: 1px; color: #0878c5; font-size: 13px; text-align: center; }
+.theme-rexxsol-nova .nova-premium-footer-socials { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 3px; }
+.theme-rexxsol-nova .nova-premium-footer-socials a {
+    display: grid;
+    width: 26px;
+    height: 26px;
+    place-items: center;
+    border: 1px solid #b8dcfb;
+    border-radius: 50%;
+    color: #0878c5;
+    font-size: 12px;
+    transition: border-color .18s ease, background .18s ease, transform .18s ease;
+}
+.theme-rexxsol-nova .nova-premium-footer-socials a:hover { transform: translateY(-2px); border-color: #1683de; background: #f0f8ff; color: #0878c5; }
+.theme-rexxsol-nova .nova-premium-footer-bottom { position: relative; z-index: 1; display: flex; min-height: 36px; align-items: center; justify-content: space-between; gap: 18px; border-top: 1px solid #c6dff5; }
+.theme-rexxsol-nova .nova-premium-footer-bottom p { margin: 0; color: #7185a7; font-size: 10px; }
+.theme-rexxsol-nova .nova-premium-footer-bottom nav { display: flex; flex-wrap: wrap; gap: 0; margin-right: 44px; }
+.theme-rexxsol-nova .nova-premium-footer-bottom nav a { padding-inline: 8px; border-right: 1px solid #9aacc7; color: #647899; font-size: 10px; line-height: 1.2; }
+.theme-rexxsol-nova .nova-premium-footer-bottom nav a:last-child { padding-right: 0; border: 0; }
+.theme-rexxsol-nova .nova-premium-back-to-top { position: absolute; top: 50%; right: 0; display: grid; width: 30px; height: 30px; place-items: center; border: 1px solid #b8dcfb; border-radius: 50%; background: rgba(255,255,255,.86); color: #0878c5; font-size: 13px; transform: translateY(-50%); transition: background .18s ease, transform .18s ease; }
+.theme-rexxsol-nova .nova-premium-back-to-top:hover { background: #f0f8ff; transform: translateY(calc(-50% - 2px)); }
+@media (max-width: 1050px) {
+    .theme-rexxsol-nova .nova-premium-footer-inner { width: min(84%,1080px); }
+    .theme-rexxsol-nova .nova-premium-footer-grid { grid-template-columns: 1.3fr .8fr .9fr 1.2fr; gap: 20px; }
+}
+@media (max-width: 900px) {
+    .theme-rexxsol-nova .nova-premium-cta-inner { width: min(84%,1200px); padding-top: 20px; }
+    .theme-rexxsol-nova .nova-premium-footer-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 30px 22px; }
+    .theme-rexxsol-nova .nova-premium-footer-brand { grid-column: 1 / -1; }
+    .theme-rexxsol-nova .nova-premium-footer-contact { grid-column: 1 / -1; }
+}
+@media (max-width: 760px) {
+    .theme-rexxsol-nova .nova-premium-cta-inner { width: min(calc(100% - 40px),640px); padding-top: 22px; }
+    .theme-rexxsol-nova .nova-premium-cta-eyebrow { margin-bottom: 5px; font-size: 8px; letter-spacing: .18em; }
+    .theme-rexxsol-nova .nova-premium-cta-heading-wrap { gap: 12px; }
+    .theme-rexxsol-nova .nova-premium-cta h2 { max-width: 100%; font-size: clamp(32px,9vw,42px); line-height: 1.02; }
+    .theme-rexxsol-nova .nova-premium-cta-description { margin-top: 6px; font-size: 14px; }
+    .theme-rexxsol-nova .nova-premium-cta-button { flex-basis: 42px; width: 42px; height: 42px; }
+    .theme-rexxsol-nova .nova-premium-cta-divider,
+    .theme-rexxsol-nova .nova-premium-cta-meta { width: min(calc(100% - 40px),640px); }
+    .theme-rexxsol-nova .nova-premium-cta-divider { margin-top: 12px; }
+    .theme-rexxsol-nova .nova-premium-cta-meta { flex-wrap: wrap; gap: 8px 16px; margin-top: 8px; padding-bottom: 12px; }
+    .theme-rexxsol-nova .nova-premium-cta-email,
+    .theme-rexxsol-nova .nova-premium-cta-link { min-height: 28px; font-size: 12px; }
+    .theme-rexxsol-nova .nova-premium-cta-rings { right: -290px; width: 350px; }
+    .theme-rexxsol-nova .nova-premium-footer-inner { width: min(calc(100% - 40px),640px); padding-top: 22px; }
+    .theme-rexxsol-nova .nova-premium-footer-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px 22px; min-height: 0; padding-bottom: 20px; }
+    .theme-rexxsol-nova .nova-premium-footer-brand { grid-column: 1 / -1; }
+    .theme-rexxsol-nova .nova-premium-footer-brand p { margin-top: 8px; font-size: 13px; }
+    .theme-rexxsol-nova .nova-premium-footer-grid h2 { margin-top: 0; font-size: 13px; }
+    .theme-rexxsol-nova .nova-premium-footer-nav,
+    .theme-rexxsol-nova .nova-premium-footer-contact { gap: 12px; }
+    .theme-rexxsol-nova .nova-premium-footer-bottom { min-height: 62px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 7px; padding: 10px 45px 10px 0; }
+    .theme-rexxsol-nova .nova-premium-footer-bottom p,
+    .theme-rexxsol-nova .nova-premium-footer-bottom nav a { font-size: 10px; }
+    .theme-rexxsol-nova .nova-premium-footer-bottom nav { margin: 0; }
+    .theme-rexxsol-nova .nova-premium-footer-bottom nav a { min-height: 24px; align-items: center; padding-inline: 0 10px; margin-right: 10px; }
+    .theme-rexxsol-nova .nova-premium-back-to-top { right: 0; }
+}
+@media (max-width: 420px) {
+    .theme-rexxsol-nova .nova-premium-footer-inner { width: min(calc(100% - 32px),640px); }
+    .theme-rexxsol-nova .nova-premium-footer-grid { gap: 20px 14px; }
+    .theme-rexxsol-nova .nova-premium-footer-nav a,
+    .theme-rexxsol-nova .nova-premium-footer-contact > a { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .theme-rexxsol-nova .nova-premium-cta-button,
+    .theme-rexxsol-nova .nova-premium-footer a,
+    .theme-rexxsol-nova .nova-premium-back-to-top { transition: none; }
+}
+
+/* Reference-sized CTA/footer presentation for Rexxsol Nova. */
+.theme-rexxsol-nova .nova-premium-cta {
+    min-height: 0;
+    border-top: 1px solid #dfeefb;
+    border-bottom: 1px solid #cfeaf6;
+    background: linear-gradient(112deg, var(--nova-cta-start, #effaff) 0%, #f9fdff 48%, var(--nova-cta-end, #f4fffd) 100%);
+}
+.theme-rexxsol-nova .nova-premium-cta-inner {
+    display: block;
+    width: min(84%, 1200px);
+    min-height: 0;
+    padding: 20px 0 0;
+    text-align: left;
+}
+.theme-rexxsol-nova .nova-premium-cta-copy { max-width: 980px; }
+.theme-rexxsol-nova .nova-premium-cta-eyebrow {
+    margin: 0 0 4px;
+    color: #1789d9;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .2em;
+}
+.theme-rexxsol-nova .nova-premium-cta-heading-wrap { display: flex; align-items: center; gap: 16px; }
+.theme-rexxsol-nova .nova-premium-cta h2 {
+    margin: 0;
+    color: #071433;
+    font-size: clamp(34px, 3.4vw, 46px);
+    font-weight: 850;
+    letter-spacing: -.045em;
+    line-height: 1.02;
+}
+.theme-rexxsol-nova .nova-premium-cta-description {
+    max-width: 570px;
+    margin: 6px 0 0;
+    color: #536a84;
+    font-size: clamp(13px, 1.1vw, 15px);
+    line-height: 1.4;
+}
+.theme-rexxsol-nova .nova-premium-cta-button {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    min-height: 46px;
+    flex: 0 0 46px;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: linear-gradient(105deg, var(--nova-button-start, #0878d1), var(--nova-button-end, #008f8d));
+    box-shadow: 0 7px 16px rgba(36, 94, 255, .17);
+    color: #fff;
+    transition: transform .24s cubic-bezier(.2, .7, .25, 1), box-shadow .24s ease;
+}
+.theme-rexxsol-nova .nova-premium-cta-button:hover { box-shadow: 0 10px 20px rgba(36, 94, 255, .22); transform: translateY(-2px); }
+.theme-rexxsol-nova .nova-premium-cta-button svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
+.theme-rexxsol-nova .nova-premium-cta-divider {
+    width: min(84%, 1200px);
+    height: 1px;
+    margin: 12px auto 0;
+    background: rgba(13, 36, 81, .08);
+}
+.theme-rexxsol-nova .nova-premium-cta-meta {
+    display: flex;
+    width: min(84%, 1200px);
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 8px auto 0;
+    padding-bottom: 12px;
+}
+.theme-rexxsol-nova .nova-premium-cta-email,
+.theme-rexxsol-nova .nova-premium-cta-link {
+    display: inline-flex;
+    min-height: 24px;
+    align-items: center;
+    gap: 9px;
+    color: #0d1d3b;
+    font-size: 12px;
+    font-weight: 700;
+}
+.theme-rexxsol-nova .nova-premium-cta-email i { color: #0878d1; font-size: 15px; }
+.theme-rexxsol-nova .nova-premium-cta-link span { color: #0c95d1; font-weight: 800; }
+.theme-rexxsol-nova .nova-premium-cta-rings { right: -250px; width: 340px; border-color: rgba(72, 208, 220, .12); }
+.theme-rexxsol-nova .nova-premium-cta-rings::before { border-color: rgba(72, 208, 220, .12); }
+.theme-rexxsol-nova .nova-premium-cta-rings::after { box-shadow: 0 0 0 40px transparent, 0 0 0 41px rgba(72, 208, 220, .08), 0 0 0 80px transparent, 0 0 0 81px rgba(72, 208, 220, .06); }
+
+.theme-rexxsol-nova .nova-premium-footer { background: #fff; }
+.theme-rexxsol-nova .nova-premium-footer-inner { width: min(84%, 1080px); padding-top: 8px; }
+.theme-rexxsol-nova .nova-premium-footer-grid {
+    grid-template-columns: 1.55fr .78fr .88fr 1.12fr;
+    gap: 24px;
+    min-height: 82px;
+    padding-bottom: 0;
+}
+.theme-rexxsol-nova .nova-premium-footer-brand,
+.theme-rexxsol-nova .nova-premium-footer-contact { grid-column: auto; }
+.theme-rexxsol-nova .nova-premium-footer-brand img { width: auto; max-width: 180px; height: 36px; }
+.theme-rexxsol-nova .nova-premium-footer-wordmark { font-size: 23px; line-height: 1.2; }
+.theme-rexxsol-nova .nova-premium-footer-brand p { max-width: 220px; margin: 4px 0 6px; font-size: 11px; line-height: 1.35; }
+.theme-rexxsol-nova .nova-premium-footer-nav,
+.theme-rexxsol-nova .nova-premium-footer-contact { gap: 6px; }
+.theme-rexxsol-nova .nova-premium-footer-grid h2 { margin: 2px 0 4px; font-size: 12px; }
+.theme-rexxsol-nova .nova-premium-footer-nav a,
+.theme-rexxsol-nova .nova-premium-footer-contact > a { font-size: 10px; line-height: 1.35; }
+.theme-rexxsol-nova .nova-premium-footer-contact > a { gap: 8px; }
+.theme-rexxsol-nova .nova-premium-footer-contact > a > i { width: 14px; flex-basis: 14px; font-size: 13px; }
+.theme-rexxsol-nova .nova-premium-footer-socials { gap: 7px; margin-top: 3px; }
+.theme-rexxsol-nova .nova-premium-footer-socials a { width: 26px; height: 26px; font-size: 12px; }
+.theme-rexxsol-nova .nova-premium-footer-bottom { min-height: 36px; gap: 18px; }
+.theme-rexxsol-nova .nova-premium-footer-bottom p,
+.theme-rexxsol-nova .nova-premium-footer-bottom nav a { font-size: 10px; }
+.theme-rexxsol-nova .nova-premium-footer-legal { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+.theme-rexxsol-nova .nova-premium-footer-bottom nav { display: flex; flex-wrap: wrap; margin: 0; }
+.theme-rexxsol-nova .nova-premium-footer-bottom nav a { padding: 4px 8px; border: 0; }
+.theme-rexxsol-nova .nova-premium-footer-bottom nav a:not(:last-child)::after { height: 12px; border-color: #b3c2d7; }
+.theme-rexxsol-nova .nova-premium-back-to-top {
+    position: static;
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    transform: none;
+}
+.theme-rexxsol-nova .nova-premium-back-to-top:hover { transform: translateY(-2px); }
+
+@media (max-width: 720px) {
+    .theme-rexxsol-nova .nova-premium-cta-inner { width: min(84%, 1200px); padding-top: 20px; }
+    .theme-rexxsol-nova .nova-premium-footer-inner { width: min(calc(100% - 56px), 760px); }
+    .theme-rexxsol-nova .nova-premium-footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+        min-height: 0;
+        padding-bottom: 20px;
+    }
+    .theme-rexxsol-nova .nova-premium-footer-brand,
+    .theme-rexxsol-nova .nova-premium-footer-contact { grid-column: 1 / -1; }
+}
+@media (max-width: 700px) {
+    .theme-rexxsol-nova .nova-premium-cta-inner { width: min(calc(100% - 40px), 640px); padding-top: 22px; }
+    .theme-rexxsol-nova .nova-premium-cta-eyebrow { font-size: 8px; letter-spacing: .18em; }
+    .theme-rexxsol-nova .nova-premium-cta-heading-wrap { gap: 12px; }
+    .theme-rexxsol-nova .nova-premium-cta h2 { font-size: clamp(32px, 9vw, 42px); }
+    .theme-rexxsol-nova .nova-premium-cta-description { font-size: 14px; }
+    .theme-rexxsol-nova .nova-premium-cta-button { width: 42px; height: 42px; min-width: 42px; min-height: 42px; flex-basis: 42px; }
+    .theme-rexxsol-nova .nova-premium-cta-divider,
+    .theme-rexxsol-nova .nova-premium-cta-meta { width: min(calc(100% - 40px), 640px); }
+    .theme-rexxsol-nova .nova-premium-cta-meta { flex-wrap: wrap; gap: 8px 16px; }
+    .theme-rexxsol-nova .nova-premium-footer-inner { width: min(calc(100% - 40px), 640px); padding-top: 20px; }
+    .theme-rexxsol-nova .nova-premium-footer-grid { gap: 20px 16px; }
+    .theme-rexxsol-nova .nova-premium-footer-bottom { min-height: 62px; align-items: flex-start; flex-direction: column; gap: 7px; padding: 10px 44px 10px 0; }
+    .theme-rexxsol-nova .nova-premium-footer-legal { width: 100%; justify-content: flex-start; margin: 0; }
+    .theme-rexxsol-nova .nova-premium-back-to-top { position: absolute; right: 0; bottom: 12px; }
+}
+@media (max-width: 420px) {
+    .theme-rexxsol-nova .nova-premium-footer-inner { width: min(calc(100% - 32px), 640px); }
+    .theme-rexxsol-nova .nova-premium-footer-grid { gap: 18px 12px; }
+    .theme-rexxsol-nova .nova-premium-footer-bottom nav a { padding: 4px 6px 4px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .theme-rexxsol-nova .nova-premium-cta-button,
+    .theme-rexxsol-nova .nova-premium-footer a,
+    .theme-rexxsol-nova .nova-premium-back-to-top { transition: none; }
+}
+
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"] ~ main .nova-hero,
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"] ~ main .nova-hero--expanded {
+    padding-top: 48px;
+}
+@media (max-width: 760px) {
+    .theme-rexxsol-nova .nova-header-slot[data-home-page="true"] ~ main .nova-hero,
+    .theme-rexxsol-nova .nova-header-slot[data-home-page="true"] ~ main .nova-hero--expanded {
+        padding-top: 38px;
+    }
+}
+@media (max-width: 520px) {
+    .theme-rexxsol-nova .nova-header-slot[data-home-page="true"] ~ main .nova-hero,
+    .theme-rexxsol-nova .nova-header-slot[data-home-page="true"] ~ main .nova-hero--expanded {
+        padding-top: 32px;
+    }
+}
+.theme-rexxsol-nova .nova-header-slot.is-compact .nova-brand,
+.theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-brand {
+    min-height: 0;
+    padding-block: 0;
+}
+.theme-rexxsol-nova .nova-header-slot.is-compact .nova-brand img,
+.theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-brand img {
+    width: auto;
+    height: auto;
+    max-width: 190px;
+    max-height: 64px;
+    object-fit: contain;
+}
+@media (max-width: 760px) {
+    .theme-rexxsol-nova .nova-header-slot[data-home-page="true"] .nova-brand {
+        min-height: 0;
+        padding-block: 4px;
+    }
+    .theme-rexxsol-nova .nova-header-slot.is-compact .nova-brand img,
+    .theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-brand img {
+        width: auto;
+        height: auto;
+        max-width: min(160px, 46vw);
+        max-height: 60px;
+        object-fit: contain;
+    }
+}
+
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"]:not(.is-compact):not(.is-no-hero),
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"]:not(.is-compact):not(.is-no-hero) .nova-header,
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"]:not(.is-compact):not(.is-no-hero) .nova-header-inner {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"]:not(.is-compact):not(.is-no-hero) .nova-header {
+    border: 0 solid transparent;
+    border-color: transparent;
+    border-radius: 0;
+}
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"]:not(.is-compact):not(.is-no-hero)::before,
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"]:not(.is-compact):not(.is-no-hero)::after,
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"]:not(.is-compact):not(.is-no-hero) .nova-header::before,
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"]:not(.is-compact):not(.is-no-hero) .nova-header::after,
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"]:not(.is-compact):not(.is-no-hero) .nova-header-inner::before,
+.theme-rexxsol-nova .nova-header-slot[data-home-page="true"]:not(.is-compact):not(.is-no-hero) .nova-header-inner::after {
+    content: none;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+@media (max-width: 760px) {
+    .theme-rexxsol-nova .nova-header-slot.is-compact,
+    .theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) {
+        width: calc(100% - 24px);
+    }
+    .theme-rexxsol-nova .nova-header-slot.is-compact .nova-header-inner,
+    .theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-header-inner {
+        min-height: 78px;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        padding-inline: 14px;
+    }
+    .theme-rexxsol-nova .nova-header-slot.is-compact .nova-brand img,
+    .theme-rexxsol-nova .nova-header-slot:not([data-home-page="true"]) .nova-brand img {
+        max-width: min(160px, 46vw);
+        max-height: 60px;
+    }
+}
+
+/* Scoped process and reasons interactions for the Nova homepage. */
+.theme-rexxsol-nova .nova-process .nova-process-connector path {
+    stroke-dasharray: 1.5 5.5;
+    stroke-dashoffset: 24;
+    transition: stroke-dashoffset .9s ease;
+}
+.theme-rexxsol-nova .nova-process.is-visible .nova-process-connector path { stroke-dashoffset: 0; }
+.theme-rexxsol-nova .nova-process .nova-process-step,
+.theme-rexxsol-nova .nova-why .nova-why-row {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity .45s ease, transform .45s cubic-bezier(.2,.7,.25,1);
+}
+.theme-rexxsol-nova .nova-process.is-pending .nova-process-step,
+.theme-rexxsol-nova .nova-why.is-pending .nova-why-row {
+    opacity: 0;
+    transform: translateY(9px);
+}
+.theme-rexxsol-nova .nova-process.is-visible .nova-process-step:nth-child(1),
+.theme-rexxsol-nova .nova-why.is-visible .nova-why-row:nth-child(1) { transition-delay: .08s; }
+.theme-rexxsol-nova .nova-process.is-visible .nova-process-step:nth-child(2),
+.theme-rexxsol-nova .nova-why.is-visible .nova-why-row:nth-child(2) { transition-delay: .19s; }
+.theme-rexxsol-nova .nova-process.is-visible .nova-process-step:nth-child(3),
+.theme-rexxsol-nova .nova-why.is-visible .nova-why-row:nth-child(3) { transition-delay: .30s; }
+.theme-rexxsol-nova .nova-process.is-visible .nova-process-step:nth-child(4),
+.theme-rexxsol-nova .nova-why.is-visible .nova-why-row:nth-child(4) { transition-delay: .41s; }
+.theme-rexxsol-nova .nova-process.is-visible .nova-process-step:nth-child(5),
+.theme-rexxsol-nova .nova-why.is-visible .nova-why-row:nth-child(5) { transition-delay: .52s; }
+.theme-rexxsol-nova .nova-process.is-visible .nova-process-step:nth-child(6),
+.theme-rexxsol-nova .nova-why.is-visible .nova-why-row:nth-child(6) { transition-delay: .63s; }
+.theme-rexxsol-nova .nova-process .nova-process-icon {
+    width: 19px;
+    height: 19px;
+    transition: transform .2s ease;
+}
+.theme-rexxsol-nova .nova-process .nova-process-marker:hover .nova-process-icon { transform: scale(1.08); }
+.theme-rexxsol-nova .nova-process .nova-process-marker { transition: border-color .2s ease, background-color .2s ease; }
+.theme-rexxsol-nova .nova-process .nova-process-step--2 .nova-process-marker:hover { background-color: #f0fbfb; }
+.theme-rexxsol-nova .nova-process .nova-process-step--3 .nova-process-marker:hover { background-color: #f0fbfb; }
+.theme-rexxsol-nova .nova-process .nova-process-step--4 .nova-process-marker:hover { background-color: #f5fcf4; }
+.theme-rexxsol-nova .nova-why .nova-why-intro h2 { white-space: pre-line; }
+.theme-rexxsol-nova .nova-why .nova-why-number {
+    transform-origin: left center;
+    transition: transform .2s ease, color .2s ease;
+}
+.theme-rexxsol-nova .nova-why .nova-why-row:hover .nova-why-number { transform: scale(1.035); }
+
+@media (min-width: 761px) and (max-width: 900px) {
+    .theme-rexxsol-nova .nova-process .nova-process-connector--desktop {
+        top: 0;
+        display: block;
+        width: 25.4%;
+        height: 236px;
+        stroke: #a9c8e6;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+    }
+    .theme-rexxsol-nova .nova-process .nova-process-connector--one { left: 3.5%; }
+    .theme-rexxsol-nova .nova-process .nova-process-connector--two { left: 28.9%; }
+    .theme-rexxsol-nova .nova-process .nova-process-connector--three { left: 54.3%; }
+    .theme-rexxsol-nova .nova-process .nova-process-list { min-height: 236px; gap: 8px; }
+    .theme-rexxsol-nova .nova-process .nova-process-list::before { display: none; }
+    .theme-rexxsol-nova .nova-process .nova-process-list li { display: block; min-height: 236px; padding: 0 8px; }
+    .theme-rexxsol-nova .nova-process .nova-process-list li:nth-child(even) { padding-top: 96px; }
+    .theme-rexxsol-nova .nova-process .nova-process-marker { position: relative; display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid #9fc9ec; border-radius: 50%; background: rgba(255,255,255,.9); }
+    .theme-rexxsol-nova .nova-process .nova-step-number { position: absolute; top: 4px; left: -19px; width: auto; height: auto; border: 0; border-radius: 0; background: transparent; color: #7589a7; font-size: 9px; }
+    .theme-rexxsol-nova .nova-process .nova-process-list h3 { margin: 8px 0 4px; font-size: 14px; }
+    .theme-rexxsol-nova .nova-process .nova-process-list p { max-width: 165px; font-size: 11px; line-height: 1.45; }
+    .theme-rexxsol-nova .nova-why .nova-why-layout { width: min(100% - 64px,1100px); gap: 38px; }
+}
+
+@media (max-width: 760px) {
+    .theme-rexxsol-nova .nova-process .nova-process-connector--mobile {
+        top: 0;
+        left: 5px;
+        display: block;
+        width: 40px;
+        height: 100%;
+        stroke: #a9c8e6;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+    }
+    .theme-rexxsol-nova .nova-process .nova-process-list {
+        grid-template-columns: minmax(0,1fr);
+        gap: 21px;
+        padding-block: 4px;
+    }
+    .theme-rexxsol-nova .nova-process .nova-process-list::before { display: none; }
+    .theme-rexxsol-nova .nova-process .nova-process-list li,
+    .theme-rexxsol-nova .nova-process .nova-process-list li:nth-child(even) {
+        display: grid;
+        min-height: 66px;
+        grid-template-columns: 48px minmax(0,1fr);
+        align-items: center;
+        gap: 12px;
+        padding: 0;
+    }
+    .theme-rexxsol-nova .nova-process .nova-process-marker {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border: 1px solid #9fc9ec;
+        border-radius: 50%;
+        background: #fff;
+    }
+    .theme-rexxsol-nova .nova-process .nova-step-number {
+        position: absolute;
+        top: -7px;
+        left: -8px;
+        display: block;
+        width: auto;
+        height: auto;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        color: #7589a7;
+        font-size: 9px;
+    }
+    .theme-rexxsol-nova .nova-process .nova-process-list h3 { margin: 0 0 4px; font-size: 15px; }
+    .theme-rexxsol-nova .nova-process .nova-process-list p { max-width: none; font-size: 12px; line-height: 1.5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-rexxsol-nova .nova-process .nova-process-connector path {
+        stroke-dashoffset: 0;
+        transition: none;
+    }
+    .theme-rexxsol-nova .nova-process .nova-process-step,
+    .theme-rexxsol-nova .nova-why .nova-why-row {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .theme-rexxsol-nova .nova-process .nova-process-icon,
+    .theme-rexxsol-nova .nova-why .nova-why-number { transition: none; }
+}
+
+/* About page reference layout; kept off the shared homepage and other themes. */
+.theme-rexxsol-nova.nova-about-route .nova-about-page { color: #0b1835; }
+.theme-rexxsol-nova.nova-about-route .nova-about-hero {
+    min-height: 0;
+    padding: 18px 0 19px;
+    border-bottom: 1px solid #eaf2f7;
+    background:
+        radial-gradient(ellipse at 0 100%, rgba(228, 244, 255, .72), transparent 48%),
+        radial-gradient(ellipse at 100% 100%, rgba(231, 250, 245, .7), transparent 48%),
+        #fff;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-hero .nova-page-heading { max-width: 900px; margin: 0 auto; }
+.theme-rexxsol-nova.nova-about-route .nova-about-hero .nova-page-kicker {
+    margin: 0 0 8px;
+    color: #168dd0;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .2em;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-hero .nova-page-heading h1 {
+    color: #172033;
+    font-size: clamp(36px, 4.2vw, 54px);
+    font-weight: 760;
+    letter-spacing: -.045em;
+    line-height: 1.03;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-hero .nova-page-heading > p:last-child {
+    max-width: 680px;
+    margin: 5px auto 0;
+    color: #71839d;
+    font-size: clamp(13px, 1.25vw, 17px);
+    line-height: 1.45;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-section { padding: 26px 0 24px; }
+.theme-rexxsol-nova.nova-about-route .nova-about-story .nova-container { width: min(100% - 64px, 1100px); }
+.theme-rexxsol-nova.nova-about-route .nova-about-story-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.16fr) minmax(0, .84fr);
+    align-items: center;
+    gap: clamp(28px, 4vw, 52px);
+}
+.theme-rexxsol-nova.nova-about-route .nova-experience-panel {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    min-height: 248px;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    padding: 23px 20px 68px;
+    border: 1px solid #e7f0f4;
+    border-radius: 13px;
+    background: linear-gradient(115deg, #eef8ff 0%, #f5fbff 46%, #e9faf5 100%);
+}
+.theme-rexxsol-nova.nova-about-route .nova-experience-number {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: baseline;
+    color: #0b1835;
+    font-size: clamp(76px, 9vw, 105px);
+    font-weight: 800;
+    letter-spacing: -.075em;
+    line-height: .9;
+}
+.theme-rexxsol-nova.nova-about-route .nova-experience-number b { font-weight: 800; }
+.theme-rexxsol-nova.nova-about-route .nova-experience-label {
+    position: relative;
+    z-index: 1;
+    margin: 3px 0 0;
+    color: #7085a0;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .19em;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+.theme-rexxsol-nova.nova-about-route .nova-experience-curve {
+    position: absolute;
+    top: 48%;
+    left: 2%;
+    z-index: 1;
+    display: block;
+    width: 96%;
+    height: 94px;
+    overflow: visible;
+}
+.theme-rexxsol-nova.nova-about-route .nova-experience-curve path {
+    fill: none;
+    stroke: url(#nova-experience-gradient);
+    stroke-width: 1.35;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 1.25s cubic-bezier(.2,.7,.25,1);
+}
+.theme-rexxsol-nova.nova-about-route .nova-experience-panel.is-visible .nova-experience-curve path { stroke-dashoffset: 0; }
+.theme-rexxsol-nova.nova-about-route .nova-experience-curve circle { stroke: #fff; stroke-width: 1; }
+.theme-rexxsol-nova.nova-about-route .nova-experience-node--blue { fill: #168dd0; }
+.theme-rexxsol-nova.nova-about-route .nova-experience-node--navy { fill: #0878b9; }
+.theme-rexxsol-nova.nova-about-route .nova-experience-node--green { fill: #58cd78; }
+.theme-rexxsol-nova.nova-about-route .nova-experience-node--cyan { fill: #18afc5; }
+.theme-rexxsol-nova.nova-about-route .nova-experience-capabilities {
+    position: absolute;
+    right: 13px;
+    bottom: 13px;
+    left: 13px;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.theme-rexxsol-nova.nova-about-route .nova-experience-capabilities li {
+    display: grid;
+    min-width: 0;
+    justify-items: center;
+    gap: 5px;
+    color: #3d5576;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.25;
+    text-align: center;
+}
+.theme-rexxsol-nova.nova-about-route .nova-experience-capabilities li + li { border-left: 1px solid #d6e6f0; }
+.theme-rexxsol-nova.nova-about-route .nova-experience-capabilities svg {
+    width: 21px;
+    height: 21px;
+    fill: none;
+    stroke: #168dd0;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.4;
+    transition: transform .2s ease, stroke .2s ease;
+}
+.theme-rexxsol-nova.nova-about-route .nova-experience-capabilities li:hover svg { stroke: #18afc5; transform: translateY(-2px); }
+.theme-rexxsol-nova.nova-about-route .nova-about-story-copy { min-width: 0; }
+.theme-rexxsol-nova.nova-about-route .nova-about-eyebrow {
+    margin: 0 0 6px;
+    color: #168dd0;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .17em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-story-copy h2 {
+    margin: 0;
+    color: #172033;
+    font-size: clamp(27px, 3vw, 36px);
+    font-weight: 760;
+    letter-spacing: -.035em;
+    line-height: 1.06;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-story-body {
+    display: grid;
+    gap: 10px;
+    margin-top: 11px;
+    color: #71839d;
+    font-size: 13px;
+    line-height: 1.48;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-story-body p { margin: 0; }
+.theme-rexxsol-nova.nova-about-route .nova-about-accent {
+    width: 40px;
+    height: 2px;
+    margin: 12px 0 0;
+    background: linear-gradient(90deg, #168dd0, #18afc5);
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-story-close {
+    margin: 10px 0 0;
+    color: #263c5a;
+    font-size: 12px;
+    font-weight: 750;
+    line-height: 1.45;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-principles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-principle {
+    display: grid;
+    min-width: 0;
+    min-height: 86px;
+    grid-template-columns: 52px minmax(0, 1fr);
+    align-items: center;
+    gap: 15px;
+    padding: 13px 16px;
+    border: 1px solid #e2ecf3;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 5px 17px rgba(35, 76, 110, .025);
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-principle:hover { border-color: #cde3ef; box-shadow: 0 8px 20px rgba(35, 76, 110, .07); }
+.theme-rexxsol-nova.nova-about-route .nova-about-icon {
+    display: grid;
+    width: 52px;
+    height: 52px;
+    place-items: center;
+    border-radius: 11px;
+    background: #eaf5fc;
+    color: #168dd0;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-icon--green {
+    background: #eff9ec;
+    color: #58b94e;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-icon--code {
+    background: #e6f8f8;
+    color: #0ca2b6;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-icon--support {
+    background: #eaf5fc;
+    color: #168dd0;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-icon svg {
+    width: 25px;
+    height: 25px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.6;
+    transition: transform .2s ease;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-principle:hover .nova-about-icon svg,
+.theme-rexxsol-nova.nova-about-route .nova-thinking-item:hover .nova-about-icon svg { transform: scale(1.06); }
+.theme-rexxsol-nova.nova-about-route .nova-about-principle h3 {
+    margin: 0 0 3px;
+    color: #1a2a44;
+    font-size: 14px;
+    font-weight: 750;
+    line-height: 1.25;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-principle p {
+    margin: 0;
+    color: #7285a0;
+    font-size: 12px;
+    line-height: 1.4;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-thinking {
+    padding: 32px 0 29px;
+    background: #f2f9fe;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-thinking .nova-container { width: min(100% - 64px, 1100px); }
+.theme-rexxsol-nova.nova-about-route .nova-about-thinking-heading { margin-bottom: 15px; }
+.theme-rexxsol-nova.nova-about-route .nova-about-thinking-heading .nova-about-eyebrow { margin-bottom: 4px; }
+.theme-rexxsol-nova.nova-about-route .nova-about-thinking-heading h2 {
+    margin: 0;
+    color: #172033;
+    font-size: clamp(30px, 3.5vw, 39px);
+    font-weight: 760;
+    letter-spacing: -.04em;
+    line-height: 1.1;
+}
+.theme-rexxsol-nova.nova-about-route .nova-thinking-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.theme-rexxsol-nova.nova-about-route .nova-thinking-item {
+    min-width: 0;
+    padding: 0 24px;
+    transition: transform .2s ease;
+}
+.theme-rexxsol-nova.nova-about-route .nova-thinking-item:first-child { padding-left: 10px; }
+.theme-rexxsol-nova.nova-about-route .nova-thinking-item + .nova-thinking-item { border-left: 1px solid #dceaf3; }
+.theme-rexxsol-nova.nova-about-route .nova-thinking-item .nova-about-icon { width: 43px; height: 43px; border-radius: 10px; }
+.theme-rexxsol-nova.nova-about-route .nova-thinking-item .nova-about-icon svg { width: 23px; height: 23px; }
+.theme-rexxsol-nova.nova-about-route .nova-thinking-item h3 {
+    margin: 8px 0 4px;
+    color: #1a2a44;
+    font-size: 14px;
+    font-weight: 750;
+    line-height: 1.3;
+}
+.theme-rexxsol-nova.nova-about-route .nova-thinking-item p { margin: 0; color: #7285a0; font-size: 12px; line-height: 1.45; }
+.theme-rexxsol-nova.nova-about-route .nova-about-bring { padding: 26px 0 23px; background: #fff; }
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-grid {
+    display: grid;
+    width: min(100% - 64px, 1100px);
+    grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+    align-items: center;
+    gap: clamp(35px, 6vw, 76px);
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-intro { max-width: 390px; }
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-intro h2 {
+    margin: 0;
+    color: #172033;
+    font-size: clamp(33px, 4vw, 43px);
+    font-weight: 760;
+    letter-spacing: -.04em;
+    line-height: 1.02;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-description { margin: 9px 0 0; color: #7285a0; font-size: 14px; line-height: 1.45; }
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-list { display: grid; margin: 0; padding: 0; list-style: none; }
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-list li {
+    display: grid;
+    min-width: 0;
+    min-height: 60px;
+    grid-template-columns: 44px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid #e2ebf1;
+    transition: background-color .18s ease;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-list li:last-child { border-bottom: 0; }
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-list li > span {
+    color: #70aada;
+    font-size: 30px;
+    font-weight: 350;
+    letter-spacing: -.055em;
+    line-height: 1;
+    transition: color .2s ease, transform .2s ease;
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-list li:nth-child(2) > span { color: #61c2c2; }
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-list li:nth-child(3) > span { color: #76c576; }
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-list li:nth-child(4) > span { color: #74a9d8; }
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-list li:hover > span { transform: translateX(2px); }
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-list h3 { margin: 0 0 2px; color: #1a2a44; font-size: 14px; font-weight: 750; line-height: 1.25; }
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-list p { margin: 0; color: #7285a0; font-size: 11px; line-height: 1.35; }
+
+.theme-rexxsol-nova.nova-about-route .nova-premium-cta {
+    border: 0;
+    background: linear-gradient(105deg, #f0faff 0%, #f9fdff 50%, #effbf7 100%);
+}
+.theme-rexxsol-nova.nova-about-route .nova-premium-cta-inner { width: min(84%, 1100px); padding-top: 18px; }
+.theme-rexxsol-nova.nova-about-route .nova-premium-cta-eyebrow { margin-bottom: 3px; font-size: 9px; }
+.theme-rexxsol-nova.nova-about-route .nova-premium-cta-heading-wrap { gap: 14px; }
+.theme-rexxsol-nova.nova-about-route .nova-premium-cta h2 { color: #172033; font-size: clamp(34px, 4vw, 44px); }
+.theme-rexxsol-nova.nova-about-route .nova-premium-cta-description { margin-top: 3px; font-size: 13px; line-height: 1.35; white-space: pre-line; }
+.theme-rexxsol-nova.nova-about-route .nova-premium-cta-button { width: 44px; height: 44px; min-width: 44px; min-height: 44px; flex-basis: 44px; }
+.theme-rexxsol-nova.nova-about-route .nova-premium-cta-divider { width: min(84%, 1100px); margin-top: 10px; }
+.theme-rexxsol-nova.nova-about-route .nova-premium-cta-meta { width: min(84%, 1100px); margin-top: 6px; padding-bottom: 10px; }
+.theme-rexxsol-nova.nova-about-route .nova-premium-cta-link span { transition: transform .18s ease; }
+.theme-rexxsol-nova.nova-about-route .nova-premium-cta-link:hover span { transform: translate(2px, -2px); }
+.theme-rexxsol-nova.nova-about-route .nova-premium-footer { position: relative; isolation: isolate; }
+.theme-rexxsol-nova.nova-about-route .nova-premium-footer::before,
+.theme-rexxsol-nova.nova-about-route .nova-premium-footer::after {
+    position: absolute;
+    z-index: -1;
+    bottom: -35px;
+    width: 118%;
+    height: 66px;
+    border-radius: 50% 50% 0 0 / 34% 38% 0 0;
+    content: "";
+    pointer-events: none;
+}
+.theme-rexxsol-nova.nova-about-route .nova-premium-footer::before { left: -13%; background: #f3f9fe; transform: rotate(-1.2deg); }
+.theme-rexxsol-nova.nova-about-route .nova-premium-footer::after { right: -30%; bottom: -41px; background: #effaf8; transform: rotate(2deg); }
+.theme-rexxsol-nova.nova-about-route .nova-premium-footer-inner { position: relative; z-index: 1; }
+.theme-rexxsol-nova.nova-about-route .nova-navigation > a[aria-current="page"]::after,
+.theme-rexxsol-nova.nova-about-route .nova-nav-group > summary[aria-current="page"]::after { background: #18afc5; }
+
+.theme-rexxsol-nova.nova-about-route .nova-about-page [data-about-reveal].nova-reveal {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity .5s ease, transform .5s cubic-bezier(.2,.7,.25,1);
+}
+.theme-rexxsol-nova.nova-about-route .nova-about-page [data-about-reveal].nova-reveal.is-pending { opacity: 0; transform: translateY(12px); }
+.theme-rexxsol-nova.nova-about-route .nova-about-page .nova-thinking-item:nth-child(2),
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-list li:nth-child(2) { transition-delay: .1s; }
+.theme-rexxsol-nova.nova-about-route .nova-about-page .nova-thinking-item:nth-child(3),
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-list li:nth-child(3) { transition-delay: .2s; }
+.theme-rexxsol-nova.nova-about-route .nova-about-bring-list li:nth-child(4) { transition-delay: .3s; }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .theme-rexxsol-nova.nova-about-route .nova-about-story .nova-container,
+    .theme-rexxsol-nova.nova-about-route .nova-about-thinking .nova-container,
+    .theme-rexxsol-nova.nova-about-route .nova-about-bring-grid { width: min(100% - 56px, 940px); }
+    .theme-rexxsol-nova.nova-about-route .nova-about-story-grid { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: 30px; }
+    .theme-rexxsol-nova.nova-about-route .nova-experience-panel { min-height: 242px; }
+    .theme-rexxsol-nova.nova-about-route .nova-about-story-copy h2 { font-size: clamp(26px, 3.1vw, 33px); }
+    .theme-rexxsol-nova.nova-about-route .nova-about-bring-grid { gap: 40px; }
+}
+
+@media (max-width: 767px) {
+    .theme-rexxsol-nova.nova-about-route .nova-about-hero { padding: 22px 0 20px; }
+    .theme-rexxsol-nova.nova-about-route .nova-about-hero .nova-page-heading h1 { font-size: clamp(34px, 8vw, 44px); }
+    .theme-rexxsol-nova.nova-about-route .nova-about-hero .nova-page-heading > p:last-child { max-width: 500px; font-size: 14px; }
+    .theme-rexxsol-nova.nova-about-route .nova-about-section { padding: 24px 0; }
+    .theme-rexxsol-nova.nova-about-route .nova-about-story .nova-container,
+    .theme-rexxsol-nova.nova-about-route .nova-about-thinking .nova-container,
+    .theme-rexxsol-nova.nova-about-route .nova-about-bring-grid { width: min(100% - 40px, 560px); }
+    .theme-rexxsol-nova.nova-about-route .nova-about-story-grid { grid-template-columns: minmax(0, 1fr); gap: 23px; }
+    .theme-rexxsol-nova.nova-about-route .nova-experience-panel { min-height: 250px; }
+    .theme-rexxsol-nova.nova-about-route .nova-experience-number { font-size: clamp(78px, 22vw, 96px); }
+    .theme-rexxsol-nova.nova-about-route .nova-about-story-copy h2 { max-width: 520px; font-size: clamp(29px, 7.2vw, 36px); }
+    .theme-rexxsol-nova.nova-about-route .nova-about-story-body { font-size: 14px; }
+    .theme-rexxsol-nova.nova-about-route .nova-about-principles { grid-template-columns: minmax(0, 1fr); gap: 10px; margin-top: 20px; }
+    .theme-rexxsol-nova.nova-about-route .nova-about-principle { min-height: 82px; }
+    .theme-rexxsol-nova.nova-about-route .nova-about-thinking { padding: 28px 0 26px; }
+    .theme-rexxsol-nova.nova-about-route .nova-about-thinking-heading { margin-bottom: 12px; }
+    .theme-rexxsol-nova.nova-about-route .nova-about-thinking-heading h2 { font-size: clamp(27px, 7vw, 34px); }
+    .theme-rexxsol-nova.nova-about-route .nova-thinking-grid { grid-template-columns: minmax(0, 1fr); }
+    .theme-rexxsol-nova.nova-about-route .nova-thinking-item,
+    .theme-rexxsol-nova.nova-about-route .nova-thinking-item:first-child { padding: 12px 0; }
+    .theme-rexxsol-nova.nova-about-route .nova-thinking-item + .nova-thinking-item { border-top: 1px solid #dceaf3; border-left: 0; }
+    .theme-rexxsol-nova.nova-about-route .nova-thinking-item h3 { margin-top: 6px; }
+    .theme-rexxsol-nova.nova-about-route .nova-about-bring { padding: 25px 0 20px; }
+    .theme-rexxsol-nova.nova-about-route .nova-about-bring-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .theme-rexxsol-nova.nova-about-route .nova-about-bring-intro h2 { max-width: 520px; font-size: clamp(34px, 8vw, 40px); }
+    .theme-rexxsol-nova.nova-about-route .nova-about-bring-list li { min-height: 66px; grid-template-columns: 42px minmax(0, 1fr); }
+    .theme-rexxsol-nova.nova-about-route .nova-premium-cta-inner { width: min(calc(100% - 40px), 560px); padding-top: 21px; }
+    .theme-rexxsol-nova.nova-about-route .nova-premium-cta-heading-wrap { justify-content: flex-start; }
+    .theme-rexxsol-nova.nova-about-route .nova-premium-cta h2 { font-size: clamp(34px, 9vw, 42px); }
+    .theme-rexxsol-nova.nova-about-route .nova-premium-cta-description { font-size: 14px; }
+    .theme-rexxsol-nova.nova-about-route .nova-premium-cta-divider,
+    .theme-rexxsol-nova.nova-about-route .nova-premium-cta-meta { width: min(calc(100% - 40px), 560px); }
+    .theme-rexxsol-nova.nova-about-route .nova-premium-footer-inner { width: min(calc(100% - 40px), 560px); }
+}
+
+@media (max-width: 420px) {
+    .theme-rexxsol-nova.nova-about-route .nova-about-story .nova-container,
+    .theme-rexxsol-nova.nova-about-route .nova-about-thinking .nova-container,
+    .theme-rexxsol-nova.nova-about-route .nova-about-bring-grid { width: min(100% - 32px, 560px); }
+    .theme-rexxsol-nova.nova-about-route .nova-experience-panel { min-height: 230px; padding-top: 20px; }
+    .theme-rexxsol-nova.nova-about-route .nova-experience-curve { top: 47%; height: 86px; }
+    .theme-rexxsol-nova.nova-about-route .nova-experience-capabilities { right: 8px; bottom: 10px; left: 8px; }
+    .theme-rexxsol-nova.nova-about-route .nova-experience-capabilities li { font-size: 10px; }
+    .theme-rexxsol-nova.nova-about-route .nova-about-principle { grid-template-columns: 46px minmax(0, 1fr); gap: 12px; padding-inline: 12px; }
+    .theme-rexxsol-nova.nova-about-route .nova-about-icon { width: 46px; height: 46px; }
+    .theme-rexxsol-nova.nova-about-route .nova-premium-cta-heading-wrap { gap: 10px; }
+    .theme-rexxsol-nova.nova-about-route .nova-premium-cta-button { width: 40px; height: 40px; min-width: 40px; min-height: 40px; flex-basis: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-rexxsol-nova.nova-about-route .nova-about-page [data-about-reveal].nova-reveal,
+    .theme-rexxsol-nova.nova-about-route .nova-experience-curve path,
+    .theme-rexxsol-nova.nova-about-route .nova-experience-capabilities svg,
+    .theme-rexxsol-nova.nova-about-route .nova-about-icon svg,
+    .theme-rexxsol-nova.nova-about-route .nova-about-bring-list li > span,
+    .theme-rexxsol-nova.nova-about-route .nova-premium-cta-link span { transition: none; }
+    .theme-rexxsol-nova.nova-about-route .nova-about-page [data-about-reveal].nova-reveal.is-pending { opacity: 1; transform: none; }
+    .theme-rexxsol-nova.nova-about-route .nova-experience-curve path { stroke-dashoffset: 0; }
+}
+
+body.theme-rexxsol-nova:has(main .nova-inner-hero) {
+    background-color: #fff;
+    background-image: linear-gradient(180deg, #f1f8ff 0%, #f7fcff 48%, #f2faf6 78%, #fff 100%);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100% min(1000px, max(640px, 75vh));
+}
+body.theme-rexxsol-nova:has(main .nova-inner-hero) .nova-header-slot {
+    background: transparent;
+}
+body.theme-rexxsol-nova:has(main .nova-inner-hero) main .nova-inner-hero {
+    background: transparent;
+}
+
+.theme-rexxsol-nova .nova-contact-hero {
+    min-height: 40vh;
+    padding: clamp(58px, 8vw, 104px) 0 clamp(24px, 3vw, 40px);
+    background: transparent;
+}
+.theme-rexxsol-nova .nova-contact-content > .nova-container {
+    width: min(calc(100% - 64px), 1170px);
+}
+.theme-rexxsol-nova .nova-contact-layout {
+    width: 100%;
+    max-width: none;
+    grid-template-columns: minmax(0, .68fr) minmax(0, 1fr);
+    gap: clamp(30px, 4.5vw, 48px);
+    align-items: start;
+}
+.theme-rexxsol-nova .nova-contact-info {
+    min-width: 0;
+    padding-top: 7px;
+}
+.theme-rexxsol-nova .nova-contact-info > h2 {
+    max-width: 360px;
+    margin: 0;
+    color: #101e39;
+    font-size: clamp(26px, 2.8vw, 32px);
+    font-weight: 800;
+    letter-spacing: -.04em;
+    line-height: 1.03;
+}
+.theme-rexxsol-nova .nova-contact-info-intro {
+    max-width: 420px;
+    margin: 12px 0 20px;
+    color: #607493;
+    font-size: 14px;
+    line-height: 1.55;
+}
+.theme-rexxsol-nova .nova-contact-rows {
+    display: grid;
+    gap: 12px;
+}
+.theme-rexxsol-nova .nova-contact-row {
+    display: grid;
+    min-width: 0;
+    grid-template-columns: 42px minmax(0, 1fr);
+    align-items: center;
+    gap: 14px;
+    color: #193452;
+}
+.theme-rexxsol-nova a.nova-contact-row {
+    border-radius: 9px;
+    text-decoration: none;
+}
+.theme-rexxsol-nova .nova-contact-icon {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 11px;
+    background: #e6f4fc;
+    color: #0876bd;
+    font-size: 16px;
+}
+.theme-rexxsol-nova .nova-contact-row-copy {
+    display: grid;
+    min-width: 0;
+    gap: 2px;
+}
+.theme-rexxsol-nova .nova-contact-row-copy strong {
+    color: #193452;
+    font-size: 12px;
+    font-weight: 750;
+}
+.theme-rexxsol-nova .nova-contact-row-copy > span {
+    color: #304d6f;
+    font-size: 13px;
+    line-height: 1.42;
+    overflow-wrap: anywhere;
+}
+.theme-rexxsol-nova a.nova-contact-row:hover .nova-contact-row-copy > span {
+    color: #0876bd;
+}
+.theme-rexxsol-nova .nova-contact-office {
+    margin-top: 21px;
+    padding-top: 14px;
+    border-top: 1px solid #d7e5ef;
+}
+.theme-rexxsol-nova .nova-contact-office h3 {
+    margin: 0 0 10px;
+    color: #101e39;
+    font-size: 20px;
+    font-weight: 780;
+    letter-spacing: -.025em;
+}
+.theme-rexxsol-nova .nova-contact-map {
+    height: 245px;
+    overflow: hidden;
+    border: 1px solid #c9dfef;
+    border-radius: 11px;
+    background: #eaf2f7;
+}
+.theme-rexxsol-nova .nova-contact-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+.theme-rexxsol-nova .nova-contact-map-unconfigured {
+    margin: 0;
+    padding: 20px;
+    border: 1px solid #c9dfef;
+    border-radius: 11px;
+    background: rgba(255,255,255,.72);
+    color: #607493;
+    font-size: 13px;
+    line-height: 1.55;
+}
+.theme-rexxsol-nova .nova-contact-directions {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    gap: 5px;
+    margin-top: 3px;
+    color: #0876bd;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.theme-rexxsol-nova .nova-contact-form {
+    min-width: 0;
+    gap: 13px;
+    padding: clamp(24px, 3vw, 34px);
+    border-color: #d7e7f2;
+    border-radius: 16px;
+    box-shadow: 0 10px 28px rgba(24, 65, 103, .055);
+}
+.theme-rexxsol-nova .nova-contact-form-heading {
+    margin-bottom: 1px;
+}
+.theme-rexxsol-nova .nova-contact-form-heading h2 {
+    margin: 0;
+    color: #101e39;
+    font-size: clamp(20px, 2vw, 23px);
+    font-weight: 780;
+    letter-spacing: -.035em;
+    line-height: 1.2;
+}
+.theme-rexxsol-nova .nova-contact-form-heading p {
+    margin: 6px 0 0;
+    color: #667d9b;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.theme-rexxsol-nova .nova-contact-form .nova-form-row {
+    gap: 14px 16px;
+}
+.theme-rexxsol-nova .nova-contact-form label {
+    min-width: 0;
+    gap: 5px;
+    color: #183857;
+    font-size: 11px;
+    font-weight: 700;
+}
+.theme-rexxsol-nova .nova-contact-form label > .nova-field-label {
+    color: #183857;
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: 0;
+}
+.theme-rexxsol-nova .nova-contact-form .nova-field-label > span {
+    color: #7286a1;
+    font-size: 10px;
+    font-weight: 500;
+}
+.theme-rexxsol-nova .nova-contact-form .nova-field-label > span[aria-hidden="true"] {
+    color: #d04d55;
+}
+.theme-rexxsol-nova .nova-contact-form input,
+.theme-rexxsol-nova .nova-contact-form select,
+.theme-rexxsol-nova .nova-contact-form textarea {
+    min-width: 0;
+    min-height: 46px;
+    padding: 10px 12px;
+    border: 1px solid #d6e5f1;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #193452;
+    font-size: 12px;
+    font-weight: 450;
+    line-height: 1.45;
+    resize: vertical;
+    transition: border-color .18s ease, box-shadow .18s ease;
+}
+.theme-rexxsol-nova .nova-contact-form textarea {
+    min-height: 132px;
+}
+.theme-rexxsol-nova .nova-contact-form input::placeholder,
+.theme-rexxsol-nova .nova-contact-form textarea::placeholder {
+    color: #99a9bd;
+    opacity: 1;
+}
+.theme-rexxsol-nova .nova-contact-form input:focus,
+.theme-rexxsol-nova .nova-contact-form select:focus,
+.theme-rexxsol-nova .nova-contact-form textarea:focus {
+    border-color: #168bc4;
+    box-shadow: 0 0 0 3px rgba(8, 118, 189, .11);
+    outline: none;
+}
+.theme-rexxsol-nova .nova-contact-form :where(input, select, textarea)[aria-invalid="true"] {
+    border-color: #c43f4b;
+}
+.theme-rexxsol-nova .nova-field-error {
+    color: #b42332;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+.theme-rexxsol-nova .nova-contact-form-note {
+    margin: -5px 0 0;
+    color: #7488a3;
+    font-size: 10px;
+    line-height: 1.45;
+}
+.theme-rexxsol-nova .nova-contact-form .nova-button {
+    width: 200px;
+    min-height: 48px;
+    justify-content: center;
+    gap: 10px;
+    border: 0;
+    border-radius: 999px;
+    background: linear-gradient(110deg, #0876bd, #0aa6a6);
+    box-shadow: 0 7px 16px rgba(8, 118, 189, .18);
+    color: #fff;
+    font-size: 13px;
+}
+.theme-rexxsol-nova .nova-contact-form .nova-button:hover {
+    background: linear-gradient(110deg, #0669aa, #078e91);
+    box-shadow: 0 9px 20px rgba(8, 118, 189, .22);
+}
+.theme-rexxsol-nova .nova-contact-form .nova-button[aria-busy="true"] {
+    cursor: progress;
+}
+.theme-rexxsol-nova .nova-contact-form .nova-button > i {
+    font-size: 13px;
+}
+.theme-rexxsol-nova .nova-contact-form .nova-button > [hidden] {
+    display: none;
+}
+.theme-rexxsol-nova .nova-contact-privacy {
+    margin: -4px 0 0;
+    color: #6b809b;
+    font-size: 10px;
+    line-height: 1.5;
+}
+.theme-rexxsol-nova .nova-contact-privacy a {
+    color: #0876bd;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+.theme-rexxsol-nova .nova-form-errors {
+    margin: 0;
+    padding: 10px 12px;
+    border: 1px solid #f3c5ca;
+    border-radius: 7px;
+    background: #fff5f5;
+    color: #a52c39;
+    font-size: 12px;
+    line-height: 1.45;
+}
+.theme-rexxsol-nova .nova-contact-form :where(a, button, input, select, textarea):focus-visible,
+.theme-rexxsol-nova .nova-contact-info :where(a):focus-visible {
+    outline: 2px solid #0876bd;
+    outline-offset: 3px;
+}
+@media (max-width: 900px) {
+    .theme-rexxsol-nova .nova-contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+    }
+    .theme-rexxsol-nova .nova-contact-info {
+        padding-top: 0;
+    }
+    .theme-rexxsol-nova .nova-contact-info > h2,
+    .theme-rexxsol-nova .nova-contact-info-intro {
+        max-width: 620px;
+    }
+    .theme-rexxsol-nova .nova-contact-rows {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+    }
+    .theme-rexxsol-nova .nova-contact-row {
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 10px;
+    }
+    .theme-rexxsol-nova .nova-contact-map {
+        height: 250px;
+    }
+}
+@media (max-width: 600px) {
+    .theme-rexxsol-nova .nova-contact-content > .nova-container {
+        width: min(calc(100% - 48px), 1170px);
+    }
+    .theme-rexxsol-nova .nova-contact-layout {
+        gap: 24px;
+    }
+    .theme-rexxsol-nova .nova-contact-rows {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+    }
+    .theme-rexxsol-nova .nova-contact-form {
+        padding: 22px 18px;
+    }
+    .theme-rexxsol-nova .nova-contact-form .nova-form-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 13px;
+    }
+    .theme-rexxsol-nova .nova-contact-map {
+        height: 225px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .theme-rexxsol-nova .nova-contact-form :where(input, select, textarea) {
+        transition: none;
+    }
+}

@@ -1,0 +1,556 @@
+/* Rexxsol Corporate public website theme. */
+
+.theme-rexxsol-corporate {
+    --corporate-navy: #000080;
+    --corporate-ink: #172033;
+    --corporate-muted: #64748b;
+    --corporate-line: #e5eaf2;
+    --corporate-pale: #f7f9fc;
+
+    background: #fff;
+    color: var(--corporate-ink);
+    font-family:
+        var(--corporate-body-font, Arial),
+        ui-sans-serif,
+        system-ui,
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.theme-rexxsol-corporate *,
+.theme-rexxsol-corporate *::before,
+.theme-rexxsol-corporate *::after {
+    box-sizing: border-box;
+}
+
+.theme-rexxsol-corporate .site-page-background {
+    background: #fff;
+}
+
+.theme-rexxsol-corporate .site-container {
+    width: calc(100% - 3rem);
+    max-width: 1280px;
+    margin-inline: auto;
+}
+
+/* Header */
+
+.theme-rexxsol-corporate .site-header {
+    border-bottom: 1px solid var(--corporate-line);
+    background: #fff;
+    box-shadow: none;
+}
+
+.theme-rexxsol-corporate .site-header-shell {
+    min-height: 80px;
+}
+
+.theme-rexxsol-corporate .site-nav {
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+}
+
+.theme-rexxsol-corporate .site-brand-logo {
+    width: auto;
+    max-height: 38px;
+    object-fit: contain;
+}
+
+.theme-rexxsol-corporate .site-nav-link {
+    max-width: 12rem;
+    overflow-wrap: anywhere;
+    line-height: 1.35;
+    color: #334155;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-underline-offset: 10px;
+    transition: color 180ms ease;
+}
+
+.theme-rexxsol-corporate .site-nav-link:hover,
+.theme-rexxsol-corporate .site-nav-link--active {
+    color: var(--corporate-navy);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+.theme-rexxsol-corporate
+    :where(a, button, input, select, textarea, summary):focus-visible {
+    outline: 3px solid var(--corporate-navy);
+    outline-offset: 4px;
+}
+
+/* Buttons */
+
+.theme-rexxsol-corporate .site-header-cta,
+.theme-rexxsol-corporate .site-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    min-height: 48px;
+    padding: 13px 23px;
+
+    border: 1px solid var(--corporate-navy);
+    border-radius: 3px;
+    background: var(--corporate-navy);
+    color: #fff;
+
+    box-shadow: none;
+    font-family: var(--corporate-body-font, Arial), sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+
+    transition:
+        background-color 180ms ease,
+        border-color 180ms ease,
+        transform 180ms ease;
+}
+
+.theme-rexxsol-corporate .site-header-cta {
+    min-height: 42px;
+    padding: 10px 20px;
+}
+
+.theme-rexxsol-corporate .site-header-cta:hover,
+.theme-rexxsol-corporate .site-button:hover {
+    background: var(--corporate-navy);
+    background: color-mix(
+        in srgb,
+        var(--corporate-navy),
+        #000 18%
+    );
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.theme-rexxsol-corporate .site-button--outline {
+    border-color: #b9c5d7;
+    background: #fff;
+    color: var(--corporate-navy);
+}
+
+.theme-rexxsol-corporate .site-button--outline:hover {
+    border-color: var(--corporate-navy);
+    background: var(--corporate-pale);
+    color: var(--corporate-navy);
+}
+
+/* Typography */
+
+.theme-rexxsol-corporate .site-section {
+    padding-block: clamp(64px, 6vw, 96px);
+}
+
+.theme-rexxsol-corporate .site-eyebrow {
+    margin: 0;
+    color: var(--corporate-navy);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    line-height: 1.6;
+    letter-spacing: 0.19em;
+    text-transform: uppercase;
+}
+
+.theme-rexxsol-corporate .site-heading,
+.theme-rexxsol-corporate .hero-heading {
+    color: var(--corporate-ink);
+    font-family: var(--corporate-heading-font, Georgia), serif;
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+}
+
+.theme-rexxsol-corporate .site-heading {
+    font-size: clamp(32px, 3.7vw, 52px);
+    line-height: 1.1;
+}
+
+.theme-rexxsol-corporate .hero-heading {
+    max-width: 650px;
+    margin: 20px 0 0;
+    font-size: clamp(38px, 4.55vw, 66px);
+    line-height: 1.04;
+    overflow-wrap: anywhere;
+}
+
+.theme-rexxsol-corporate .hero-gradient-text {
+    display: inline;
+    background: none;
+    color: var(--corporate-navy);
+    -webkit-text-fill-color: currentColor;
+}
+
+.theme-rexxsol-corporate .site-copy,
+.theme-rexxsol-corporate .hero-description {
+    color: var(--corporate-muted);
+    line-height: 1.75;
+}
+
+.theme-rexxsol-corporate .hero-description {
+    max-width: 510px;
+    margin: 24px 0 0;
+    font-size: 17px;
+}
+
+.theme-rexxsol-corporate .site-pill {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--corporate-navy);
+    box-shadow: none;
+}
+
+/* Hero */
+
+.theme-rexxsol-corporate .home-gradient {
+    background: #fff;
+}
+
+.theme-rexxsol-corporate .home-gradient::before,
+.theme-rexxsol-corporate .home-gradient::after {
+    display: none;
+}
+
+.theme-rexxsol-corporate .corporate-hero {
+    padding-block: clamp(52px, 6vw, 88px);
+    overflow: hidden;
+}
+
+.theme-rexxsol-corporate .hero-corporate-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(32px, 4.5vw, 72px);
+    align-items: center;
+    text-align: left;
+}
+
+.theme-rexxsol-corporate .hero-corporate-grid > * {
+    min-width: 0;
+}
+
+.theme-rexxsol-corporate .corporate-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 32px;
+}
+
+.theme-rexxsol-corporate .hero-corporate-media {
+    position: relative;
+    isolation: isolate;
+    margin: 22px 16px 22px 0;
+}
+
+.theme-rexxsol-corporate .corporate-hero-image,
+.theme-rexxsol-corporate .corporate-hero-placeholder {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 6 / 5;
+    border-radius: 0;
+    object-fit: cover;
+    object-position: center;
+}
+
+.theme-rexxsol-corporate .hero-corporate-accent {
+    position: absolute;
+    z-index: 0;
+    background: var(--corporate-navy);
+}
+
+.theme-rexxsol-corporate .hero-corporate-accent--top {
+    top: -22px;
+    right: -16px;
+    width: 78%;
+    height: 92px;
+}
+
+.theme-rexxsol-corporate .hero-corporate-accent--bottom {
+    bottom: -22px;
+    left: -16px;
+    width: 30%;
+    height: 100px;
+}
+
+.theme-rexxsol-corporate .corporate-hero-placeholder {
+    border: 1px solid var(--corporate-line);
+    background: #eef2f8;
+    color: var(--corporate-navy);
+}
+
+.theme-rexxsol-corporate .corporate-hero-placeholder svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Capabilities */
+
+.theme-rexxsol-corporate .capability-strip {
+    border-block: 1px solid var(--corporate-line);
+    background: #fff;
+}
+
+.theme-rexxsol-corporate .corporate-capabilities {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding-block: 30px;
+}
+
+.theme-rexxsol-corporate .corporate-capability {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    min-width: 0;
+    padding: 4px 24px;
+}
+
+.theme-rexxsol-corporate
+    .corporate-capability + .corporate-capability {
+    border-left: 1px solid var(--corporate-line);
+}
+
+.theme-rexxsol-corporate .corporate-capability:first-child {
+    padding-left: 0;
+}
+
+.theme-rexxsol-corporate .corporate-capability:last-child {
+    padding-right: 0;
+}
+
+.theme-rexxsol-corporate .corporate-icon {
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    color: var(--corporate-navy);
+}
+
+.theme-rexxsol-corporate .corporate-capability-title {
+    margin: 0;
+    font-family: var(--corporate-body-font, Arial), sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.theme-rexxsol-corporate .corporate-capability-copy {
+    margin: 7px 0 0;
+    color: var(--corporate-muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* Shared sections and cards */
+
+.theme-rexxsol-corporate .site-card {
+    border: 1px solid var(--corporate-line);
+    border-radius: 3px;
+    background: #fff;
+    box-shadow: none;
+    transition:
+        border-color 180ms ease,
+        transform 180ms ease;
+}
+
+.theme-rexxsol-corporate .site-card:hover {
+    border-color: #b9c5dc;
+    transform: translateY(-2px);
+}
+
+.theme-rexxsol-corporate .corporate-pale,
+.theme-rexxsol-corporate [data-home-section="services"] {
+    background: var(--corporate-pale);
+}
+
+.theme-rexxsol-corporate .site-link {
+    color: var(--corporate-navy);
+    text-underline-offset: 4px;
+}
+
+.theme-rexxsol-corporate .site-link:hover {
+    text-decoration: underline;
+}
+
+.theme-rexxsol-corporate .site-media {
+    overflow: hidden;
+}
+
+.theme-rexxsol-corporate .site-media img {
+    transition: transform 220ms ease;
+}
+
+.theme-rexxsol-corporate .site-card:hover .site-media img {
+    transform: scale(1.025);
+}
+
+/* CTA */
+
+.theme-rexxsol-corporate .corporate-cta {
+    background: var(--corporate-navy);
+    color: #fff;
+}
+
+.theme-rexxsol-corporate .corporate-cta .site-heading,
+.theme-rexxsol-corporate .corporate-cta .site-copy {
+    color: #fff;
+}
+
+.theme-rexxsol-corporate .corporate-cta .site-button {
+    border-color: #fff;
+    background: #fff;
+    color: var(--corporate-navy);
+}
+
+.theme-rexxsol-corporate .corporate-cta .site-button:hover {
+    background: #eef2f8;
+    color: var(--corporate-navy);
+}
+
+.theme-rexxsol-corporate
+    .corporate-cta :where(a, button):focus-visible {
+    outline-color: #fff;
+}
+
+/* Mobile navigation and accessibility */
+
+.theme-rexxsol-corporate .site-mobile-menu-panel {
+    border-top: 1px solid var(--corporate-line);
+    background: #fff;
+}
+
+.theme-rexxsol-corporate .corporate-skip-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 1000;
+    padding: 12px 18px;
+    border: 2px solid currentColor;
+    background: #fff;
+    color: var(--corporate-navy);
+    transform: translateY(-180%);
+}
+
+.theme-rexxsol-corporate .corporate-skip-link:focus {
+    transform: translateY(0);
+}
+
+/* Tablet */
+
+@media (max-width: 1023px) {
+    .theme-rexxsol-corporate .corporate-capabilities {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 26px 0;
+    }
+
+    .theme-rexxsol-corporate .corporate-capability:nth-child(3) {
+        padding-left: 0;
+        border-left: 0;
+    }
+
+    .theme-rexxsol-corporate .corporate-capability:nth-child(2) {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 800px) {
+    .theme-rexxsol-corporate .hero-corporate-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+    }
+
+    .theme-rexxsol-corporate .hero-heading {
+        max-width: 620px;
+        font-size: clamp(38px, 7.5vw, 58px);
+    }
+
+    .theme-rexxsol-corporate .hero-description {
+        max-width: 600px;
+    }
+
+    .theme-rexxsol-corporate .hero-corporate-media {
+        margin: 18px 12px;
+    }
+
+    .theme-rexxsol-corporate .corporate-hero-image,
+    .theme-rexxsol-corporate .corporate-hero-placeholder {
+        max-height: 440px;
+        aspect-ratio: 4 / 3;
+    }
+
+    .theme-rexxsol-corporate .hero-corporate-accent--top {
+        top: -18px;
+        right: -12px;
+    }
+
+    .theme-rexxsol-corporate .hero-corporate-accent--bottom {
+        bottom: -18px;
+        left: -12px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 479px) {
+    .theme-rexxsol-corporate .site-container {
+        width: calc(100% - 2.5rem);
+    }
+
+    .theme-rexxsol-corporate .corporate-hero {
+        padding-block: 44px;
+    }
+
+    .theme-rexxsol-corporate .hero-description {
+        font-size: 16px;
+    }
+
+    .theme-rexxsol-corporate .corporate-hero-actions {
+        flex-direction: column;
+    }
+
+    .theme-rexxsol-corporate .corporate-capabilities {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding-block: 8px;
+    }
+
+    .theme-rexxsol-corporate .corporate-capability,
+    .theme-rexxsol-corporate .corporate-capability:first-child,
+    .theme-rexxsol-corporate .corporate-capability:nth-child(3) {
+        padding: 20px 0;
+        border-left: 0;
+    }
+
+    .theme-rexxsol-corporate
+        .corporate-capability + .corporate-capability {
+        border-top: 1px solid var(--corporate-line);
+    }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-rexxsol-corporate *,
+    .theme-rexxsol-corporate *::before,
+    .theme-rexxsol-corporate *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .theme-rexxsol-corporate .site-card:hover,
+    .theme-rexxsol-corporate .site-card:hover .site-media img,
+    .theme-rexxsol-corporate .site-button:hover,
+    .theme-rexxsol-corporate .site-header-cta:hover {
+        transform: none;
+    }
+}

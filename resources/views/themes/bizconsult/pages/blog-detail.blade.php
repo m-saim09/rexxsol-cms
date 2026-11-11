@@ -1,0 +1,2 @@
+@extends('themes.bizconsult.layouts.app')
+@section('content')<section class="content-wrap"><div class="container"><article class="mx-auto" style="max-width:850px"><h1>{{ $item->title }}</h1><p class="text-muted">{{ optional($item->published_at)->format('F j, Y') }}</p><div class="lead mt-4">{!! $item->content !!}</div></article></div></section>@endsection

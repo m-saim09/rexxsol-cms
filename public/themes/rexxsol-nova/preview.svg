@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Rexxsol Nova theme preview</title>
+  <desc id="desc">A bright blue-gradient digital agency hero with a centered headline and floating service cards.</desc>
+  <defs>
+    <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#fff"/><stop offset=".58" stop-color="#edf4ff"/><stop offset="1" stop-color="#bdd3fc"/></linearGradient>
+    <linearGradient id="button" x2="0" y2="1"><stop stop-color="#477bff"/><stop offset="1" stop-color="#245eff"/></linearGradient>
+    <linearGradient id="bars" x2="0" y2="1"><stop stop-color="#86b1ff"/><stop offset="1" stop-color="#245eff"/></linearGradient>
+    <filter id="shadow" x="-.3" y="-.3" width="1.6" height="1.8"><feDropShadow dx="0" dy="14" stdDeviation="15" flood-color="#183a82" flood-opacity=".14"/></filter>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <path d="M0 0h390L0 410zm0 0h160L0 215zm1200 0h-84l84 190z" fill="#fff" opacity=".4"/>
+  <rect x="70" y="28" width="1060" height="66" rx="18" fill="#fff" opacity=".9"/>
+  <text x="105" y="70" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#16336e">REXXSOL</text>
+  <g font-family="Arial,sans-serif" font-size="14" fill="#53658c"><text x="430" y="67">Home</text><text x="510" y="67">About</text><text x="590" y="67">Services</text><text x="690" y="67">Portfolio</text><text x="790" y="67">Contact</text></g>
+  <rect x="950" y="42" width="140" height="40" rx="20" fill="url(#button)"/><text x="981" y="68" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#fff">Let's Talk ↗</text>
+  <rect x="480" y="160" width="240" height="34" rx="17" fill="#fff" stroke="#d8e5fa"/><circle cx="500" cy="177" r="4" fill="#245eff"/><text x="514" y="182" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="#34517e">Software. Innovation. Growth.</text>
+  <text x="600" y="267" text-anchor="middle" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#071344">Build Your Digital Future</text>
+  <text x="600" y="329" text-anchor="middle" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#071344">With Rexxsol</text>
+  <text x="600" y="378" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#53658c">Thoughtfully built websites, software and digital solutions</text>
+  <text x="600" y="405" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#53658c">for businesses ready to move forward.</text>
+  <rect x="430" y="440" width="174" height="52" rx="26" fill="url(#button)" filter="url(#shadow)"/><text x="463" y="472" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#fff">Start a Project ↗</text>
+  <rect x="618" y="440" width="160" height="52" rx="26" fill="#fff" stroke="#e4ebf7"/><text x="645" y="472" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#071344">Explore Our Work</text>
+  <g filter="url(#shadow)" transform="rotate(10 170 610)"><rect x="48" y="535" width="300" height="165" rx="22" fill="#fff"/><text x="75" y="572" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#10224f">From idea to launch</text><circle cx="296" cy="562" r="4" fill="#9cb4df"/><circle cx="310" cy="562" r="4" fill="#9cb4df"/><circle cx="324" cy="562" r="4" fill="#9cb4df"/><rect x="82" y="617" width="22" height="48" rx="5" fill="url(#bars)"/><rect x="120" y="600" width="22" height="65" rx="5" fill="url(#bars)"/><rect x="158" y="628" width="22" height="37" rx="5" fill="url(#bars)"/><rect x="196" y="585" width="22" height="80" rx="5" fill="url(#bars)"/><rect x="234" y="610" width="22" height="55" rx="5" fill="url(#bars)"/></g>
+  <g filter="url(#shadow)" transform="rotate(-10 1035 610)"><rect x="875" y="520" width="300" height="205" rx="22" fill="#fff"/><text x="905" y="557" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#10224f">Built for your business</text><g font-family="Arial,sans-serif" font-size="14" fill="#53658c"><text x="938" y="602">Web Development</text><text x="938" y="649">Custom Software</text><text x="938" y="696">Automation</text></g><g fill="#e9f1ff"><rect x="900" y="581" width="28" height="28" rx="8"/><rect x="900" y="628" width="28" height="28" rx="8"/><rect x="900" y="675" width="28" height="28" rx="8"/></g><path d="m1135 596 6 5-6 5m0 36 6 5-6 5m0 36 6 5-6 5" fill="none" stroke="#7898d4" stroke-width="2"/></g>
+  <text x="600" y="682" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#53658c">SCROLL TO EXPLORE ↓</text>
+</svg>

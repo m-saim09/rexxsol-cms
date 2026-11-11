@@ -1,0 +1,50 @@
+/* Row-owned segments follow actual link heights, including wrapped labels.
+   Empty pseudo-elements are decorative and absent from the accessibility tree. */
+.rex-submenu {
+    --submenu-gap: .25rem;
+    position: relative;
+    margin-top: .25rem;
+    padding: 0 .25rem 0 1.5rem;
+}
+.rex-submenu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 1.25rem;
+    width: 1px;
+    background: #e5e7eb;
+    pointer-events: none;
+}
+.rex-submenu > .rex-submenu-link + .rex-submenu-link {
+    margin-top: var(--submenu-gap);
+}
+.rex-submenu-link {
+    position: relative;
+    color: #64748b;
+    font-weight: 500;
+    transition: color 180ms ease, background-color 180ms ease;
+}
+.rex-submenu-link:hover { background: #f3f6fb; }
+.rex-submenu-link[aria-current="page"] { color: #000080; font-weight: 600; }
+.rex-submenu > .rex-submenu-link::before {
+    content: "";
+    position: absolute;
+    left: calc(-.25rem - .5px);
+    top: 0;
+    width: 2px;
+    height: 0;
+    background: #000080;
+    pointer-events: none;
+    transition: height 180ms ease;
+}
+.rex-submenu > .rex-submenu-link:has(~ .rex-submenu-link[aria-current="page"])::before {
+    height: calc(100% + var(--submenu-gap));
+}
+.rex-submenu > .rex-submenu-link[aria-current="page"]::before { height: 50%; }
+@media (prefers-reduced-motion: reduce) {
+    .rex-submenu, .rex-submenu-link, .rex-submenu-link::before {
+        transition: none !important;
+        animation: none !important;
+    }
+}

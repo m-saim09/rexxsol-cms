@@ -1,0 +1,1129 @@
+@import "tailwindcss";
+@source "../views";
+@source "../views/livewire/admin/settings-editor.blade.php";
+@source "../views/livewire/admin/activity-logs.blade.php";
+@source "../../vendor/livewire/flux/stubs/**/*.blade.php";
+@import "./sidebar.css";
+@import "./website.css";
+@import "./rexxsol-corporate.css";
+
+@layer components {
+    .cms-panel {
+        border: 1px solid #e5eaf2;
+        border-radius: 8px;
+        background: #ffffff;
+        padding: 20px;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+
+    .cms-label {
+        display: block;
+        color: #475569;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .cms-help {
+        color: #64748b;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .cms-input {
+        min-height: 40px;
+        border: 1px solid #dbe2ed;
+        border-radius: 6px;
+        background: #ffffff;
+        padding: 8px 12px;
+        color: #172033;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 150ms ease, box-shadow 150ms ease;
+    }
+
+    .cms-input::placeholder {
+        color: #94a3b8;
+    }
+
+    .cms-input:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .cms-secondary,
+    .cms-primary {
+        display: inline-flex;
+        min-height: 40px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border-radius: 6px;
+        padding: 8px 14px;
+        font-size: 13px;
+        font-weight: 600;
+        transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
+    }
+
+    .cms-secondary {
+        border: 1px solid #dbe2ed;
+        background: #ffffff;
+        color: #172033;
+    }
+
+    .cms-secondary:hover {
+        border-color: #bfdbfe;
+        background: #f7f9fc;
+        color: #1d4ed8;
+    }
+
+    .cms-primary {
+        border: 1px solid #2563eb;
+        background: #2563eb;
+        color: #ffffff;
+    }
+
+    .cms-primary:hover {
+        border-color: #1d4ed8;
+        background: #1d4ed8;
+    }
+
+    .cms-secondary:focus-visible,
+    .cms-primary:focus-visible {
+        outline: 2px solid rgba(37, 99, 235, 0.5);
+        outline-offset: 2px;
+    }
+
+    .rex-settings-tabs-scroll {
+        scrollbar-width: none;
+    }
+
+    .rex-settings-tabs-scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    .rex-sidebar-collapsed [data-tooltip]::after {
+        position: absolute;
+        top: 50%;
+        left: calc(100% + 10px);
+        z-index: 60;
+        display: none;
+        padding: 6px 9px;
+        border-radius: 6px;
+        background: #172033;
+        color: #ffffff;
+        content: attr(data-tooltip);
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.2;
+        white-space: nowrap;
+        transform: translateY(-50%);
+        box-shadow: 0 6px 16px rgba(15, 23, 42, 0.14);
+    }
+
+    .rex-sidebar-collapsed [data-tooltip]:hover::after,
+    .rex-sidebar-collapsed [data-tooltip]:focus-visible::after {
+        display: block;
+    }
+}
+
+@layer components {
+    ui-toast-group[position*="bottom"] {
+        position: fixed;
+        top: auto;
+        right: 18px;
+        bottom: 20px;
+        left: auto;
+        z-index: 100;
+        width: min(380px, calc(100vw - 32px));
+        margin: 0;
+    }
+
+    [data-flux-toast-dialog].rex-cms-toast {
+        width: 100% !important;
+        max-width: none;
+    }
+
+    [data-flux-toast-dialog].rex-cms-toast > div {
+        border: 1px solid #e5eaf2;
+        border-radius: 8px;
+        border-left: 3px solid #2563eb;
+        padding: 10px 12px;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, .10);
+    }
+
+    [data-flux-toast-dialog].rex-cms-toast[data-variant="success"] > div { border-left-color: #22c55e; }
+    [data-flux-toast-dialog].rex-cms-toast[data-variant="warning"] > div { border-left-color: #d97706; }
+    [data-flux-toast-dialog].rex-cms-toast[data-variant="danger"] > div { border-left-color: #dc2626; }
+    [data-flux-toast-dialog].rex-cms-toast > div > div:first-child > div:first-child > svg { flex-shrink: 0; width: 24px; height: 24px; margin-top: 1px; border-radius: 999px; padding: 5px; color: #fff; }
+    [data-flux-toast-dialog].rex-cms-toast[data-variant="success"] > div > div:first-child > div:first-child > svg:nth-of-type(1) { background: #22c55e; }
+    [data-flux-toast-dialog].rex-cms-toast[data-variant="warning"] > div > div:first-child > div:first-child > svg:nth-of-type(2) { background: #f59e0b; }
+    [data-flux-toast-dialog].rex-cms-toast[data-variant="info"] > div > div:first-child > div:first-child > svg:nth-of-type(3) { background: #2563eb; }
+    [data-flux-toast-dialog].rex-cms-toast[data-variant="danger"] > div > div:first-child > div:first-child > svg:nth-of-type(4) { background: #ef4444; }
+    [data-flux-toast-dialog].rex-cms-toast [data-flux-toast-dialog] svg { flex-shrink: 0; }
+    [data-flux-toast-dialog].rex-cms-toast [data-flux-toast-dialog] [data-flux-toast-action] { display: none; }
+    [data-flux-toast-dialog].rex-cms-toast [data-flux-toast-dialog] [data-flux-toast-dialog] { min-width: 0; }
+    [data-flux-toast-dialog].rex-cms-toast [data-flux-toast-dialog] [data-flux-toast-dialog] > div { min-width: 0; }
+    [data-flux-toast-dialog].rex-cms-toast [data-flux-toast-dialog] [data-flux-toast-dialog] > div > div:first-child { color: #172033; }
+    [data-flux-toast-dialog].rex-cms-toast [data-flux-toast-dialog] div.font-medium.text-sm { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #172033; }
+    [data-flux-toast-dialog].rex-cms-toast [data-flux-toast-dialog] div.font-medium.text-sm + div { font-size: 12px; line-height: 1.45; color: #64748b; }
+
+    @media (max-width: 800px) {
+        ui-toast-group[position*="bottom"] {
+            top: auto;
+            right: 16px;
+            bottom: 18px;
+            left: 16px;
+            width: calc(100vw - 32px);
+            margin: 0;
+        }
+    }
+
+    .rex-page-edit-page { color: #172033; }
+    .rex-page-edit-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(260px, 1fr); gap: 16px; align-items: start; }
+    .rex-page-edit-sidebar { position: sticky; top: 1rem; display: grid; gap: 16px; }
+    .rex-page-edit-card { border: 1px solid #e5eaf2; border-radius: 11px; background: #fff; padding: 18px; box-shadow: 0 2px 12px rgba(23, 32, 51, .04); }
+    .rex-page-edit-card-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #eef1f6; }
+    .rex-page-edit-card-heading h2 { margin: 0; font-size: 15px; font-weight: 700; }
+    .rex-page-edit-card-heading p { margin: 4px 0 0; color: #64748b; font-size: 12px; }
+    .rex-page-edit-fields { display: grid; gap: 17px; padding-top: 17px; }
+    .rex-page-edit-fields label, .rex-page-edit-card > label, .rex-page-edit-details label { display: block; margin-bottom: 7px; color: #172033; font-size: 13px; font-weight: 600; }
+    .rex-page-edit-fields label span { color: #dc3545; }
+    .rex-page-edit-fields input, .rex-page-edit-fields textarea, .rex-page-edit-card input, .rex-page-edit-card textarea, .rex-page-edit-card select { width: 100%; border: 1px solid #dce4ef; border-radius: 8px; background: #fff; padding: 10px 12px; color: #172033; font-size: 14px; outline: none; }
+    .rex-page-edit-fields input:focus, .rex-page-edit-fields textarea:focus, .rex-page-edit-card input:focus, .rex-page-edit-card textarea:focus, .rex-page-edit-card select:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, .1); }
+    .rex-page-edit-slug { display: flex; align-items: center; overflow: hidden; border: 1px solid #dce4ef; border-radius: 8px; background: #f8fafc; color: #64748b; font-size: 13px; }
+    .rex-page-edit-slug span { padding-left: 12px; white-space: nowrap; }
+    .rex-page-edit-slug input { border: 0 !important; border-radius: 0 !important; background: #fff; box-shadow: none !important; }
+    .rex-page-edit-help, .rex-page-edit-meta { margin: 6px 0 0; color: #64748b; font-size: 11px; }
+    .rex-page-edit-editor-label { display: flex; justify-content: space-between; gap: 10px; }
+    .rex-page-edit-editor-label span { color: #64748b; font-size: 11px; }
+    .rex-page-edit-content { min-height: 390px; resize: vertical; }
+    .rex-page-edit-state { border-radius: 999px; padding: 5px 10px; font-size: 11px; font-weight: 700; }
+    .rex-page-edit-state--published { background: #dcfce7; color: #15803d; }
+    .rex-page-edit-state--draft { background: #fef3c7; color: #b45309; }
+    .rex-page-edit-button { display: block; width: 100%; border-radius: 8px; padding: 10px 14px; font-size: 13px; font-weight: 700; transition: background .15s, border-color .15s; }
+    .rex-page-edit-button--primary { border: 1px solid #2563eb; background: #2563eb; color: #fff; }
+    .rex-page-edit-button--primary:hover { background: #1d4ed8; }
+    .rex-page-edit-button--secondary { border: 1px solid #dce4ef; background: #fff; color: #172033; }
+    .rex-page-edit-button--secondary:hover { border-color: #2563eb; color: #2563eb; }
+    .rex-page-edit-cancel { display: block; margin-top: 14px; text-align: center; color: #64748b; font-size: 12px; font-weight: 600; }
+    .rex-page-edit-upload { display: block; cursor: pointer; border: 1px dashed #b8c4d6; border-radius: 8px; padding: 12px; text-align: center; color: #2563eb; font-size: 13px; font-weight: 600; }
+    .rex-page-edit-upload input { display: none; }
+    .rex-page-edit-image, .rex-page-edit-image-empty { width: 100%; margin-top: 12px; aspect-ratio: 16 / 9; border-radius: 8px; object-fit: cover; }
+    .rex-page-edit-image-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background: #f7f9fc; color: #94a3b8; font-size: 12px; }
+    .rex-page-edit-media-remove { margin-top: 8px; color: #dc3545; font-size: 12px; font-weight: 600; }
+    .rex-page-edit-media-remove:hover { color: #bb2d3b; }
+    .rex-page-edit-seo-preview { margin-top: 15px; border: 1px solid #eef1f6; border-radius: 8px; padding: 13px; }
+    .rex-page-edit-details { margin-top: 14px; border-top: 1px solid #eef1f6; padding-top: 13px; }
+    .rex-page-edit-details summary { cursor: pointer; color: #2563eb; font-size: 13px; font-weight: 700; }
+    .rex-page-edit-check { display: flex !important; align-items: center; gap: 8px; margin: 0 !important; font-weight: 500 !important; }
+    .rex-page-edit-check input { width: 16px !important; height: 16px; accent-color: #2563eb; }
+    .rex-page-edit-error { margin-top: 5px; color: #dc2626; font-size: 12px; }
+
+    .rex-nav-workspace { border: 1px solid #e5eaf2; border-radius: 12px; background: #fff; padding: 16px; box-shadow: 0 2px 12px rgba(23,32,51,.04); }
+    .rex-nav-workspace-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .rex-nav-workspace-label { margin: 0; color: #64748b; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .rex-nav-tabs { display: inline-flex; width: fit-content; gap: 6px; padding: 4px; border: 1px solid #e5eaf2; border-radius: 10px; background: #f7f9fc; }
+    .rex-nav-tab { display: inline-flex; align-items: center; gap: 8px; border: 1px solid transparent; border-radius: 8px; padding: 8px 12px; color: #475569; font-size: 13px; font-weight: 600; transition: all .15s ease; }
+    .rex-nav-tab:hover { color: #172033; }
+    .rex-nav-tab--active { border-color: rgba(37,99,235,.15); background: #eef4ff; color: #1d4ed8; box-shadow: inset 0 0 0 1px rgba(37,99,235,.08); }
+    .rex-nav-tab-count { display: inline-flex; align-items: center; justify-content: center; min-width: 1.6rem; padding: 2px 6px; border-radius: 999px; background: rgba(148,163,184,.16); color: inherit; font-size: 11px; font-weight: 700; }
+    .rex-nav-layout { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(300px, .82fr); gap: 20px; align-items: start; }
+    .rex-nav-list-panel, .rex-nav-editor { border: 1px solid #e5eaf2; border-radius: 12px; background: #fff; box-shadow: 0 2px 12px rgba(23,32,51,.04); }
+    .rex-nav-list-panel { padding: 18px; }
+    .rex-nav-panel-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+    .rex-nav-panel-title { margin: 0; color: #172033; font-size: 15px; font-weight: 700; }
+    .rex-nav-panel-copy { margin: 4px 0 0; color: #64748b; font-size: 12px; }
+    .rex-nav-count { display: inline-flex; align-items: center; border: 1px solid #e5eaf2; border-radius: 999px; background: #f7f9fc; padding: 5px 9px; color: #64748b; font-size: 11px; font-weight: 700; }
+    .rex-nav-list { display: grid; gap: 12px; }
+    .rex-nav-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; border: 1px solid #e5eaf2; border-radius: 10px; background: #fff; padding: 14px 14px 12px; transition: border-color .15s ease, background-color .15s ease; }
+    .rex-nav-item:hover { border-color: #dbeafe; background: #fbfdff; }
+    .rex-nav-item--active { border-color: rgba(37,99,235,.35); background: #f6faff; }
+    .rex-nav-main { display: flex; flex: 1; min-width: 0; gap: 12px; }
+    .rex-nav-order-indicator { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; flex-shrink: 0; border-radius: 8px; background: #eef4ff; color: #2563eb; font-size: 11px; font-weight: 700; }
+    .rex-nav-content { min-width: 0; flex: 1; }
+    .rex-nav-heading-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+    .rex-nav-content h3 { margin: 0; color: #172033; font-size: 15px; font-weight: 700; }
+    .rex-nav-badges { display: inline-flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+    .rex-nav-badge { display: inline-flex; align-items: center; border: 1px solid #e5eaf2; border-radius: 999px; background: #f8fafc; padding: 4px 8px; color: #475569; font-size: 10px; font-weight: 700; letter-spacing: .02em; text-transform: none; }
+    .rex-nav-badge--success { border-color: rgba(34,197,94,.2); background: rgba(34,197,94,.1); color: #166534; }
+    .rex-nav-badge--muted { border-color: rgba(148,163,184,.25); background: rgba(148,163,184,.09); color: #475569; }
+    .rex-nav-meta { margin: 8px 0 0; color: #64748b; font-size: 12px; line-height: 1.45; word-break: break-word; }
+    .rex-nav-nested { margin-top: 10px; border-left: 2px solid #dbeafe; padding-left: 12px; }
+    .rex-nav-nested-item { display: flex; align-items: center; gap: 10px; padding: 6px 0; }
+    .rex-nav-nested-line { display: inline-block; width: 8px; height: 1px; background: #bfd7ff; }
+    .rex-nav-nested-details { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; border-radius: 6px; background: #f8fbff; padding: 5px 8px; color: #334155; font-size: 12px; }
+    .rex-nav-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+    .rex-nav-order-actions { display: flex; gap: 6px; }
+    .rex-nav-order-button { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: 1px solid #e5eaf2; border-radius: 7px; background: #fff; color: #475569; transition: all .15s ease; }
+    .rex-nav-order-button:hover { border-color: #bfdbfe; color: #1d4ed8; background: #f8fbff; }
+    .rex-nav-edit-actions { display: flex; align-items: center; gap: 8px; }
+    .rex-nav-action-button { display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; padding: 8px 12px; font-size: 12px; font-weight: 700; transition: all .15s ease; }
+    .rex-nav-action-button--secondary { border: 1px solid #dbe2ea; background: #fff; color: #172033; }
+    .rex-nav-action-button--secondary:hover { border-color: #93c5fd; color: #1d4ed8; background: #f8fbff; }
+    .rex-nav-action-button--primary { border: 1px solid #2563eb; background: #2563eb; color: #fff; }
+    .rex-nav-action-button--primary:hover { background: #1d4ed8; }
+    .rex-nav-action-button--danger { border: 1px solid transparent; background: transparent; color: #b91c1c; }
+    .rex-nav-action-button--danger:hover { background: rgba(220,38,38,.04); }
+    .rex-nav-editor { position: sticky; top: 1rem; padding: 18px; }
+    .rex-nav-editor-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #eef1f6; }
+    .rex-nav-editor-kicker { margin: 0; color: #2563eb; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .rex-nav-editor-head h2 { margin: 6px 0 0; color: #172033; font-size: 18px; font-weight: 700; }
+    .rex-nav-editor-head p { margin: 4px 0 0; color: #64748b; font-size: 12px; }
+    .rex-nav-editor-icon { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 9px; background: #eef4ff; color: #2563eb; }
+    .rex-nav-form { display: grid; gap: 16px; padding-top: 16px; }
+    .rex-nav-field { display: grid; gap: 7px; }
+    .rex-nav-field label { margin: 0; }
+    .rex-nav-field .cms-input { width: 100%; border: 1px solid #dce4ef; border-radius: 8px; background: #fff; padding: 10px 12px; color: #172033; font-size: 14px; outline: none; }
+    .rex-nav-field .cms-input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+    .rex-nav-two-up { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: end; }
+    .rex-nav-toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; border: 1px solid #e5eaf2; border-radius: 9px; background: #f8fafc; padding: 10px 12px; }
+    .rex-nav-toggle-help { margin: 4px 0 0; color: #64748b; font-size: 11px; }
+    .rex-nav-toggle { position: relative; display: inline-flex; align-items: center; cursor: pointer; }
+    .rex-nav-toggle input { position: absolute; opacity: 0; pointer-events: none; }
+    .rex-nav-toggle-slider { position: relative; display: inline-block; width: 42px; height: 24px; border-radius: 999px; background: #cbd5e1; transition: all .2s ease; }
+    .rex-nav-toggle-slider::before { content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(15,23,42,.18); transition: all .2s ease; }
+    .rex-nav-toggle input:checked + .rex-nav-toggle-slider { background: #2563eb; }
+    .rex-nav-toggle input:checked + .rex-nav-toggle-slider::before { transform: translateX(18px); }
+    .rex-nav-actions-bar { display: flex; justify-content: flex-end; gap: 10px; padding-top: 4px; }
+    .rex-nav-empty { border: 1px dashed #cbd5e1; border-radius: 12px; padding: 32px 20px; text-align: center; background: #fbfcfe; }
+    .rex-nav-empty-icon { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; margin: 0 auto 12px; border-radius: 10px; background: #eef4ff; color: #2563eb; }
+    .rex-nav-empty h2 { margin: 0; color: #172033; font-size: 15px; font-weight: 700; }
+    .rex-nav-empty p { margin: 8px auto 0; max-width: 30ch; color: #64748b; font-size: 12px; line-height: 1.5; }
+    @media (max-width: 900px) { .rex-nav-layout { grid-template-columns: minmax(0, 1fr); } .rex-nav-editor { position: static; } }
+    @media (max-width: 640px) { .rex-nav-panel-head, .rex-nav-heading-row, .rex-nav-item, .rex-nav-actions { flex-direction: column; align-items: flex-start; } .rex-nav-actions { width: 100%; } .rex-nav-edit-actions, .rex-nav-order-actions, .rex-nav-actions-bar { width: 100%; justify-content: space-between; } .rex-nav-actions-bar { flex-direction: column-reverse; } .rex-nav-action-button { flex: 1; } .rex-nav-two-up { grid-template-columns: 1fr; } }
+    @media (max-width: 800px) { .rex-page-edit-grid { display: flex !important; flex-direction: column; } .rex-page-edit-sidebar { position: static !important; width: 100%; } .rex-page-edit-page { padding-bottom: 1rem; } }
+
+
+}
+
+@layer components {
+    /* Rexxsol login — isolated from the CMS dashboard */
+    .rex-login-body {
+        --rex-login-primary: #000080;
+        --rex-login-heading-color: #0f2347;
+        --rex-login-muted: #64748b;
+        --rex-login-border: #e5eaf2;
+        --rex-login-page-bg: #f7f9fc;
+        --rex-login-surface: #ffffff;
+        --rex-login-input-bg: #f8fafc;
+        --rex-login-input-focus-bg: #ffffff;
+
+        margin: 0;
+        min-width: 0;
+        background: var(--rex-login-page-bg);
+        color: var(--rex-login-heading-color);
+        color-scheme: light;
+        font-family: 'Instrument Sans', ui-sans-serif, system-ui,
+            -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .rex-login-body *,
+    .rex-login-body *::before,
+    .rex-login-body *::after {
+        box-sizing: border-box;
+    }
+
+    .rex-login-page {
+        display: grid;
+        grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
+        width: 100%;
+        min-height: 100vh;
+        min-height: 100svh;
+        max-height: 100vh;
+        overflow: hidden;
+        background: var(--rex-login-page-bg);
+    }
+
+    .rex-login-icon {
+        display: block;
+        width: 24px;
+        height: 24px;
+        flex: 0 0 auto;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    /* Left image and content */
+    .rex-login-visual {
+        position: relative;
+        min-width: 0;
+        background-color: #edf4ff;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        box-shadow: inset 0 0 0 1px rgba(21, 71, 165, 0.06);
+    }
+
+    .rex-login-visual-inner {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        height: 100%;
+        padding:
+            clamp(22px, 2vh, 28px)
+            clamp(26px, 3vw, 44px)
+            clamp(18px, 2vh, 24px);
+    }
+
+    .rex-login-logo {
+        display: block;
+        width: clamp(170px, 12vw, 210px);
+        max-width: 100%;
+        height: auto;
+        flex-shrink: 0;
+        object-fit: contain;
+        object-position: left center;
+    }
+
+    .rex-login-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        max-width: 500px;
+        margin-top: clamp(16px, 2.6vh, 28px);
+        min-height: 100%;
+    }
+
+    .rex-login-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        color: #60759b;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.5;
+        letter-spacing: .08em;
+    }
+
+    .rex-login-eyebrow-line,
+    .rex-login-footer-line {
+        display: block;
+        width: 30px;
+        height: 2px;
+        flex: 0 0 auto;
+        background: #2563eb;
+    }
+
+    .rex-login-heading {
+        margin: 12px 0 0;
+        color: #071b4a;
+        font-size: clamp(2rem, 2.1vw, 2.6rem);
+        font-weight: 700;
+        line-height: 1.08;
+        letter-spacing: -.028em;
+    }
+
+    .rex-login-description {
+        max-width: 430px;
+        margin: 12px 0 0;
+        color: var(--rex-login-muted);
+        font-size: clamp(0.96rem, 1vw, 1.04rem);
+        font-weight: 400;
+        line-height: 1.6;
+    }
+
+    /* Right panel: card and separate footer */
+    .rex-login-form-panel {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        justify-items: center;
+        align-items: center;
+        gap: clamp(10px, 1.6vh, 18px);
+        min-width: 0;
+        padding-left: clamp(18px, 2vw, 32px);
+        padding-right: clamp(18px, 2vw, 32px);
+        padding:
+            clamp(12px, 1.6vh, 20px)
+            clamp(16px, 2vw, 24px)
+            clamp(12px, 1.8vh, 18px);
+        background: var(--rex-login-page-bg);
+    }
+
+    .rex-login-card {
+        width: 100%;
+        max-width: 430px;
+        min-width: 0;
+        padding: clamp(28px, 2.5vw, 38px) clamp(24px, 2.5vw, 40px) clamp(26px, 2.2vw, 34px);
+        border: 1px solid var(--rex-login-border);
+        border-radius: 16px;
+        background: var(--rex-login-surface);
+        box-shadow: 0 10px 35px rgba(15, 23, 42, 0.06);
+    }
+
+    .rex-login-card-logo {
+        display: block;
+        width: 158px;
+        max-width: 80%;
+        height: auto;
+        margin: 0 auto 16px;
+        object-fit: contain;
+    }
+
+    .rex-login-card-title {
+        margin: 0;
+        color: var(--rex-login-heading-color);
+        font-size: clamp(1.85rem, 1.6vw, 2.1rem);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -.025em;
+        text-align: center;
+    }
+
+    .rex-login-card-subtitle {
+        margin: 7px 0 0;
+        color: #667085;
+        font-size: 0.96rem;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .rex-login-success-alert {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 24px;
+        padding: 12px 14px;
+        border: 1px solid #bbf7d0;
+        border-radius: 10px;
+        background: #ecfdf5;
+        color: #166534;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .rex-login-success-alert-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 9999px;
+        background: #dcfce7;
+        color: #15803d;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .rex-login-session-status:not(:empty) {
+        margin-top: 20px;
+        color: #15803d;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .rex-forgot-password-card {
+        padding-top: clamp(24px, 2vw, 28px);
+        padding-bottom: clamp(22px, 1.8vw, 26px);
+    }
+
+    .rex-forgot-password-card .rex-login-card-logo {
+        margin-bottom: 20px;
+    }
+
+    .rex-forgot-password-card .rex-login-card-title {
+        font-size: clamp(1.8rem, 1.5vw, 2.05rem);
+    }
+
+    .rex-forgot-password-card .rex-login-card-subtitle {
+        max-width: 340px;
+        margin-inline: auto;
+    }
+
+    .rex-forgot-password-form {
+        margin-top: 24px;
+    }
+
+    .rex-forgot-password-card .rex-login-field-group + .rex-login-field-group {
+        margin-top: 18px;
+    }
+
+    .rex-forgot-password-card .rex-login-submit {
+        margin-top: 22px;
+    }
+
+    .rex-forgot-password-card .rex-login-back-link-wrap {
+        margin-top: 16px;
+    }
+
+    .rex-login-form {
+        margin-top: 20px;
+    }
+
+    .rex-login-field-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        min-width: 0;
+    }
+
+    .rex-login-field-group + .rex-login-field-group {
+        margin-top: 16px;
+    }
+
+    .rex-login-label {
+        display: block;
+        margin: 0;
+        color: #172033;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.5;
+    }
+
+    .rex-login-label-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 6px 12px;
+    }
+
+    .rex-login-link {
+        color: #006bf7;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.5;
+        text-decoration: none;
+        text-underline-offset: 4px;
+    }
+
+    .rex-login-link:hover {
+        color: #073b91;
+        text-decoration: underline;
+    }
+
+    .rex-login-input-wrap {
+        position: relative;
+        min-width: 0;
+    }
+
+    .rex-login-input-icon {
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        z-index: 1;
+        color: #617395;
+        pointer-events: none;
+        transform: translateY(-50%);
+    }
+
+    .rex-login-input-icon .rex-login-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .rex-login-input {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        height: 54px;
+        margin: 0;
+        padding: 0 16px 0 49px;
+        border: 1px solid var(--rex-login-border);
+        border-radius: 10px;
+        background: var(--rex-login-input-bg);
+        color: #122242;
+        font: inherit;
+        font-size: 15px;
+        line-height: normal;
+        transition: border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .rex-login-input::placeholder {
+        color: #8190ac;
+        opacity: 1;
+    }
+
+    .rex-login-input:focus {
+        border-color: #2563eb;
+        background: var(--rex-login-input-focus-bg);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+    }
+
+    .rex-login-input--password {
+        padding-right: 52px;
+    }
+
+    .rex-login-input-error {
+        border-color: #dc2626;
+    }
+
+    .rex-login-input-error:focus {
+        border-color: #dc2626;
+        box-shadow: 0 0 0 3px rgba(220, 38, 38, .08);
+    }
+
+    .rex-login-password-toggle {
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border: 0;
+        border-radius: 6px;
+        background: transparent;
+        color: #617395;
+        cursor: pointer;
+        transform: translateY(-50%);
+        transition: color 180ms ease, background-color 180ms ease;
+    }
+
+    .rex-login-password-toggle .rex-login-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .rex-login-password-toggle:hover {
+        background: #f5f8ff;
+        color: var(--rex-login-primary);
+    }
+
+    .rex-login-password-toggle[aria-pressed="true"] {
+        color: var(--rex-login-primary);
+    }
+
+    .rex-login-password-toggle[aria-pressed="true"] .rex-login-eye-slash {
+        display: none;
+    }
+
+    .rex-login-remember {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: fit-content;
+        min-height: 28px;
+        margin-top: 18px;
+        color: #122242;
+        font-size: 14px;
+        line-height: 1.5;
+        cursor: pointer;
+    }
+
+    .rex-login-options {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 14px;
+    }
+
+    .rex-login-options .rex-login-remember {
+        margin-top: 0;
+    }
+
+    .rex-login-remember input {
+        width: 18px;
+        height: 18px;
+        flex: 0 0 18px;
+        margin: 0;
+        accent-color: #1547a5;
+        cursor: pointer;
+    }
+
+    .rex-login-submit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+        min-height: 54px;
+        margin-top: 18px;
+        padding: 10px 18px;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        background: var(--rex-login-primary);
+        color: #fff;
+        font: inherit;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.5;
+        cursor: pointer;
+        transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+        box-shadow: 0 6px 16px rgba(0, 0, 128, 0.16);
+    }
+
+    .rex-login-submit .rex-login-icon {
+        width: 24px;
+        height: 24px;
+        stroke-width: 1.9;
+    }
+
+    .rex-login-submit:hover {
+        background: #000066;
+        transform: translateY(-1px);
+    }
+
+    .rex-login-submit:active {
+        transform: translateY(0);
+    }
+
+    .rex-login-back-link-wrap {
+        margin-top: 18px;
+        text-align: center;
+    }
+
+    .rex-login-back-link {
+        color: #1547a5;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.5;
+        text-decoration: none;
+        transition: color 180ms ease;
+    }
+
+    .rex-login-back-link:hover {
+        color: #0f3e9a;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+
+    .rex-login-divider {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-top: 18px;
+        color: #7585a3;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .rex-login-divider::before,
+    .rex-login-divider::after {
+        content: "";
+        height: 1px;
+        flex: 1;
+        background: #d7e0ee;
+    }
+
+    .rex-login-footer {
+        width: 100%;
+        color: #7183a4;
+        font-size: 13px;
+        line-height: 1.7;
+        text-align: center;
+    }
+
+    .rex-login-footer p {
+        margin: 0;
+    }
+
+    .rex-login-footer-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 4px;
+    }
+
+    .rex-login-footer-separator {
+        color: #a6b2c6;
+    }
+
+    .rex-login-error {
+        margin: 0;
+        color: #b91c1c;
+        font-size: 13px;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    .rex-login-form-alert {
+        margin-bottom: 20px;
+        padding: 12px 14px;
+        border: 1px solid #fecaca;
+        border-radius: 8px;
+        background: #fff5f5;
+        color: #991b1b;
+        font-size: 13px;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+    }
+
+    .rex-login-body :is(button, a, input[type="checkbox"]):focus-visible {
+        outline: 2px solid #2563eb;
+        outline-offset: 4px;
+    }
+
+    /* Preserve a comfortable form width on smaller desktops. */
+    @media (min-width: 1025px) and (max-width: 1400px) {
+        .rex-login-form-panel {
+            padding-right: 28px;
+            padding-left: 28px;
+        }
+
+        .rex-login-card {
+            padding-right: 28px;
+            padding-left: 28px;
+        }
+
+        .rex-login-feature {
+            gap: 20px;
+        }
+    }
+
+    /* Tablet */
+    @media (min-width: 641px) and (max-width: 1024px) {
+        .rex-login-page {
+            grid-template-columns: minmax(0, 52fr) minmax(0, 48fr);
+        }
+
+        .rex-login-visual-inner {
+            padding-right: 7%;
+            padding-left: 7%;
+        }
+
+        .rex-login-logo {
+            width: 210px;
+        }
+
+        .rex-login-heading {
+            font-size: clamp(30px, 3.6vw, 37px);
+            line-height: 1.1;
+        }
+
+        .rex-login-description {
+            font-size: 16px;
+        }
+
+        .rex-login-feature {
+            gap: 14px;
+        }
+
+        .rex-login-feature-icon {
+            width: 48px;
+            height: 48px;
+            flex-basis: 48px;
+        }
+
+        .rex-login-feature-title {
+            font-size: 14px;
+        }
+
+        .rex-login-feature-subtitle {
+            font-size: 12px;
+        }
+
+        .rex-login-form-panel {
+            padding-right: 22px;
+            padding-left: 22px;
+        }
+
+        .rex-login-card {
+            padding: 34px 24px;
+        }
+
+        .rex-login-card-logo {
+            width: 170px;
+            margin-bottom: 18px;
+        }
+
+        .rex-login-card-title {
+            font-size: 30px;
+        }
+
+        .rex-login-card-subtitle {
+            font-size: 16px;
+        }
+
+        .rex-login-form {
+            margin-top: 24px;
+        }
+    }
+
+    /* Short desktop/laptop displays, including 1366 × 768 */
+    @media (min-width: 641px) and (max-height: 850px) {
+        .rex-login-visual-inner {
+            padding-top: 30px;
+            padding-bottom: 34px;
+        }
+
+        .rex-login-logo {
+            width: 220px;
+        }
+
+        .rex-login-copy {
+            margin-top: clamp(36px, 7vh, 60px);
+        }
+
+        .rex-login-heading {
+            margin-top: 21px;
+            font-size: clamp(32px, 3.1vw, 43px);
+            line-height: 1.08;
+        }
+
+        .rex-login-description {
+            margin-top: 18px;
+            font-size: 16px;
+            max-width: 400px;
+        }
+
+        .rex-login-features {
+            gap: 16px;
+            margin-top: 26px;
+        }
+
+        .rex-login-feature-icon {
+            width: 50px;
+            height: 50px;
+            flex-basis: 50px;
+        }
+
+        .rex-login-feature-title {
+            font-size: 15px;
+        }
+
+        .rex-login-feature-subtitle {
+            font-size: 13px;
+        }
+
+        .rex-login-footer-label {
+            gap: 16px;
+            padding-top: 30px;
+        }
+
+        .rex-login-form-panel {
+            gap: 24px;
+            padding-top: 24px;
+            padding-bottom: 26px;
+        }
+
+        .rex-login-card {
+            padding-top: 30px;
+            padding-bottom: 28px;
+        }
+
+        .rex-login-card-logo {
+            width: 170px;
+            margin-bottom: 18px;
+        }
+
+        .rex-login-card-title {
+            font-size: 30px;
+        }
+
+        .rex-login-card-subtitle {
+            font-size: 15px;
+        }
+
+        .rex-login-form {
+            margin-top: 24px;
+        }
+
+        .rex-login-field-group {
+            gap: 8px;
+        }
+
+        .rex-login-field-group + .rex-login-field-group {
+            margin-top: 22px;
+        }
+
+        .rex-login-input {
+            height: 52px;
+        }
+
+        .rex-login-remember {
+            margin-top: 18px;
+        }
+
+        .rex-login-submit {
+            min-height: 54px;
+            margin-top: 20px;
+            font-size: 17px;
+        }
+
+        .rex-login-divider {
+            margin-top: 24px;
+        }
+    }
+
+    /* Mobile: natural vertical scrolling remains available. */
+    @media (max-width: 640px) {
+        .rex-login-page {
+            display: block;
+        }
+
+        .rex-login-visual {
+            display: none;
+        }
+
+        .rex-login-form-panel {
+            min-height: 100vh;
+            min-height: 100svh;
+            gap: 24px;
+            padding: 20px 0 28px;
+        }
+
+        .rex-login-card {
+            width: calc(100% - 40px);
+            max-width: 480px;
+            margin-inline: 20px;
+            padding: 24px 22px 26px;
+            border: 1px solid var(--rex-login-border);
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+        }
+
+        .rex-login-card-logo {
+            width: 158px;
+            margin-bottom: 20px;
+        }
+
+        .rex-login-card-title {
+            font-size: 30px;
+        }
+
+        .rex-login-card-subtitle {
+            font-size: 15px;
+        }
+
+        .rex-login-form {
+            margin-top: 24px;
+        }
+
+        .rex-login-field-group + .rex-login-field-group {
+            margin-top: 24px;
+        }
+
+        .rex-login-footer {
+            padding: 0 22px;
+            font-size: 12px;
+        }
+    }
+
+    @media (max-width: 390px) {
+        .rex-login-card-logo {
+            width: 195px;
+        }
+
+        .rex-login-card-title {
+            font-size: 30px;
+        }
+
+        .rex-login-card-subtitle {
+            font-size: 16px;
+        }
+
+        .rex-login-link {
+            font-size: 12px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .rex-login-body *,
+        .rex-login-body *::before,
+        .rex-login-body *::after {
+            transition: none !important;
+            animation: none !important;
+        }
+    }
+}

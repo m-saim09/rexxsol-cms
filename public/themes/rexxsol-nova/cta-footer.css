@@ -1,0 +1,544 @@
+.theme-rexxsol-nova .nova-final-cta {
+    border-top: 1px solid #cfe3f2;
+    border-bottom: 1px solid #cfe3f2;
+    background: linear-gradient(110deg, var(--nova-cta-start, #f0f7ff) 0%, #f8fcff 50%, var(--nova-cta-end, #effbf7) 100%);
+}
+.theme-rexxsol-nova .nova-final-cta-inner {
+    padding-block: 60px 52px;
+}
+.theme-rexxsol-nova .nova-final-cta-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+    align-items: center;
+    gap: clamp(32px, 5vw, 96px);
+}
+.theme-rexxsol-nova .nova-final-cta-copy { min-width: 0; }
+.theme-rexxsol-nova .nova-final-cta-eyebrow {
+    margin: 0 0 14px;
+    color: #079d9e;
+    font-size: 16px;
+    font-weight: 750;
+    letter-spacing: .12em;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+.theme-rexxsol-nova .nova-final-cta-title-link {
+    display: inline-flex;
+    max-width: 100%;
+    align-items: center;
+    gap: clamp(16px, 2vw, 32px);
+    border-radius: 8px;
+    color: #101e39;
+    text-decoration: none;
+}
+.theme-rexxsol-nova .nova-final-cta h2 {
+    min-width: 0;
+    margin: 0;
+    color: #101e39;
+    font-size: clamp(48px, 6vw, 88px);
+    font-weight: 850;
+    letter-spacing: -.055em;
+    line-height: 1;
+}
+.theme-rexxsol-nova .nova-final-cta-action {
+    position: relative;
+    display: grid;
+    width: 88px;
+    height: 88px;
+    flex: 0 0 88px;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--nova-button-start, #0878d1), var(--nova-button-end, #00a6a0));
+    color: #fff;
+}
+.theme-rexxsol-nova .nova-final-cta-action::before {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #0665b1, #078d89);
+    content: "";
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+}
+.theme-rexxsol-nova .nova-final-cta-action svg {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2.5;
+    transition: transform 200ms ease-out;
+}
+.theme-rexxsol-nova .nova-final-cta-title-link:hover .nova-final-cta-action::before { opacity: 1; }
+.theme-rexxsol-nova .nova-final-cta-title-link:hover .nova-final-cta-action svg { transform: translate(3px, -3px); }
+.theme-rexxsol-nova .nova-final-cta-description {
+    max-width: 620px;
+    margin: 0;
+    color: #506783;
+    font-size: 18px;
+    line-height: 1.55;
+    white-space: pre-line;
+}
+.theme-rexxsol-nova .nova-final-cta-divider {
+    height: 1px;
+    margin: 38px 0 28px;
+    background: #cfe3f2;
+}
+.theme-rexxsol-nova .nova-final-cta-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+.theme-rexxsol-nova .nova-final-cta-email,
+.theme-rexxsol-nova .nova-final-cta-link {
+    display: inline-flex;
+    min-width: 0;
+    align-items: center;
+    gap: 14px;
+    color: #506783;
+    font-size: 18px;
+    line-height: 1.4;
+    text-decoration: none;
+}
+.theme-rexxsol-nova .nova-final-cta-email svg {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+}
+.theme-rexxsol-nova .nova-final-cta-email span { overflow-wrap: anywhere; }
+.theme-rexxsol-nova .nova-final-cta-link {
+    color: #0876d1;
+    font-weight: 750;
+}
+.theme-rexxsol-nova .nova-final-cta-link svg {
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+    transition: transform 200ms ease-out;
+}
+.theme-rexxsol-nova .nova-final-cta-link:hover svg { transform: translate(3px, -3px); }
+.theme-rexxsol-nova .nova-final-cta-title-link:focus-visible,
+.theme-rexxsol-nova .nova-final-cta-meta a:focus-visible {
+    outline: 2px solid #0876bd;
+    outline-offset: 4px;
+}
+@media (max-width: 960px) {
+    .theme-rexxsol-nova .nova-final-cta-main { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+}
+@media (max-width: 760px) {
+    .theme-rexxsol-nova .nova-final-cta-inner {
+        width: calc(100% - 48px);
+        padding-block: 36px;
+    }
+    .theme-rexxsol-nova .nova-final-cta-main {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+    .theme-rexxsol-nova .nova-final-cta-eyebrow { margin-bottom: 12px; font-size: 13px; }
+    .theme-rexxsol-nova .nova-final-cta-title-link { gap: 14px; }
+    .theme-rexxsol-nova .nova-final-cta-action { width: 60px; height: 60px; flex-basis: 60px; }
+    .theme-rexxsol-nova .nova-final-cta-action svg { width: 30px; height: 30px; }
+    .theme-rexxsol-nova .nova-final-cta-description { font-size: 16px; }
+    .theme-rexxsol-nova .nova-final-cta-divider { margin: 26px 0 20px; }
+    .theme-rexxsol-nova .nova-final-cta-meta { align-items: flex-start; flex-direction: column; gap: 16px; }
+    .theme-rexxsol-nova .nova-final-cta-email,
+    .theme-rexxsol-nova .nova-final-cta-link { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .theme-rexxsol-nova .nova-final-cta-action::before,
+    .theme-rexxsol-nova .nova-final-cta-action svg,
+    .theme-rexxsol-nova .nova-final-cta-link svg { transition: none; }
+    .theme-rexxsol-nova .nova-final-cta-title-link:hover .nova-final-cta-action svg,
+    .theme-rexxsol-nova .nova-final-cta-link:hover svg { transform: none; }
+}
+.theme-rexxsol-nova .nova-premium-cta {
+    position: relative;
+    min-height: 0;
+    overflow: hidden;
+    border: 0;
+    background:
+        radial-gradient(ellipse at 8% 52%, rgba(211, 239, 255, .56), transparent 36%),
+        radial-gradient(ellipse at 92% 50%, rgba(213, 250, 243, .58), transparent 38%),
+        linear-gradient(105deg, #fbfdff 0%, #fff 48%, #fbfffe 100%);
+}
+.theme-rexxsol-nova .nova-premium-cta-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: min(calc(100% - 64px), 1200px);
+    min-height: 370px;
+    grid-template-columns: minmax(0, 1.5fr) minmax(260px, .82fr);
+    align-items: center;
+    gap: 48px;
+    margin-inline: auto;
+    padding-block: 56px;
+}
+.theme-rexxsol-nova .nova-premium-cta-copy { max-width: 760px; min-width: 0; }
+.theme-rexxsol-nova .nova-premium-cta-eyebrow {
+    margin: 0 0 20px;
+    color: #05a3a8;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+.theme-rexxsol-nova .nova-premium-cta h2 {
+    margin: 0;
+    color: #0b1d3a;
+    font-size: clamp(48px, 5.4vw, 72px);
+    font-weight: 850;
+    letter-spacing: -.055em;
+    line-height: .99;
+}
+.theme-rexxsol-nova .nova-premium-cta-title-main,
+.theme-rexxsol-nova .nova-premium-cta-title-highlight { display: block; }
+.theme-rexxsol-nova .nova-premium-cta-title-highlight {
+    background: linear-gradient(100deg, var(--nova-highlight-start, #0878d1), var(--nova-highlight-end, #22b47e));
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.theme-rexxsol-nova .nova-premium-cta-description {
+    max-width: 680px;
+    margin: 18px 0 0;
+    color: #60738f;
+    font-size: clamp(16px, 1.55vw, 19px);
+    line-height: 1.6;
+}
+.theme-rexxsol-nova .nova-premium-cta-actions {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 22px;
+}
+.theme-rexxsol-nova .nova-premium-cta-button {
+    display: inline-flex;
+    width: min(100%, 260px);
+    min-width: 0;
+    min-height: 60px;
+    flex: 0 1 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 12px 24px;
+    border: 0;
+    border-radius: 13px;
+    background: linear-gradient(105deg, var(--nova-button-start, #0878d1), var(--nova-button-end, #008f8d));
+    box-shadow: 0 12px 24px rgba(24, 116, 157, .2);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 750;
+    text-align: center;
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+.theme-rexxsol-nova .nova-premium-cta-button:hover {
+    box-shadow: 0 16px 30px rgba(24, 116, 157, .27);
+    transform: translateY(-2px);
+}
+.theme-rexxsol-nova .nova-premium-cta-button svg {
+    width: 21px;
+    height: 21px;
+    flex: 0 0 auto;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+}
+.theme-rexxsol-nova .nova-premium-cta-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #536b8c;
+    font-size: 16px;
+    font-weight: 650;
+    overflow-wrap: anywhere;
+    transition: color .18s ease;
+}
+.theme-rexxsol-nova .nova-premium-cta-email:hover { color: #0878c5; }
+.theme-rexxsol-nova .nova-premium-cta-email i { color: #0878c5; font-size: 21px; }
+.theme-rexxsol-nova .nova-premium-cta-rings {
+    position: absolute;
+    z-index: 0;
+    top: 54%;
+    right: -190px;
+    width: 520px;
+    aspect-ratio: 1;
+    border: 1px solid rgba(68, 198, 218, .2);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+.theme-rexxsol-nova .nova-premium-cta-rings::before,
+.theme-rexxsol-nova .nova-premium-cta-rings::after {
+    position: absolute;
+    inset: 38px;
+    border: 1px solid rgba(68, 198, 218, .23);
+    border-radius: 50%;
+    content: "";
+}
+.theme-rexxsol-nova .nova-premium-cta-rings::after {
+    inset: 78px;
+    box-shadow: 0 0 0 40px transparent, 0 0 0 41px rgba(68, 198, 218, .2), 0 0 0 80px transparent, 0 0 0 81px rgba(68, 198, 218, .17);
+}
+.theme-rexxsol-nova .nova-premium-cta-rings-left {
+    top: -370px;
+    right: auto;
+    left: -300px;
+    width: 600px;
+    transform: none;
+    opacity: .7;
+}
+.theme-rexxsol-nova .nova-premium-cta-rings-left::before { inset: 48px; }
+.theme-rexxsol-nova .nova-premium-cta-rings-left::after { inset: 98px; }
+.theme-rexxsol-nova .nova-premium-cta-button:focus-visible,
+.theme-rexxsol-nova .nova-premium-cta-email:focus-visible,
+.theme-rexxsol-nova .nova-premium-footer a:focus-visible,
+.theme-rexxsol-nova .nova-premium-back-to-top:focus-visible {
+    outline: 3px solid #1683de;
+    outline-offset: 4px;
+}
+
+.theme-rexxsol-nova .nova-premium-footer {
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid #c6e2fb;
+    background: linear-gradient(180deg, #fff 0%, #fafdff 100%);
+    color: #60769e;
+}
+.theme-rexxsol-nova .nova-premium-footer-inner {
+    position: relative;
+    width: min(calc(100% - 64px), 1240px);
+    margin-inline: auto;
+    padding-top: 50px;
+}
+.theme-rexxsol-nova .nova-premium-footer-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(260px, 1.45fr) minmax(120px, .68fr) minmax(130px, .78fr) minmax(245px, 1.28fr);
+    gap: clamp(26px, 4vw, 68px);
+    min-height: 270px;
+    padding-bottom: 72px;
+}
+.theme-rexxsol-nova .nova-premium-footer-brand img {
+    display: block;
+    width: min(100%, 270px);
+    max-width: 270px;
+    height: auto;
+    object-fit: contain;
+    object-position: left center;
+}
+.theme-rexxsol-nova .nova-premium-footer-brand p {
+    max-width: 270px;
+    margin: 14px 0 16px;
+    color: #647899;
+    font-size: 15px;
+    line-height: 1.65;
+    white-space: pre-line;
+}
+.theme-rexxsol-nova .nova-premium-footer-grid h2 {
+    margin: 2px 0 12px;
+    color: #0d1d3b;
+    font-size: 16px;
+    font-weight: 750;
+    letter-spacing: -.02em;
+}
+.theme-rexxsol-nova .nova-premium-footer-nav,
+.theme-rexxsol-nova .nova-premium-footer-contact {
+    display: grid;
+    align-content: start;
+    justify-items: start;
+    gap: 15px;
+    min-width: 0;
+}
+.theme-rexxsol-nova .nova-premium-footer-nav a,
+.theme-rexxsol-nova .nova-premium-footer-contact > a {
+    color: #60769e;
+    font-size: 14px;
+    line-height: 1.55;
+    transition: color .18s ease, transform 200ms ease-out;
+}
+.theme-rexxsol-nova .nova-premium-footer-nav a:hover,
+.theme-rexxsol-nova .nova-premium-footer-contact > a:hover,
+.theme-rexxsol-nova .nova-premium-footer-bottom a:hover { color: #0878c5; }
+.theme-rexxsol-nova .nova-premium-footer-contact > a {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 14px;
+    overflow-wrap: anywhere;
+}
+.theme-rexxsol-nova .nova-premium-footer-contact > a > i {
+    width: 18px;
+    flex: 0 0 18px;
+    padding-top: 2px;
+    color: #0878c5;
+    font-size: 18px;
+    text-align: center;
+}
+.theme-rexxsol-nova .nova-premium-footer-socials { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+.theme-rexxsol-nova .nova-premium-footer-socials a {
+    position: relative;
+    display: grid;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    box-sizing: border-box;
+    place-items: center;
+    border: 1px solid #d5e5f1;
+    border-radius: 50%;
+    background: #fff;
+    color: #0876bd;
+    isolation: isolate;
+    transition: color 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out, transform 200ms ease-out;
+}
+.theme-rexxsol-nova .nova-premium-footer-socials a::before {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #0876bd, #0aa6a6);
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease-out;
+}
+.theme-rexxsol-nova .nova-premium-footer-socials a:hover {
+    border-color: transparent;
+    box-shadow: 0 8px 18px rgba(8, 118, 189, .18);
+    color: #fff;
+}
+.theme-rexxsol-nova .nova-premium-footer-socials a:hover::before { opacity: 1; }
+.theme-rexxsol-nova .nova-premium-footer-socials a:focus-visible {
+    outline: 2px solid #0876bd;
+    outline-offset: 3px;
+}
+.theme-rexxsol-nova .nova-premium-footer-socials a > svg {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+.theme-rexxsol-nova .nova-premium-footer-socials a > i {
+    position: relative;
+    z-index: 1;
+}
+@media (hover: hover) and (pointer: fine) {
+    .theme-rexxsol-nova .nova-premium-footer-socials a:hover { transform: translateY(-3px); }
+}
+.theme-rexxsol-nova .nova-premium-footer-socials a:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(8, 118, 189, .14);
+}
+.theme-rexxsol-nova .nova-premium-footer-bottom {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-height: 66px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-top: 1px solid #c6dff5;
+}
+.theme-rexxsol-nova .nova-premium-footer-bottom p { margin: 0; color: #7185a7; font-size: 12px; }
+.theme-rexxsol-nova .nova-premium-footer-legal { display: flex; align-items: center; gap: 30px; }
+.theme-rexxsol-nova .nova-premium-footer-bottom nav { display: flex; flex-wrap: wrap; margin: 0; }
+.theme-rexxsol-nova .nova-premium-footer-bottom nav a {
+    position: relative;
+    padding: 6px 14px;
+    color: #647899;
+    font-size: 12px;
+    transition: color .18s ease, transform 200ms ease-out;
+}
+.theme-rexxsol-nova .nova-premium-footer-nav a:hover,
+.theme-rexxsol-nova .nova-premium-footer-contact > a:hover,
+.theme-rexxsol-nova .nova-premium-footer-bottom nav a:hover { transform: translateX(3px); }
+.theme-rexxsol-nova .nova-premium-footer-bottom nav a:not(:last-child)::after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 14px;
+    border-right: 1px solid #b3c2d7;
+    content: "";
+    transform: translateY(-50%);
+}
+.theme-rexxsol-nova .nova-premium-back-to-top {
+    position: static;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    place-items: center;
+    border: 1px solid #b8dcfb;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .9);
+    color: #0878c5;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background .18s ease, transform .18s ease;
+}
+.theme-rexxsol-nova .nova-premium-back-to-top:hover { background: #f0f8ff; transform: translateY(-2px); }
+
+@media (max-width: 960px) {
+    .theme-rexxsol-nova .nova-premium-cta-inner { grid-template-columns: minmax(0, 1.2fr) minmax(230px, .8fr); gap: 28px; }
+    .theme-rexxsol-nova .nova-premium-footer-inner { width: min(calc(100% - 56px), 760px); }
+    .theme-rexxsol-nova .nova-premium-footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 38px 48px; min-height: 0; padding-bottom: 100px; }
+}
+@media (max-width: 700px) {
+    .theme-rexxsol-nova .nova-premium-cta-inner {
+        width: min(calc(100% - 40px), 540px);
+        min-height: 0;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+        padding-block: 58px 52px;
+        text-align: center;
+    }
+    .theme-rexxsol-nova .nova-premium-cta-eyebrow { margin-bottom: 16px; font-size: 11px; }
+    .theme-rexxsol-nova .nova-premium-cta h2 { font-size: clamp(36px, 9vw, 56px); line-height: 1.02; }
+    .theme-rexxsol-nova .nova-premium-cta-description { margin-inline: auto; font-size: 16px; }
+    .theme-rexxsol-nova .nova-premium-cta-actions { gap: 18px; }
+    .theme-rexxsol-nova .nova-premium-cta-button { min-height: 56px; font-size: 16px; }
+    .theme-rexxsol-nova .nova-premium-cta-rings { right: -300px; width: 400px; }
+    .theme-rexxsol-nova .nova-premium-cta-rings-left { top: -410px; left: -320px; width: 500px; }
+    .theme-rexxsol-nova .nova-premium-footer-inner { width: min(calc(100% - 40px), 540px); padding-top: 38px; }
+    .theme-rexxsol-nova .nova-premium-footer-grid { grid-template-columns: minmax(0, 1fr); gap: 30px; padding-bottom: 92px; }
+    .theme-rexxsol-nova .nova-premium-footer-brand img { width: min(100%, 260px); height: auto; }
+    .theme-rexxsol-nova .nova-premium-footer-bottom { min-height: 0; align-items: flex-start; flex-direction: column; gap: 12px; padding: 18px 0; }
+    .theme-rexxsol-nova .nova-premium-footer-legal { width: 100%; justify-content: space-between; gap: 10px; }
+    .theme-rexxsol-nova .nova-premium-footer-bottom nav a { padding: 6px 12px 6px 0; margin-right: 12px; }
+    .theme-rexxsol-nova .nova-premium-back-to-top { position: absolute; right: 0; bottom: 16px; }
+}
+@media (max-width: 380px) {
+    .theme-rexxsol-nova .nova-premium-footer-legal { align-items: flex-start; }
+    .theme-rexxsol-nova .nova-premium-footer-bottom nav { padding-right: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .theme-rexxsol-nova .nova-premium-cta-button,
+    .theme-rexxsol-nova .nova-premium-cta-email,
+    .theme-rexxsol-nova .nova-premium-footer a,
+    .theme-rexxsol-nova .nova-premium-back-to-top { transition: none; }
+    .theme-rexxsol-nova .nova-premium-footer-socials a,
+    .theme-rexxsol-nova .nova-premium-footer-socials a::before { transition: none; }
+    .theme-rexxsol-nova .nova-premium-footer-socials a:hover,
+    .theme-rexxsol-nova .nova-premium-footer-socials a:active { transform: none; }
+    .theme-rexxsol-nova .nova-premium-footer-nav a:hover,
+    .theme-rexxsol-nova .nova-premium-footer-contact > a:hover,
+    .theme-rexxsol-nova .nova-premium-footer-bottom nav a:hover { transform: none; }
+}
